@@ -21,7 +21,8 @@
         ],
         "styles": ["apps/devchoices/src/styles.scss"],
         "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        "webpackConfig": "@nrwl/react/plugins/webpack",
+        "postcssConfig": "apps/devchoices/postcss.config.js"
       },
       "configurations": {
         "development": {
