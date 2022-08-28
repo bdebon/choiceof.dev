@@ -17,4 +17,3 @@ module.exports = {
   plugins: [],
 };
 
-console.log('and here big guy? 1')

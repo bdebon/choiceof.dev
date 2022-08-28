@@ -4,10 +4,12 @@ const rootMain = require('../../../../.storybook/main');
 
 module.exports = {
   stories: [
+    ...rootMain.stories,
     '../src/lib/**/*.stories.mdx',
     '../src/lib/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
+    ...rootMain.addons,
     '@nrwl/react/plugins/storybook',
     "@storybook/addon-links",
     "@storybook/addon-interactions",
@@ -25,21 +27,21 @@ module.exports = {
     // but it does not seems to work with my project configuration. As soon as I uncomment the below lines
     // the compilation crash and I can't find why.
 
-    config.module.rules.push({
-      test: /\.css$/,
-      use: [
-        {
-          loader: "postcss-loader",
-          options: {
-            postcssOptions: {
-              plugins: [require("tailwindcss"), require("autoprefixer")],
-            },
-          },
-        },
-      ],
-      include: path.resolve(__dirname, "../"),
-
-    });
+    // config.module.rules.push({
+    //   test: /\.css$/,
+    //   use: [
+    //     {
+    //       loader: "postcss-loader",
+    //       options: {
+    //         postcssOptions: {
+    //           plugins: [require("tailwindcss"), require("autoprefixer")],
+    //         },
+    //       },
+    //     },
+    //   ],
+    //   include: path.resolve(__dirname, "../"),
+    //
+    // });
 
     return config;
   },
