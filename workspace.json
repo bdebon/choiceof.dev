@@ -4,6 +4,8 @@
   "projects": {
     "devchoices": "apps/devchoices",
     "devchoices-e2e": "apps/devchoices-e2e",
+    "shared-assets": "libs/shared/assets",
+    "shared-interfaces": "libs/shared/interfaces",
     "shared-ui": "libs/shared/ui",
     "shared-ui-e2e": "apps/shared-ui-e2e",
     "storybook-e2e-ui-e2e": "apps/storybook-e2e/ui-e2e"

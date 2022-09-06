@@ -15,6 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@devchoices/shared/assets": ["libs/shared/assets/src/index.ts"],
+      "@devchoices/shared/interfaces": ["libs/shared/interfaces/src/index.ts"],
       "@devchoices/shared/ui": ["libs/shared/ui/src/index.ts"]
     }
   },
