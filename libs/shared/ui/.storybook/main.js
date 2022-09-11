@@ -14,7 +14,7 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-interactions",
   ],
-  staticDirs: ['../assets'],
+  staticDirs: [{ from: '../../assets/src/lib', to: '/assets' }],
   framework: "@storybook/react",
   core: { ...rootMain.core, builder: 'webpack5' },
   webpackFinal: async (config, { configType }) => {
