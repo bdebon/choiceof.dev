@@ -1,1 +1,1 @@
-export * from './lib/data/questions.test'
+export * from './lib/data/questions'

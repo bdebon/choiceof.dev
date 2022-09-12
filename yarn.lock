@@ -4267,6 +4267,13 @@ ajv@^8.0.0, ajv@^8.8.0:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
+animated-number-react@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/animated-number-react/-/animated-number-react-0.1.2.tgz#54bd219c2443b5025d734a1960c30ba7370758ae"
+  integrity sha512-NsocKXtCKk0cBFITS8lGxRo02QGr4LQLh61S1KUkeEpn30H3fj0Tqz/XSyJeZ6JLJMWOP/8MV/us2Xj9I8DnVw==
+  dependencies:
+    prop-types "^15.6.1"
+
 ansi-align@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/ansi-align/-/ansi-align-3.0.1.tgz#0cdf12e111ace773a86e9a1fad1225c43cb19a59"
@@ -5912,6 +5919,11 @@ cosmiconfig@^7.0.0, cosmiconfig@^7.0.1:
     parse-json "^5.0.0"
     path-type "^4.0.0"
     yaml "^1.10.0"
+
+countup.js@^2.2.0:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/countup.js/-/countup.js-2.3.2.tgz#9a91d95780be1c908d1e6feb548625f353f57988"
+  integrity sha512-dQ7F/CmKGjaO6cDfhtEXwsKVlXIpJ89dFs8PvkaZH9jBVJ2Z8GU4iwG/qP7MgY8qwr+1skbwR6qecWWQLUzB8Q==
 
 cp-file@^7.0.0:
   version "7.0.0"
@@ -12001,7 +12013,7 @@ prompts@^2.0.1, prompts@^2.4.0:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@^15.0.0, prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@^15.0.0, prop-types@^15.6.1, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -12183,6 +12195,13 @@ raw-loader@^4.0.2:
   dependencies:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
+
+react-countup@^6.3.1:
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/react-countup/-/react-countup-6.3.1.tgz#ae4e8d33a7ed86c2cfc27e20b1fe76704f61d9fb"
+  integrity sha512-+Bf1caAZHtmVQ5Jmhe2MZuN1cw1CEP5OdeMph9CBwM5K8DEDGmg00AzcN6fO9XolUhqUfiR0pOEiSyngSrHwig==
+  dependencies:
+    countup.js "^2.2.0"
 
 react-docgen-typescript@^2.1.1:
   version "2.2.2"

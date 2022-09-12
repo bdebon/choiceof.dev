@@ -1,13 +1,15 @@
 // tailwind-workspace-preset.js
 module.exports = {
   theme: {
-    extend: {}
+    extend: {
+      transitionProperty: {
+        size: 'width, height',
+      },
+    },
   },
   variants: {
     extend: {},
   },
-  safelist: [
-
-  ],
+  safelist: [],
   plugins: [],
 }
