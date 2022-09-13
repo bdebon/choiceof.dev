@@ -1,4 +1,4 @@
-import { getByTestId, getByText, queryByText, render } from '@testing-library/react'
+import { getByTestId, getByText, queryByText, render, waitFor } from '@testing-library/react'
 import { questions } from '@devchoices/shared/assets'
 
 import CardChoice, { CardChoiceProps } from './card-choice'
@@ -37,11 +37,16 @@ describe('CardChoice', () => {
     expect(card.classList).toContain('bg-center')
   })
 
-  it('should display the count result and the percentage', () => {
+  it('should display the count result and the percentage', async () => {
     props.showResult = true
     const { baseElement } = render(<CardChoice {...props} />)
     getByText(baseElement, '40 votes')
-    getByText(baseElement, '40%')
+    await waitFor(
+      () => {
+        getByText(baseElement, '40')
+      },
+      { timeout: 1200 }
+    )
   })
 
   it('should not display the count result nor the percentage', () => {

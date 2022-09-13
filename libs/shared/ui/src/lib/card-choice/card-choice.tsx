@@ -1,4 +1,4 @@
-import { CSSProperties, useEffect, useState } from 'react'
+import { CSSProperties, useCallback, useEffect, useState } from 'react'
 import CountUp from 'react-countup'
 
 export interface CardChoiceProps {
@@ -16,30 +16,51 @@ export function CardChoice(props: CardChoiceProps) {
 
   const positionClass = position === 'left' ? 'top-0 lg:top-0 lg:bottom-0 lg:left-0' : 'bottom-0 lg:top-0 lg:right-0'
   const [percent, setPercent] = useState<number>(0)
-  let style: CSSProperties = showResult
-    ? window.innerWidth > 1024
-      ? { width: `${percent}%`, height: '100%' }
-      : { height: `${percent}%`, width: '100%' }
-    : window.innerWidth > 1024
-    ? { width: `50%`, height: '100%' }
-    : { height: `50%`, width: '100%' }
-  style = { ...style, backgroundImage: `url(${imgUrl})` }
 
-  const formatValue = (value: number) => value.toFixed(0)
+  const computeStyle = useCallback(() => {
+    let _style: CSSProperties = showResult
+      ? window.innerWidth > 1024
+        ? { width: `${percent}%`, height: '100%' }
+        : { height: `${percent}%`, width: '100%' }
+      : window.innerWidth > 1024
+      ? { width: `50%`, height: '100%' }
+      : { height: `50%`, width: '100%' }
+    _style = { ..._style, backgroundImage: `url(${imgUrl})` }
+
+    return _style
+  }, [imgUrl, percent, showResult])
+
+  const [style, setStyle] = useState<CSSProperties>(computeStyle())
+
+  useEffect(() => {
+    const onResize = () => {
+      setStyle(computeStyle())
+    }
+
+    window.addEventListener('resize', onResize)
+    return () => {
+      window.removeEventListener('resize', onResize)
+    }
+  }, [computeStyle])
 
   useEffect(() => {
     if (showResult) {
       setPercent((voteCount / totalCount) * 100)
-    } else setPercent(0)
+    }
   }, [setPercent, showResult, voteCount, totalCount])
+
+  useEffect(() => {
+    setStyle(computeStyle())
+  }, [percent, setStyle, showResult, computeStyle])
 
   return (
     <div
+      onClick={onClick}
       data-testid="card"
       className={`absolute lg-top-0 lg-bottom-0 flex items-center flex-col justify-center transition-size ease duration-1000 bg-cover bg-center ${positionClass}`}
       style={style}
     >
-      <h1 className="px-4 bg-black text-white uppercase font-bold w-56 text-center">{props.title}</h1>
+      <h1 className="px-4 bg-black text-white uppercase font-bold w-56 text-center">{title}</h1>
 
       <div
         className={`mt-2 px-4 py-2 bg-white border-t-2 border-t-black font-bold text-black w-56 text-center opacity-0 ${
