@@ -1,5 +1,5 @@
 import { getByTestId, getByText, queryByText, render, waitFor } from '@testing-library/react'
-import { questions } from '@devchoices/shared/assets'
+import { questions } from '@benjamincode/shared/assets'
 
 import CardChoice, { CardChoiceProps } from './card-choice'
 

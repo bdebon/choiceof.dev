@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { CardChoice } from './card-choice'
-import { questions } from '@devchoices/shared/assets'
+import { questions } from '@benjamincode/shared/assets'
 
 const question = questions
 

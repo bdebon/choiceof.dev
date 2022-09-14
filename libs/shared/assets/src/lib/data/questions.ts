@@ -1,4 +1,4 @@
-import { Question } from '@devchoices/shared/interfaces'
+import { Question } from '@benjamincode/shared/interfaces'
 
 export const questions: Question[] = [
   {

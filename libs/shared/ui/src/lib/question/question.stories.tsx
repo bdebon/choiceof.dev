@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Question } from './question'
-import { questions } from '@devchoices/shared/assets'
+import { questions } from '@benjamincode/shared/assets'
 
 export default {
   component: Question,
