@@ -14,7 +14,7 @@ export function Question(props: QuestionProps) {
   return (
     <div className="relative w-full h-screen">
       <div
-        className={`absolute z-10 w-10 h-10 flex items-center justify-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-black uppercase font-medium rounded-full left-0 w-full h-full ${
+        className={`opacity-100 absolute z-10 w-10 h-10 flex items-center justify-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-black uppercase font-medium rounded-full ${
           props.showResult ? '!opacity-0 transition-opacity duration-300' : ''
         }`}
       >
