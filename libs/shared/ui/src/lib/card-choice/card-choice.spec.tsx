@@ -1,16 +1,15 @@
 import { getByTestId, getByText, queryByText, render, waitFor } from '@testing-library/react'
-import { questions } from '@benjamincode/shared/assets'
 
 import CardChoice, { CardChoiceProps } from './card-choice'
 
 const props: CardChoiceProps = {
-  title: questions[0].choiceLeft.title,
+  title: 'left',
   showResult: false,
   totalCount: 100,
   voteCount: 40,
   position: 'left',
   onClick: () => {},
-  imgUrl: questions[0].choiceLeft.img_path,
+  imgUrl: 'https://picsum.photos/200/300',
 }
 
 describe('CardChoice', () => {
@@ -26,13 +25,13 @@ describe('CardChoice', () => {
 
   it('should display the title', () => {
     const { baseElement } = render(<CardChoice {...props} />)
-    getByText(baseElement, questions[0].choiceLeft.title)
+    getByText(baseElement, 'left')
   })
 
   it('should display background-image with cover', () => {
     const { baseElement } = render(<CardChoice {...props} />)
     const card = getByTestId(baseElement, 'card')
-    expect(card.style.backgroundImage).toBe(`url(${questions[0].choiceLeft.img_path})`)
+    expect(card.style.backgroundImage).toBe(`url(${props.imgUrl})`)
     expect(card.classList).toContain('bg-cover')
     expect(card.classList).toContain('bg-center')
   })

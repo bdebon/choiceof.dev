@@ -18,19 +18,25 @@ export function CardChoice(props: CardChoiceProps) {
   const [percent, setPercent] = useState<number>(0)
 
   const computeStyle = useCallback(() => {
-    let _style: CSSProperties = showResult
-      ? window.innerWidth > 1024
-        ? { width: `${percent}%`, height: '100%' }
-        : { height: `${percent}%`, width: '100%' }
-      : window.innerWidth > 1024
-      ? { width: `50%`, height: '100%' }
-      : { height: `50%`, width: '100%' }
+    let _style: CSSProperties = {}
+
+    if (typeof window !== 'undefined') {
+      // detect window screen width function
+      _style = showResult
+        ? window?.innerWidth > 1024
+          ? { width: `${percent}%`, height: '100%' }
+          : { height: `${percent}%`, width: '100%' }
+        : window?.innerWidth > 1024
+        ? { width: `50%`, height: '100%' }
+        : { height: `50%`, width: '100%' }
+    }
+
     _style = { ..._style, backgroundImage: `url(${imgUrl})` }
 
     return _style
   }, [imgUrl, percent, showResult])
 
-  const [style, setStyle] = useState<CSSProperties>(computeStyle())
+  const [style, setStyle] = useState<CSSProperties>()
 
   useEffect(() => {
     const onResize = () => {
@@ -57,7 +63,7 @@ export function CardChoice(props: CardChoiceProps) {
     <div
       onClick={onClick}
       data-testid="card"
-      className={`absolute lg-top-0 lg-bottom-0 flex items-center flex-col justify-center transition-size ease duration-1000 bg-cover bg-center ${positionClass}`}
+      className={`absolute lg-top-0 lg-bottom-0 flex items-center flex-col justify-center transition-size ease duration-1000 bg-cover bg-center ${positionClass} lg:w-1/2 lg:h-full w-full h-1/2`}
       style={style}
     >
       <h1 className="px-4 bg-black text-white uppercase font-bold w-56 text-center">{title}</h1>

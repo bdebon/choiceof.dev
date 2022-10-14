@@ -1,6 +1,6 @@
-import { Choice } from "./choice.interface";
+import { Choice } from './choice.interface'
 
-export interface Question {
+export interface QuestionInterface {
   slug: string
   choiceLeft: Choice
   choiceRight: Choice

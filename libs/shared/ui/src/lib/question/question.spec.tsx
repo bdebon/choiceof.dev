@@ -1,25 +1,27 @@
 import { render } from '@testing-library/react'
 
 import Question, { QuestionProps } from './question'
-import { questions } from '@benjamincode/shared/assets'
 
 const props: QuestionProps = {
   showResult: false,
   leftChoiceProps: {
-    title: questions[0].choiceLeft.title,
-    imgUrl: questions[0].choiceLeft.img_path,
+    title: 'left',
+    imgUrl: 'https://picsum.photos/200/300',
     totalCount: 100,
     voteCount: 40,
     onClick: jest.fn(),
   },
   rightChoiceProps: {
-    title: questions[0].choiceRight.title,
-    imgUrl: questions[0].choiceRight.img_path,
+    title: 'right',
+    imgUrl: 'https://picsum.photos/200/300',
     totalCount: 100,
     voteCount: 60,
     onClick: jest.fn(),
   },
   onNext: jest.fn(),
+  onRight: jest.fn(),
+  onLeft: jest.fn(),
+  onSkip: jest.fn(),
 }
 
 describe('Question', () => {

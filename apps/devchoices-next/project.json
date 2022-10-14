@@ -1,0 +1,70 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/devchoices-next",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "root": "apps/devchoices-next",
+        "outputPath": "dist/apps/devchoices-next",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "libs/shared/assets/src/lib",
+            "output": "/assets"
+          }
+        ],
+        "styles": ["apps/devchoices-next/src/styles.scss"]
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "apps/devchoices-next"
+        },
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "devchoices-next:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "devchoices-next:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "devchoices-next:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nrwl/next:export",
+      "options": {
+        "buildTarget": "devchoices-next:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/devchoices-next"],
+      "options": {
+        "jestConfig": "apps/devchoices-next/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/devchoices-next/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}
