@@ -34,8 +34,18 @@ export function QuestionPage(props: QuestionPageProps) {
   const { slug } = router.query
   const [showResult, setShowResult] = useState(false)
 
+  useEffect(() => {
+    setShowResult(false)
+  }, [slug])
+
   const onNext = async () => {
-    await router.push('/question/' + questions[questions.indexOf(props.question) + 1].slug)
+    const currentQuestion = questions.find((q) => q.slug === slug)
+    console.log(currentQuestion)
+
+    await router.push({
+      pathname: '/question/' + questions[questions.indexOf(currentQuestion) + 1].slug,
+      query: { slug: questions[questions.indexOf(currentQuestion) + 1].slug },
+    })
   }
 
   const onSkip = async () => {

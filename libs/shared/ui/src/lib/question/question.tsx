@@ -1,5 +1,6 @@
 import { CardChoice, CardChoiceProps } from '../card-choice/card-choice'
 import Or from '../or/or'
+import Button from '../button/button'
 
 export interface QuestionProps {
   leftChoiceProps: CardChoiceProps
@@ -12,11 +13,20 @@ export interface QuestionProps {
 }
 
 export function Question(props: QuestionProps) {
+  const showResultButton = props.showResult
+    ? `transition-opacity duration-300 delay-700 !opacity-100`
+    : `opacity-0 pointer-events-none`
+
   return (
     <div className="relative w-full h-screen">
-      <Or showResult={props.showResult} />
       <CardChoice {...props.leftChoiceProps} showResult={props.showResult} onClick={props.onLeft} position="left" />
       <CardChoice {...props.rightChoiceProps} showResult={props.showResult} onClick={props.onRight} position="right" />
+      <Button
+        onClick={props.onNext}
+        className={`absolute bottom-10 lg:bottom-8 left-1/2 transform -translate-x-1/2 ${showResultButton || ''}`}
+      >
+        Next question
+      </Button>
     </div>
   )
 }

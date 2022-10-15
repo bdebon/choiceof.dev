@@ -1,5 +1,6 @@
 import { CSSProperties, useCallback, useEffect, useState } from 'react'
 import CountUp from 'react-countup'
+import Or from '../or/or'
 
 export interface CardChoiceProps {
   title: string
@@ -7,7 +8,7 @@ export interface CardChoiceProps {
   voteCount: number
   totalCount: number
   onClick: () => void
-  showResult?: boolean
+  showResult: boolean
   position?: 'left' | 'right'
 }
 
@@ -88,6 +89,7 @@ export function CardChoice(props: CardChoiceProps) {
       >
         {showResult ? <>{props.voteCount} votes</> : 'a'}
       </div>
+      {props.position === 'left' && <Or showResult={props.showResult} />}
     </div>
   )
 }
