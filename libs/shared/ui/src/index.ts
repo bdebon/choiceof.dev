@@ -1,3 +1,4 @@
+export * from './lib/page-transition-wrapper/page-transition-wrapper'
 export * from './lib/button/button'
 export * from './lib/or/or'
 export * from './lib/shared-ui'

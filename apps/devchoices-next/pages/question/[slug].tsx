@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { questions } from '../../public/assets/data/questions'
 import { useEffect, useState } from 'react'
 import { QuestionInterface } from '@benjamincode/shared/interfaces'
-import { Button, Question } from '@benjamincode/shared/ui'
+import { Button, PageTransitionWrapper, Question } from '@benjamincode/shared/ui'
 
 export async function getStaticProps(context): Promise<{ props: QuestionPageProps }> {
   const slug = context.params.slug
@@ -34,18 +34,37 @@ export function QuestionPage(props: QuestionPageProps) {
   const { slug } = router.query
   const [showResult, setShowResult] = useState(false)
 
+  const computeNextRoute = () => {
+    if (slug) {
+      const currentQuestion = questions.find((q) => q.slug === slug)
+
+      let nextQuestion
+      if (questions[questions.indexOf(currentQuestion) + 1]) {
+        nextQuestion = questions[questions.indexOf(currentQuestion) + 1]
+      } else {
+        nextQuestion = questions[questions.indexOf(currentQuestion) - 1]
+      }
+
+      return {
+        pathname: '/question/' + nextQuestion.slug,
+        query: { slug: nextQuestion.slug },
+      }
+    }
+    return null
+  }
+
+  useEffect(() => {
+    console.log('show result false')
+    //
+    //router.prefetch(computeNextRoute().pathname).then()
+  }, [slug, router, computeNextRoute])
+
   useEffect(() => {
     setShowResult(false)
-  }, [slug])
+  }, [slug, setShowResult])
 
   const onNext = async () => {
-    const currentQuestion = questions.find((q) => q.slug === slug)
-    console.log(currentQuestion)
-
-    await router.push({
-      pathname: '/question/' + questions[questions.indexOf(currentQuestion) + 1].slug,
-      query: { slug: questions[questions.indexOf(currentQuestion) + 1].slug },
-    })
+    await router.push(computeNextRoute())
   }
 
   const onSkip = async () => {
@@ -65,7 +84,10 @@ export function QuestionPage(props: QuestionPageProps) {
   }
 
   return (
-    <div className="">
+    <PageTransitionWrapper
+      title={`${props.question.choiceLeft.title} or ${props.question.choiceRight.title}`}
+      description={`${props.question.choiceLeft.title} or ${props.question.choiceRight.title}`}
+    >
       <Question
         leftChoiceProps={{
           showResult: showResult,
@@ -91,7 +113,7 @@ export function QuestionPage(props: QuestionPageProps) {
         onLeft={onLeft}
         onRight={onRight}
       />
-    </div>
+    </PageTransitionWrapper>
   )
 }
 

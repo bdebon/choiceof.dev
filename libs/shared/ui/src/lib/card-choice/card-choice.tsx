@@ -1,6 +1,7 @@
 import { CSSProperties, useCallback, useEffect, useState } from 'react'
 import CountUp from 'react-countup'
 import Or from '../or/or'
+import Image from 'next/future/image'
 
 export interface CardChoiceProps {
   title: string
@@ -32,7 +33,7 @@ export function CardChoice(props: CardChoiceProps) {
         : { height: `50%`, width: '100%' }
     }
 
-    _style = { ..._style, backgroundImage: `url(${imgUrl})` }
+    //_style = { ..._style, backgroundImage: `url(${imgUrl})` }
 
     return _style
   }, [imgUrl, percent, showResult])
@@ -67,10 +68,11 @@ export function CardChoice(props: CardChoiceProps) {
       className={`absolute lg-top-0 lg-bottom-0 flex items-center flex-col justify-center transition-size ease duration-1000 bg-cover bg-center ${positionClass} lg:w-1/2 lg:h-full w-full h-1/2`}
       style={style}
     >
-      <h1 className="px-4 bg-black text-white uppercase font-bold w-56 text-center">{title}</h1>
+      <Image src={imgUrl} alt={`illustration for ${position} choice`} fill className="relative z-0  object-cover" />
+      <h1 className="px-4 bg-black text-white uppercase font-bold w-56 text-center relative">{title}</h1>
 
       <div
-        className={`mt-2 px-4 py-2 bg-white border-t-2 border-t-black font-bold text-black w-56 text-center opacity-0 ${
+        className={`relative mt-2 px-4 py-2 bg-white border-t-2 border-t-black font-bold text-black w-56 text-center opacity-0 ${
           showResult ? '!opacity-100 transition-opacity duration-500' : ''
         }`}
       >
