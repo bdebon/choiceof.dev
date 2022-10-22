@@ -14,6 +14,7 @@ const nextConfig = {
   },
   images: {
     domains: ['picsum.photos'],
+    unoptimized: true,
   },
 }
 

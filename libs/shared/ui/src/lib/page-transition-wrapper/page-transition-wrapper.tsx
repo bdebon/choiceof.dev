@@ -24,7 +24,7 @@ export function PageTransitionWrapper({ title, description, children, className 
         animate="enter"
         exit="exit"
         variants={variants}
-        transition={{ type: 'linear', duration: 0.7 }}
+        transition={{ type: 'easeOut', duration: 0.7 }}
         className={`w-full h-full ${className}`}
       >
         {children}

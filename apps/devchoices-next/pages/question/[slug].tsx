@@ -1,8 +1,10 @@
 import { useRouter } from 'next/router'
 import { questions } from '../../public/assets/data/questions'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { QuestionInterface } from '@benjamincode/shared/interfaces'
 import { Button, PageTransitionWrapper, Question } from '@benjamincode/shared/ui'
+import { QuestionContext } from '../_app'
+import Image from 'next/future/image'
 
 export async function getStaticProps(context): Promise<{ props: QuestionPageProps }> {
   const slug = context.params.slug
@@ -33,42 +35,41 @@ export function QuestionPage(props: QuestionPageProps) {
   const router = useRouter()
   const { slug } = router.query
   const [showResult, setShowResult] = useState(false)
+  const questionContext = useContext(QuestionContext)
+  const [nextQuestion, setNextQuestion] = useState<QuestionInterface>()
 
-  const computeNextRoute = () => {
+  const computeNextQuestion = () => {
     if (slug) {
-      const currentQuestion = questions.find((q) => q.slug === slug)
+      const currentQuestion = questionContext.questions.find((q) => q.slug === slug)
 
-      let nextQuestion
-      if (questions[questions.indexOf(currentQuestion) + 1]) {
-        nextQuestion = questions[questions.indexOf(currentQuestion) + 1]
+      let nextQuestion: QuestionInterface
+      if (questionContext.questions[questionContext.questions.indexOf(currentQuestion) + 1]) {
+        nextQuestion = questionContext.questions[questionContext.questions.indexOf(currentQuestion) + 1]
       } else {
-        nextQuestion = questions[questions.indexOf(currentQuestion) - 1]
+        nextQuestion = questionContext.questions[0]
       }
 
-      return {
-        pathname: '/question/' + nextQuestion.slug,
-        query: { slug: nextQuestion.slug },
-      }
+      return nextQuestion
     }
     return null
   }
 
   useEffect(() => {
-    console.log('show result false')
-    //
-    //router.prefetch(computeNextRoute().pathname).then()
-  }, [slug, router, computeNextRoute])
+    router.prefetch(`/question/${computeNextQuestion().slug}`).then()
+  }, [slug, router, computeNextQuestion])
 
   useEffect(() => {
-    setShowResult(false)
-  }, [slug, setShowResult])
+    setNextQuestion(computeNextQuestion())
+  }, [slug, computeNextQuestion])
 
   const onNext = async () => {
-    await router.push(computeNextRoute())
+    await router.push(`/question/${computeNextQuestion().slug}`)
   }
 
   const onSkip = async () => {
-    await router.push('/question/' + questions[questions.indexOf(props.question) + 1].slug)
+    await router.push(
+      '/question/' + questionContext.questions[questionContext.questions.indexOf(props.question) + 1].slug
+    )
   }
 
   const onLeft = () => {
@@ -83,11 +84,39 @@ export function QuestionPage(props: QuestionPageProps) {
     setShowResult(true)
   }
 
+  const NextImagesPreloader = () => {
+    return (
+      <div className="fixed top-[-4000px] left-[-4000px] w-[100vw] h-[50vh] lg:h-[100vh]">
+        <Image
+          src={nextQuestion.choiceLeft.img_path}
+          alt="next image left"
+          sizes="(max-width: 768px) 100vw,
+              50vw"
+          fill
+          className="w-full h-full"
+          loading="eager"
+        />
+        <Image
+          src={nextQuestion.choiceRight.img_path}
+          alt="next image right"
+          sizes="(max-width: 768px) 100vw,
+              50vw"
+          fill
+          className="w-full h-full"
+          loading="eager"
+        />
+      </div>
+    )
+  }
+
   return (
     <PageTransitionWrapper
+      className="w-full h-full absolute inset-0"
+      key={`${props.question.choiceLeft.title}-${props.question.choiceRight.title}`}
       title={`${props.question.choiceLeft.title} or ${props.question.choiceRight.title}`}
       description={`${props.question.choiceLeft.title} or ${props.question.choiceRight.title}`}
     >
+      {nextQuestion && <NextImagesPreloader />}
       <Question
         leftChoiceProps={{
           showResult: showResult,

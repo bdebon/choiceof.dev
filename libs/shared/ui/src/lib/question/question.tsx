@@ -10,6 +10,7 @@ export interface QuestionProps {
   onSkip: () => void
   onLeft: () => void
   onRight: () => void
+  className?: string
 }
 
 export function Question(props: QuestionProps) {
@@ -18,7 +19,7 @@ export function Question(props: QuestionProps) {
     : `opacity-0 pointer-events-none`
 
   return (
-    <div className="relative w-full h-screen">
+    <div className={`relative w-full h-screen ${props.className || ''}`}>
       <CardChoice {...props.leftChoiceProps} showResult={props.showResult} onClick={props.onLeft} position="left" />
       <CardChoice {...props.rightChoiceProps} showResult={props.showResult} onClick={props.onRight} position="right" />
       <Button

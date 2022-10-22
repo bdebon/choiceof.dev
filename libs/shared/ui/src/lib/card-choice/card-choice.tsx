@@ -65,10 +65,20 @@ export function CardChoice(props: CardChoiceProps) {
     <div
       onClick={onClick}
       data-testid="card"
-      className={`absolute lg-top-0 lg-bottom-0 flex items-center flex-col justify-center transition-size ease duration-1000 bg-cover bg-center ${positionClass} lg:w-1/2 lg:h-full w-full h-1/2`}
+      className={`absolute lg-top-0 lg-bottom-0 flex items-center flex-col justify-center transition-size ease duration-1000  ${positionClass} lg:w-1/2 lg:h-full w-full h-1/2`}
       style={style}
     >
-      <Image src={imgUrl} alt={`illustration for ${position} choice`} fill className="relative z-0  object-cover" />
+      <Image
+        src={imgUrl}
+        priority
+        alt={`illustration for ${position} choice`}
+        fill
+        placeholder="empty"
+        className="relative z-0 pointer-events-none object-cover"
+        sizes="(max-width: 768px) 100vw,
+              50vw"
+      />
+
       <h1 className="px-4 bg-black text-white uppercase font-bold w-56 text-center relative">{title}</h1>
 
       <div
