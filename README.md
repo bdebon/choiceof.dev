@@ -52,52 +52,26 @@ and on `localhost:4400` you should see the storybook running.
 As it is a project by the developers for the developers, we want to make the act to contribute a cool and fun way to learn how to contribute to open source project.
 To add a question, you must clone the project locally, built it, updating one file and adding your two images.
 The file to edit is: `libs/shared/assets/src/data/questions.ts`
+<p style="text-align: center;"><img src="readme/question-format.jpg" width="450"></p>
 
 You will find there a list of questions, with a slug, a title, a description, the right and left choices and their respective images.
 You can add a question at the end of the list, or in the middle, it doesn't matter.
-Then you have to add two images in the folder ``libs/shared/assets/src/data/questions.ts`` with the name you have precise in the other file.
+Then you have to add two images in the folder ``libs/shared/assets/src/img`` with the name you have precise in the other file.
 
 Then you can run the project locally and check if everything is working fine. You can test your question directly by going to the following url:
 `localhost:4200/question/your-slug`
 
-## Code scaffolding
+If you like the result, you can submit your PR, we will review it and if everything is fine, and the joke is fun, we will merge it and your question will be available on the website 🎉
 
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
+## How to contribute
 
-## Build
+In the issues of the repository, you will see many open tickets. You can take one of them if you fancy and propose your solution on a PR.
+You can also create issues by yourself if you experienced a bug or if you have an idea for a new feature.
 
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Credits
 
-## Running unit tests
+This open source project and this website have been created by Benjamin Code to celebrate his 100k subscribers on YouTube.
+The project is inspired by [choixdemerde.fr](https://choixdemerde.fr) which is a project also created by [Benjamin Code](https://twitter.com/benjamincode) and that costed him a lot of money back in the day... If you want to learn more about this story and how a big buzz on your funny side project can ruins you, you will find [this article on Medium](https://medium.com/@benjamindebonmountain/choixdemerde-fr-le-buzz-couteux-6a46d3d6a480)
 
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `nx e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+"The story of choix de merde is terrible. It costed me a lot of time and money and never brought me anything. But the stories about this catastrophic development made me starts a YouTube channel and it has been so far the best experience of my life. For the 100k subscribers I wanted to bring back some light on this story and complete the loop."
+– Benjamin Code
