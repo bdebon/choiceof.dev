@@ -1,55 +1,64 @@
 
 
-# Devchoices
+# Choiceof.dev
 
-This project was generated using [Nx](https://nx.dev).
+Developers have to cope with pretty hard choices every day. This is a collection of the most complex and funny choices. What will be yours?
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+<p style="text-align: center;"><img src="readme/github-home.jpg" width="450"></p>
 
-🔎 **Smart, Fast and Extensible Build System**
+🗺 **By the developers for the developers**
 
-## Adding capabilities to your workspace
+## Technologies
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
-
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
-
-Below are our core plugins:
-
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+The project is modernised copy of his little brother [choixdemerde.fr](https://choixdemerde.fr)
+It is built with:
+- [Nx](https://nx.dev/)
+- [Next.js](https://nextjs.org/)
+- [Tailwind](https://tailwindcss.com/)
+- [Storybook](https://storybook.js.org/)
+- [Jest](https://jestjs.io/fr/)
+- [Testing Library](https://testing-library.com/)
 
 There are also many [community plugins](https://nx.dev/community) you could add.
 
-## Generate an application
+## Run the project locally
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
+Clone the repository, install the dependencies and run the project:
 
-> You can use any of the plugins above to generate applications as well.
+```bash
+  yarn install
+  npx nx serve
+```
+You should see this:
+<p style="text-align: center;"><img src="readme/server-running.jpg" width="450"></p>
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+And going on `localhost:4200` you should see the project running. 
 
-## Generate a library
+## Run the storybook
 
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
+If you want to work on components, on design system, or on a dedicated environment without bore effects of the app, you can run the storybook:
 
-> You can also use any of the plugins above to generate libraries as well.
+```bash
+ nx run shared-ui:storybook
+```
+You should see this in your terminal
+<p style="text-align: center;"><img src="readme/storybook-running.jpg" width="450"></p>
 
-Libraries are shareable across libraries and applications. They can be imported from `@benjamincode/mylib`.
+and on `localhost:4400` you should see the storybook running.
+<p style="text-align: center;"><img src="readme/storybook-screenshot.jpg" width="450"></p>
 
-## Development server
+## How to add a question to choiceof.dev
 
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+As it is a project by the developers for the developers, we want to make the act to contribute a cool and fun way to learn how to contribute to open source project.
+To add a question, you must clone the project locally, built it, updating one file and adding your two images.
+The file to edit is: `libs/shared/assets/src/data/questions.ts`
+
+You will find there a list of questions, with a slug, a title, a description, the right and left choices and their respective images.
+You can add a question at the end of the list, or in the middle, it doesn't matter.
+Then you have to add two images in the folder ``libs/shared/assets/src/data/questions.ts`` with the name you have precise in the other file.
+
+Then you can run the project locally and check if everything is working fine. You can test your question directly by going to the following url:
+`localhost:4200/question/your-slug`
 
 ## Code scaffolding
 
