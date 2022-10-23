@@ -1,0 +1,36 @@
+name: Deploy staging
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  test-and-build:
+    uses: ./.github/workflows/test-and-build.yml
+    with:
+      flow: deploy-main
+      branch: main
+      configuration: prod
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [test-and-build]
+    steps:
+      - uses: actions/download-artifact@master
+        with:
+          name: dist
+          path: dist
+      - uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          source: "dist/apps/devchoices-next/exported/.,!node_modules"
+          strip_components: 4
+          # The path is based on the directory where the user logged into the server starts
+          target: "~/domains/choiceof.dev/public_html"
+
+
+
+

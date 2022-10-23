@@ -18,7 +18,16 @@ const variants = {
 export function PageTransitionWrapper({ title, description, children, className = '' }: PageTransitionWrapperProps) {
   return (
     <>
-      <NextSeo title={title} description={description} openGraph={{ title, description }} />
+      <NextSeo
+        title={title}
+        description={description}
+        twitter={{
+          handle: '@benjamincode',
+          site: 'https://choiceof.dev',
+          cardType: 'summary_large_image',
+        }}
+        openGraph={{ title, description }}
+      />
       <motion.main
         initial="hidden"
         animate="enter"
