@@ -1,0 +1,29 @@
+name: Deploy staging
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  steps:
+    - test-and-build:
+        uses: ./.github/workflows/test-and-build.yml
+        with:
+          flow: deploy-main
+          branch: main
+          configuration: prod
+    - build:
+
+    - scp-all:
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_KEY }}
+          source: "dist/apps/devchoices-next/exported/*,!node_modules"
+          # The path is based on the directory where the user logged into the server starts
+          target: "~/domains/choiceof.dev/public_html"
+
+
+

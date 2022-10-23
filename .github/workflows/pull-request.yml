@@ -1,0 +1,14 @@
+name: Pull request
+
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  test-build-and-deploy:
+    uses: ./.github/workflows/test-and-build.yml
+    with:
+      flow: pull-request
+      branch: main
+      configuration: prod
+

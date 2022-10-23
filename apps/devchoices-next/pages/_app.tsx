@@ -44,6 +44,13 @@ function CustomApp({ Component, pageProps, router }: AppProps) {
       </Head>
       <DefaultSeo
         titleTemplate="%s - Choice of developers"
+        title="Choice of developers"
+        description="Choice of developers: Tab or Space?"
+        twitter={{
+          handle: '@benjamincode',
+          site: 'https://choiceof.dev',
+          cardType: 'summary_large_image',
+        }}
         openGraph={{
           type: 'website',
           locale: 'en_EN',
