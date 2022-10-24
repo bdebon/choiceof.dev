@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "storybook": "nx run shared-ui:storybook"
   },
   "private": true,
   "dependencies": {

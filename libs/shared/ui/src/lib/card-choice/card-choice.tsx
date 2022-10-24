@@ -2,6 +2,8 @@ import { CSSProperties, useCallback, useEffect, useState } from 'react'
 import CountUp from 'react-countup'
 import Or from '../or/or'
 import Image from 'next/future/image'
+import Votes from './components/votes/votes'
+import Title from './components/title/title'
 
 export interface CardChoiceProps {
   title: string
@@ -80,7 +82,7 @@ export function CardChoice(props: CardChoiceProps) {
               50vw"
       />
 
-      <h1 className="px-4 text-3xl bg-black text-white uppercase font-bold w-56 text-center relative">{title}</h1>
+      <Title>{title}</Title>
 
       <div
         className={`relative mt-2 px-4 py-2 bg-white border-t-2 border-t-black font-bold text-black w-56 text-center opacity-0 ${
@@ -95,13 +97,7 @@ export function CardChoice(props: CardChoiceProps) {
           'a'
         )}
       </div>
-      <div
-        className={`px-4 bg-white border-t-2 border-t-black font-bold text-black text-sm -rotate-3  opacity-0 ${
-          showResult ? '!opacity-100 delay-1000 transition-opacity duration-300' : ''
-        }`}
-      >
-        {showResult ? <>{props.voteCount} votes</> : 'a'}
-      </div>
+      <Votes count={props.voteCount} isVisible={showResult} />
       {props.position === 'left' && <Or showResult={props.showResult} />}
     </div>
   )
