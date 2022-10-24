@@ -56,4 +56,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/double-quotes.webp',
     },
   },
+  {
+    slug: 'vue-or-react',
+    choiceLeft: {
+      title: "Vue",
+      img_path: '/assets/img/vue.jpg',
+    },
+    choiceRight: {
+      title: 'React',
+      img_path: '/assets/img/react.jpg',
+    },
+  },
 ]
