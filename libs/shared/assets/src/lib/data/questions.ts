@@ -56,4 +56,70 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/double-quotes.webp',
     },
   },
+  {
+    slug: 'reactjs-or-vuejs',
+    choiceLeft: {
+      title: 'React JS',
+      img_path: '/assets/img/reactJs.png',
+    },
+    choiceRight: {
+      title: 'Vue JS',
+      img_path: '/assets/img/vueJs.jpg',
+    },
+  },
+  {
+    slug: 'reactjs-or-angular',
+    choiceLeft: {
+      title: 'React JS',
+      img_path: '/assets/img/reactJs.png',
+    },
+    choiceRight: {
+      title: 'Angular',
+      img_path: '/assets/img/angular.jpg',
+    },
+  },
+  {
+    slug: 'vuejs-or-angular',
+    choiceLeft: {
+      title: 'Vue JS',
+      img_path: '/assets/img/vueJs.jpg',
+    },
+    choiceRight: {
+      title: 'Angular',
+      img_path: '/assets/img/angular.jpg',
+    },
+  },
+  {
+    slug: 'vanillaJS-or-angular',
+    choiceLeft: {
+      title: 'Vanilla JS',
+      img_path: '/assets/img/vanillaJs.jpg',
+    },
+    choiceRight: {
+      title: 'Angular',
+      img_path: '/assets/img/angular.jpg',
+    },
+  },
+  {
+    slug: 'vanillajs-or-reactjs',
+    choiceLeft: {
+      title: 'Vanilla JS',
+      img_path: '/assets/img/vanillaJs.jpg',
+    },
+    choiceRight: {
+      title: 'React JS',
+      img_path: '/assets/img/reactJs.png',
+    },
+  },
+  {
+    slug: 'vanillaJS-or-vuejs',
+    choiceLeft: {
+      title: 'Vanilla JS',
+      img_path: '/assets/img/vanillaJs.jpg',
+    },
+    choiceRight: {
+      title: 'Vue JS',
+      img_path: '/assets/img/vueJs.jpg',
+    },
+  },
 ]
