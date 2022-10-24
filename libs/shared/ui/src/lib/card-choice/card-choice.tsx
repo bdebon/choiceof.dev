@@ -67,7 +67,7 @@ export function CardChoice(props: CardChoiceProps) {
     <div
       onClick={onClick}
       data-testid="card"
-      className={`absolute lg-top-0 lg-bottom-0 flex items-center flex-col justify-center transition-size ease duration-1000  ${positionClass} lg:w-1/2 lg:h-full w-full h-1/2`}
+      className={`group absolute lg-top-0 lg-bottom-0 flex items-center flex-col justify-center transition-size ease duration-1000  ${positionClass} lg:w-1/2 lg:h-full w-full h-1/2`}
       style={style}
     >
       <Image
