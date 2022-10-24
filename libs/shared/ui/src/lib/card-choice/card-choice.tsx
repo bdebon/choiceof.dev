@@ -69,12 +69,13 @@ export function CardChoice(props: CardChoiceProps) {
       style={style}
     >
       <Image
+        data-testid="card-image"
         src={imgUrl}
         priority
         alt={`illustration for ${position} choice`}
         fill
         placeholder="empty"
-        className="relative z-0 pointer-events-none object-cover"
+        className="relative z-0 pointer-events-none object-cover object-center"
         sizes="(max-width: 768px) 100vw,
               50vw"
       />

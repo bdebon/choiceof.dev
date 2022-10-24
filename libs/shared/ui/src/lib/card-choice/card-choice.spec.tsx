@@ -31,9 +31,9 @@ describe('CardChoice', () => {
   it('should display background-image with cover', () => {
     const { baseElement } = render(<CardChoice {...props} />)
     const card = getByTestId(baseElement, 'card')
-    expect(card.style.backgroundImage).toBe(`url(${props.imgUrl})`)
-    expect(card.classList).toContain('bg-cover')
-    expect(card.classList).toContain('bg-center')
+    const cardImage = getByTestId(baseElement, 'card-image')
+    expect(cardImage.classList).toContain('object-cover')
+    expect(cardImage.classList).toContain('object-center')
   })
 
   it('should display the count result and the percentage', async () => {

@@ -16,6 +16,7 @@ const nextConfig = {
     domains: ['picsum.photos'],
     unoptimized: true,
   },
+  trailingSlash: true,
 }
 
 module.exports = withNx(nextConfig)
