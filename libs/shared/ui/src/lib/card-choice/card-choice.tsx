@@ -66,7 +66,7 @@ export function CardChoice(props: CardChoiceProps) {
       <div
         onClick={onClick}
         data-testid="card"
-        className={`absolute lg-top-0 lg-bottom-0 flex items-center flex-col justify-center transition-size ease duration-1000 ${positionClass} lg:w-1/2 lg:h-full w-full h-1/2 group overflow-hidden`}
+        className={`absolute lg-top-0 lg-bottom-0 flex items-center flex-col justify-center transition-size ease duration-1000 ${positionClass} lg:w-1/2 lg:h-full w-full h-1/2 group overflow-hidden hover:`}
         style={style}
       >
         <Image
@@ -76,8 +76,8 @@ export function CardChoice(props: CardChoiceProps) {
           alt={`illustration for ${position} choice`}
           fill
           placeholder="empty"
-          className={`relative -z-50 pointer-events-none object-cover object-center ${
-            !showResult ? 'scale-100 group-hover:scale-105 transition-transform duration-300 ease-in-out' : ''
+          className={`relative z-0 object-cover object-center group-hover:cursor-pointer ${
+            !showResult ? 'scale-100 group-hover:scale-105 transition-transform duration-300 ease-in-out ' : ''
           } `}
           sizes="(max-width: 768px) 100vw, 50vw"
         />
