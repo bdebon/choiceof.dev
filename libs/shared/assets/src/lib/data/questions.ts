@@ -56,4 +56,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/double-quotes.webp',
     },
   },
+  {
+    slug: 'php-or-js',
+    choiceLeft: {
+      title: 'PHP',
+      img_path: '/assets/img/php.png',
+    },
+    choiceRight: {
+      title: 'Javacript',
+      img_path: '/assets/img/js.png',
+    },
+  },
 ]
