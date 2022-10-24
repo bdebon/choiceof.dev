@@ -56,4 +56,38 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/double-quotes.webp',
     },
   },
+  {
+    slug: 'Vanilla-CSS-or-CSS-Frameworks',
+    choiceLeft: {
+      title: "Vanilla",
+      img_path: '/assets/img/sweet_vanilla_yummy_so_tasty.jpg',
+    },
+    choiceRight: {
+      title: 'Frameworks',
+      img_path: '/assets/img/vive-bootstrap-sans-la-purge.jpg',
+    },
+  },
+  {
+    slug: 'Grid-or-Flex',
+    choiceLeft: {
+      title: "Grid",
+      img_path: '/assets/img/vive-le-dev.jpg',
+    },
+    choiceRight: {
+      title: 'Flex',
+      img_path: '/assets/img/BenCode-le-GOAT.jpg',
+    },
+  },
+  {
+    slug: '404-error-or-Internet-Explorer',
+    choiceLeft: {
+      title: "404",
+      img_path: '/assets/img/Benjamin_Love_Bootstrap.jpg',
+    },
+    choiceRight: {
+      title: 'IE',
+      img_path: '/assets/img/RIP-IE-I-MISS-YOU.jpg',
+    },
+  },
+
 ]
