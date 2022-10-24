@@ -45,4 +45,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/7.webp',
     },
   },
+  {
+    slug: 'neovim-or-vscode',
+    choiceLeft: {
+      title: "neovim",
+      img_path: '/assets/img/neovim.jpg',
+    },
+    choiceRight: {
+      title: "vscode",
+      img_path: '/assets/img/vscode.jpg',
+    },
+  },
 ]
