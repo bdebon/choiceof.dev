@@ -46,6 +46,17 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
+    slug: 'single-or-double-quotes',
+    choiceLeft: {
+      title: "'",
+      img_path: '/assets/img/single-quote.webp',
+    },
+    choiceRight: {
+      title: '"',
+      img_path: '/assets/img/double-quotes.webp',
+    },
+  },
+  {
     slug: 'vscode-or-intelij',
     choiceLeft: {
       title: 'VS-CODE',
@@ -55,5 +66,5 @@ export const questions: QuestionInterface[] = [
       title: 'INTELIJ',
       img_path: '/assets/img/intelij.jpeg',
     },
-  }
+  },
 ]
