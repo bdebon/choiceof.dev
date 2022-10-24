@@ -90,7 +90,7 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
-    slug: 'vanillaJS-or-angular',
+    slug: 'vanillajs-or-angular',
     choiceLeft: {
       title: 'Vanilla JS',
       img_path: '/assets/img/vanillaJs.jpg',
@@ -112,7 +112,7 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
-    slug: 'vanillaJS-or-vuejs',
+    slug: 'vanillajs-or-vuejs',
     choiceLeft: {
       title: 'Vanilla JS',
       img_path: '/assets/img/vanillaJs.jpg',
