@@ -45,4 +45,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/7.webp',
     },
   },
+  {
+    slug: 'vscode-or-intelij',
+    choiceLeft: {
+      title: 'VS-CODE',
+      img_path: '/assets/img/vscode.jpeg',
+    },
+    choiceRight: {
+      title: 'INTELIJ',
+      img_path: '/assets/img/intelij.jpeg',
+    },
+  }
 ]
