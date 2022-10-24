@@ -63,7 +63,7 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/php.png',
     },
     choiceRight: {
-      title: 'Javacript',
+      title: 'Javascript',
       img_path: '/assets/img/js.png',
     },
   },
