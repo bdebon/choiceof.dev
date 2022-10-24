@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router'
 import { questions } from '../../public/assets/data/questions'
-import { useContext, useEffect, useState } from 'react'
+import { useCallback, useContext, useEffect, useState } from 'react'
 import { QuestionInterface } from '@benjamincode/shared/interfaces'
-import { Button, PageTransitionWrapper, Question } from '@benjamincode/shared/ui'
+import { PageTransitionWrapper, Question } from '@benjamincode/shared/ui'
 import { QuestionContext } from '../_app'
 import Image from 'next/future/image'
 
@@ -39,7 +39,7 @@ export function QuestionPage(props: QuestionPageProps) {
   const [nextQuestion, setNextQuestion] = useState<QuestionInterface>()
   const [voteValues, setVoteValues] = useState<number[]>([0, 0])
 
-  const computeNextQuestion = () => {
+  const computeNextQuestion = useCallback(() => {
     if (slug) {
       const currentQuestion = questionContext.questions.find((q) => q.slug === slug)
 
@@ -53,7 +53,7 @@ export function QuestionPage(props: QuestionPageProps) {
       return nextQuestion
     }
     return null
-  }
+  }, [slug, questionContext.questions])
 
   useEffect(() => {
     // todo replace with values fetched from database
@@ -61,7 +61,9 @@ export function QuestionPage(props: QuestionPageProps) {
   }, [setVoteValues])
 
   useEffect(() => {
-    router.prefetch(`/question/${computeNextQuestion().slug}`).then()
+    const nextQuestion = computeNextQuestion()
+    if (!nextQuestion) return
+    router.prefetch(`/question/${nextQuestion.slug}`).then()
   }, [slug, router, computeNextQuestion])
 
   useEffect(() => {
