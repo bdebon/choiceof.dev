@@ -37,6 +37,7 @@ export function QuestionPage(props: QuestionPageProps) {
   const [showResult, setShowResult] = useState(false)
   const questionContext = useContext(QuestionContext)
   const [nextQuestion, setNextQuestion] = useState<QuestionInterface>()
+  const [voteValues, setVoteValues] = useState<number[]>([0, 0])
 
   const computeNextQuestion = () => {
     if (slug) {
@@ -53,6 +54,11 @@ export function QuestionPage(props: QuestionPageProps) {
     }
     return null
   }
+
+  useEffect(() => {
+    // todo replace with values fetched from database
+    setVoteValues([Math.trunc(Math.random() * 1000), Math.trunc(Math.random() * 1000)])
+  }, [setVoteValues])
 
   useEffect(() => {
     router.prefetch(`/question/${computeNextQuestion().slug}`).then()
@@ -74,7 +80,6 @@ export function QuestionPage(props: QuestionPageProps) {
 
   const onLeft = () => {
     // todo store the +1 in the database
-
     setShowResult(true)
   }
 
@@ -120,21 +125,21 @@ export function QuestionPage(props: QuestionPageProps) {
       <Question
         leftChoiceProps={{
           showResult: showResult,
-          voteCount: 40,
+          voteCount: voteValues[0],
           imgUrl: props.question?.choiceLeft.img_path,
           position: 'left',
           title: props.question?.choiceLeft.title,
           onClick: onLeft,
-          totalCount: 200,
+          totalCount: voteValues[0] + voteValues[1],
         }}
         rightChoiceProps={{
           showResult: showResult,
-          voteCount: 160,
+          voteCount: voteValues[1],
           imgUrl: props.question?.choiceRight.img_path,
           position: 'right',
           title: props.question?.choiceRight.title,
           onClick: onRight,
-          totalCount: 200,
+          totalCount: voteValues[0] + voteValues[1],
         }}
         showResult={showResult}
         onNext={onNext}

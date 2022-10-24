@@ -5,11 +5,11 @@ export const questions: QuestionInterface[] = [
     slug: 'tab-or-space',
     choiceLeft: {
       title: 'Tabs',
-      img_path: '/assets/img/tab.png',
+      img_path: '/assets/img/tab.jpeg',
     },
     choiceRight: {
       title: 'Spaces',
-      img_path: '/assets/img/space.jpg',
+      img_path: '/assets/img/space.jpeg',
     },
   },
   {

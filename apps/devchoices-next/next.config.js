@@ -14,8 +14,10 @@ const nextConfig = {
   },
   images: {
     domains: ['picsum.photos'],
+    // we don't use a vps, on hostinger we use a simple ftp hosting so we can't optimize the images
     unoptimized: true,
   },
+  // this is to work with hostinger mutualised server
   trailingSlash: true,
 }
 
