@@ -8,16 +8,23 @@ import { createContext, Dispatch, SetStateAction, useEffect, useState } from 're
 import { QuestionInterface } from '@benjamincode/shared/interfaces'
 import { questions } from '../public/assets/data/questions'
 
-export const QuestionContext = createContext<{
+interface QuestionContextInterface {
   questions: QuestionInterface[]
   setQuestions: (questions: QuestionInterface[]) => void
-}>({
+  countAnsweredQuestions: number
+  incrementCountAnsweredQuestions: () => void
+}
+
+export const QuestionContext = createContext<QuestionContextInterface>({
   questions: [],
   setQuestions: (b: QuestionInterface[]) => {},
+  countAnsweredQuestions: 0,
+  incrementCountAnsweredQuestions: () => {},
 })
 
 function CustomApp({ Component, pageProps, router }: AppProps) {
   const [contextQuestions, setContextQuestions] = useState([])
+  const [countAnsweredQuestions, setCountAnsweredQuestions] = useState(0)
   const url = `https://choiceof.dev${router.query.slug ? '/question/' + router.query.slug : ''}`
 
   const fillingForm = () => {
@@ -38,7 +45,14 @@ function CustomApp({ Component, pageProps, router }: AppProps) {
   fillingForm()
 
   return (
-    <QuestionContext.Provider value={{ questions: contextQuestions, setQuestions: setContextQuestions }}>
+    <QuestionContext.Provider
+      value={{
+        questions: contextQuestions,
+        setQuestions: setContextQuestions,
+        countAnsweredQuestions: countAnsweredQuestions,
+        incrementCountAnsweredQuestions: () => setCountAnsweredQuestions((count) => count + 1),
+      }}
+    >
       <Head>
         <title>Welcome to devchoices-next!</title>
       </Head>

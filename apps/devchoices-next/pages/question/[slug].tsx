@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { questions } from '../../public/assets/data/questions'
 import { useCallback, useContext, useEffect, useState } from 'react'
 import { QuestionInterface } from '@benjamincode/shared/interfaces'
-import { PageTransitionWrapper, Question } from '@benjamincode/shared/ui'
+import { PageTransitionWrapper, Question, Popup } from '@benjamincode/shared/ui'
 import { QuestionContext } from '../_app'
 import Image from 'next/future/image'
 
@@ -72,6 +72,7 @@ export function QuestionPage(props: QuestionPageProps) {
 
   const onNext = async () => {
     await router.push(`/question/${computeNextQuestion().slug}`)
+    questionContext.incrementCountAnsweredQuestions()
   }
 
   const onSkip = async () => {
@@ -116,6 +117,9 @@ export function QuestionPage(props: QuestionPageProps) {
     )
   }
 
+  const isContributePopupShowed =
+    questionContext.countAnsweredQuestions !== 0 && questionContext.countAnsweredQuestions % 10 === 0
+
   return (
     <PageTransitionWrapper
       className="w-full h-full absolute inset-0"
@@ -149,6 +153,8 @@ export function QuestionPage(props: QuestionPageProps) {
         onLeft={onLeft}
         onRight={onRight}
       />
+
+      {isContributePopupShowed && <Popup text="Want to contribute ?" />}
     </PageTransitionWrapper>
   )
 }
