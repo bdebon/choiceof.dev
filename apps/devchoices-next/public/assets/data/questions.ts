@@ -67,4 +67,37 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/snake_case.jpg',
     },
   },
+  {
+    slug: 'auth0-or-next_auth',
+    choiceLeft: {
+      title: 'Auth 0',
+      img_path: '/assets/img/sopow_auth0.png'
+    },
+    choiceRight: {
+      title: 'Next-Auth',
+      img_path: '/assets/img/sopow_authn.png'
+    },
+  },
+  {
+    slug: 'tailwind-or-bootstrap',
+    choiceLeft: {
+      title: 'Tailwind CSS',
+      img_path: '/assets/img/sopow_tailwind.png'
+    },
+    choiceRight: {
+      title: 'Bootstrap CSS',
+      img_path: '/assets/img/sopow_bootstrap.png'
+    },
+  },
+  {
+    slug: 'figma-or-photoshop',
+    choiceLeft: {
+      title: 'Figma',
+      img_path: '/assets/img/sopow_figma.png'
+    },
+    choiceRight: {
+      title: 'Photoshop',
+      img_path: '/assets/img/sopow_photoshop.png'
+    },
+  },
 ]
