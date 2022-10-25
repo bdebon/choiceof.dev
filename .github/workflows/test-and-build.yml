@@ -82,6 +82,27 @@ jobs:
           dimensions: 800x800 # parameter to change size, passed to mogrify as ``
           widthLimit: 800 # max width to check
           heightLimit: 800 # max height to check
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v4
+        with:
+          add: 'images/'
+          author_name: "github-actions[bot]"
+          author_email: "github-actions@users.noreply.github.com"
+          message: |
+            Images Reszied by Github action\n
+            ```
+            ${{steps.resize-images.outputs.images_changed}}
+            ```
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: mshick/add-pr-comment@v1
+        with:
+          message: |
+            **Hello, I resized images for you!**:
+            ${{steps.csv-table-output.outputs.images_changed}}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
+          allow-repeats: true
       - name: Next export
         run: yarn nx run devchoices-next:export
       - uses: actions/upload-artifact@master
