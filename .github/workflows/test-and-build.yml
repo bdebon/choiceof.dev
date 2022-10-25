@@ -79,7 +79,7 @@ jobs:
         id: resize-images
         uses: petems/image-resizer-gh-action@master
         with:
-          target: libs/shared/assets/src/lib/img/ # directory to look for images in
+          target: apps/devchoices-next/public/assets/img/ # directory to look for images in
           dimensions: 800x800 # parameter to change size, passed to mogrify as ``
           widthLimit: 800 # max width to check
           heightLimit: 800 # max height to check
@@ -87,7 +87,7 @@ jobs:
         if: matrix.target == 'build'
         uses: EndBug/add-and-commit@v4
         with:
-          add: 'libs/shared/assets/src/lib/img/'
+          add: 'apps/devchoices-next/public/assets/img/'
           author_name: "github-actions[bot]"
           author_email: "github-actions@users.noreply.github.com"
           message: |
