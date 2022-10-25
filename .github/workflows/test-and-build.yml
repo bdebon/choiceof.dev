@@ -78,7 +78,7 @@ jobs:
         id: resize-images
         uses: petems/image-resizer-gh-action@master
         with:
-          target: libs/shared/assets/src/lig/img/ # directory to look for images in
+          target: libs/shared/assets/src/lib/img/ # directory to look for images in
           dimensions: 800x800 # parameter to change size, passed to mogrify as ``
           widthLimit: 800 # max width to check
           heightLimit: 800 # max height to check
