@@ -20,7 +20,7 @@ export const questions: QuestionInterface[] = [
     },
     choiceRight: {
       title: 'Emacs',
-      img_path: '/assets/img/3.webp',
+      img_path: '/assets/img/emacs.webp',
     },
   },
   {
@@ -43,6 +43,28 @@ export const questions: QuestionInterface[] = [
     choiceRight: {
       title: 'COBOL',
       img_path: '/assets/img/7.webp',
+    },
+  },
+  {
+    slug: 'single-or-double-quotes',
+    choiceLeft: {
+      title: "'",
+      img_path: '/assets/img/single-quote.webp',
+    },
+    choiceRight: {
+      title: '"',
+      img_path: '/assets/img/double-quotes.webp',
+    },
+  },
+  {
+    slug: 'emacs-or-vim',
+    choiceLeft: {
+      title: 'Emacs',
+      img_path: '/assets/img/emacs.webp',
+    },
+    choiceRight: {
+      title: 'Vim',
+      img_path: '/assets/img/vim.webp',
     },
   },
 ]
