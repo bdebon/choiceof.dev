@@ -67,4 +67,37 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/snake_case.jpg',
     },
   },
+  {
+    slug: 'webpack-or-vite',
+    choiceLeft: {
+      title: 'Webpack',
+      img_path: '/assets/img/sopow_webpack.png',
+    },
+    choiceRight: {
+      title: 'Vite',
+      img_path: '/assets/img/sopow_vite.png',
+    },
+  },
+  {
+    slug: 'laravel-or-symfony',
+    choiceLeft: {
+      title: 'Laravel',
+      img_path: '/assets/img/sopow_laravel.png',
+    },
+    choiceRight: {
+      title: 'Symfony',
+      img_path: '/assets/img/sopow_symfony.png',
+    },
+  },
+  {
+    slug: 'docker-or-kubernetes',
+    choiceLeft: {
+      title: 'Docker',
+      img_path: '/assets/img/sopow_docker.png',
+    },
+    choiceRight: {
+      title: 'Kubernetes',
+      img_path: '/assets/img/sopow_kubernetes.png',
+    },
+  },
 ]
