@@ -67,4 +67,37 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/snake_case.jpg',
     },
   },
+  {
+    slug: 'axios-or-fetch',
+    choiceLeft: {
+      title: 'Axios',
+      img_path: '/assets/img/sopow_axios.png',
+    },
+    choiceRight: {
+      title: 'Node Fetch',
+      img_path: '/assets/img/sopow_fetch.png',
+    },
+  },
+  {
+    slug: 'redux-or-rquery',
+    choiceLeft: {
+      title: 'Redux',
+      img_path: '/assets/img/sopow_redux.png',
+    },
+    choiceRight: {
+      title: 'React Query',
+      img_path: '/assets/img/sopow_reactquery.png',
+    },
+  },
+  {
+    slug: 'next-or-nuxt',
+    choiceLeft: {
+      title: 'Next.JS',
+      img_path: '/assets/img/sopow_next.png',
+    },
+    choiceRight: {
+      title: 'Nuxt.JS',
+      img_path: '/assets/img/sopow_nuxt.png',
+    },
+  },
 ]
