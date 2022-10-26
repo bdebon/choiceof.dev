@@ -67,4 +67,37 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/snake_case.jpg',
     },
   },
+  {
+    slug: 'firebase-or-mongodb',
+    choiceLeft: {
+      title: 'Firebase',
+      img_path: '/assets/img/sopow_firebase.png',
+    },
+    choiceRight: {
+      title: 'MongoDB',
+      img_path: '/assets/img/sopow_mongodb.png',
+    },
+  },
+  {
+    slug: 'rest-or-websocket',
+    choiceLeft: {
+      title: 'Rest API',
+      img_path: '/assets/img/sopow_rest.png',
+    },
+    choiceRight: {
+      title: 'Websocket',
+      img_path: '/assets/img/sopow_websocket.png',
+    },
+  },
+  {
+    slug: 'jest-or-jasmine',
+    choiceLeft: {
+      title: 'Jest',
+      img_path: '/assets/img/sopow_jest.png',
+    },
+    choiceRight: {
+      title: 'Jasmine',
+      img_path: '/assets/img/sopow_jasmine.png',
+    },
+  },
 ]
