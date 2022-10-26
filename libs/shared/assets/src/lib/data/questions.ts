@@ -67,15 +67,4 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/snake_case.jpg',
     },
   },
-  {
-    slug: 'front-or-back',
-    choiceLeft: {
-      title: 'Front-end',
-      img_path: '/assets/img/front.png',
-    },
-    choiceRight: {
-      title: 'Back-end',
-      img_path: '/assets/img/back.jpg',
-    },
-  },
 ]
