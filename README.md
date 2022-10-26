@@ -12,12 +12,12 @@ Developers have to cope with pretty hard choices every day. This is a collection
 
 As it is a project by the developers for the developers, we want to make the act to contribute a cool and fun way to learn how to contribute to open source project.
 To add a question, you must clone the project locally, built it, updating one file and adding your two images.
-The file to edit is: `libs/shared/assets/src/data/questions.ts`
+The file to edit is: `apps/devchoices-next/public/assets/data/questions.ts`
 <p style="text-align: center;"><img src="readme/question-format.jpg" width="450"></p>
 
 You will find there a list of questions, with a slug, a title, a description, the right and left choices and their respective images.
 You can add a question at the end of the list, or in the middle, it doesn't matter.
-Then you have to add two images in the folder ``libs/shared/assets/src/img`` with the name you have precise in the other file.
+Then you have to add two images in the folder ``apps/devchoices-next/public/assets/img`` with the name you have precise in the other file.
 
 Then you can run the project locally and check if everything is working fine. You can test your question directly by going to the following url:
 `localhost:4200/question/your-slug`

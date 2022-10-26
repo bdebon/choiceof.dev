@@ -10,13 +10,6 @@
       "options": {
         "root": "apps/devchoices-next",
         "outputPath": "dist/apps/devchoices-next",
-        "assets": [
-          {
-            "glob": "**/*",
-            "input": "libs/shared/assets/src/lib",
-            "output": "/assets"
-          }
-        ],
         "styles": ["apps/devchoices-next/src/styles.scss"]
       },
       "configurations": {

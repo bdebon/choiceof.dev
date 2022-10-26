@@ -7,6 +7,7 @@ import { AnimatePresence } from 'framer-motion'
 import { createContext, Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { QuestionInterface } from '@benjamincode/shared/interfaces'
 import { questions } from '../public/assets/data/questions'
+import Script from 'next/script'
 
 export const QuestionContext = createContext<{
   questions: QuestionInterface[]
@@ -64,6 +65,19 @@ function CustomApp({ Component, pageProps, router }: AppProps) {
       <AnimatePresence initial={false} presenceAffectsLayout={false} onExitComplete={() => window.scrollTo(0, 0)}>
         <Component {...pageProps} key={url} />
       </AnimatePresence>
+
+      <Script id="gtag" strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=G-5XL7L6Z7XL`} />
+
+      <Script id="init-gtag" strategy="lazyOnload">
+        {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-5XL7L6Z7XL', {
+                    page_path: window.location.pathname,
+                    });
+                `}
+      </Script>
     </QuestionContext.Provider>
   )
 }
