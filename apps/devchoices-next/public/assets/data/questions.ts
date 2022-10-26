@@ -67,4 +67,37 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/snake_case.jpg',
     },
   },
+  {
+    slug: 'ohmyposh-or-ohmyzsh',
+    choiceLeft: {
+      title: 'Oh my Zsh',
+      img_path: '/assets/img/sopow_omz.png'
+    },
+    choiceRight: {
+      title: 'Oh my Posh',
+      img_path: '/assets/img/sopow_omp.png'
+    },
+  },
+  {
+    slug: 'discordjs-or-erisjs',
+    choiceLeft: {
+      title: 'Discord.JS',
+      img_path: '/assets/img/sopow_djs.png'
+    },
+    choiceRight: {
+      title: 'Eris.JS',
+      img_path: '/assets/img/sopow_ejs.png'
+    },
+  },
+  {
+    slug: 'node-or-deno',
+    choiceLeft: {
+      title: 'Node.JS',
+      img_path: '/assets/img/sopow_node.png'
+    },
+    choiceRight: {
+      title: 'Deno.JS',
+      img_path: '/assets/img/sopow_deno.png'
+    },
+  },
 ]
