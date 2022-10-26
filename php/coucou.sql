@@ -1,0 +1,12 @@
+CREATE TABLE votes (
+  slug VARCHAR(255) NOT NULL,
+  slot INT NOT NULL DEFAULT 0,
+  count INT DEFAULT NULL,
+  position INT NOT NULL,
+  UNIQUE KEY slug_slot (slug,slot,position)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE logs (
+  ip VARCHAR(255) NOT NULL,
+  slugs TEXT NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

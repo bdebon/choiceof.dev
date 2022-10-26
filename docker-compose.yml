@@ -1,0 +1,13 @@
+version: '3'
+services:
+    db:
+        platform: linux/x86_64
+        image: mysql:8
+        ports:
+            - 127.0.0.1:3306:3306
+        volumes:
+            - mysql-data:/var/lib/mysql
+        environment:
+            - MYSQL_ALLOW_EMPTY_PASSWORD=true
+volumes:
+  mysql-data:
