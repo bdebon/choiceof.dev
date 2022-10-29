@@ -78,4 +78,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/back.jpg',
     },
   },
+  {
+    slug: 'coffee-or-energy-drink',
+    choiceLeft: {
+      title: "Coffee",
+      img_path: '/assets/img/coffee.jpg',
+    },
+    choiceRight: {
+      title: "Energy Drink",
+      img_path: '/assets/img/energy-drink.jpg'
+    }
+  }
 ]
