@@ -78,4 +78,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/back.jpg',
     },
   },
+  {
+    slug: 'languages',
+    choiceLeft: {
+      title: 'JAVA',
+      img_path: '/assets/img/java.webp',
+    },
+    choiceRight: {
+      title: 'Python',
+      img_path: '/assets/img/python.png',
+    },
+  },
 ]
