@@ -57,8 +57,15 @@ export function QuestionPage(props: QuestionPageProps) {
 
   useEffect(() => {
     // todo replace with values fetched from database
+    fetch(`http://localhost:8000?slug=${slug}`)
+      .then((res) => res.json())
+      .then((data) => {
+        const left = data.find((v) => v.position === 0) || { count: 0 }
+        const right = data.find((v) => v.position === 1) || { count: 0 }
+        setVoteValues([+left.count, +right.count])
+      })
     setVoteValues([Math.trunc(Math.random() * 1000), Math.trunc(Math.random() * 1000)])
-  }, [setVoteValues])
+  }, [setVoteValues, slug])
 
   useEffect(() => {
     const nextQuestion = computeNextQuestion()
@@ -82,12 +89,25 @@ export function QuestionPage(props: QuestionPageProps) {
 
   const onLeft = () => {
     // todo store the +1 in the database
+    const form = new FormData()
+    form.append('position', '0')
+    fetch(`http://localhost:8000/?slug=${slug}`, {
+      method: 'POST',
+      body: form,
+    })
+    setVoteValues([voteValues[0] + 1, voteValues[1]])
     setShowResult(true)
   }
 
   const onRight = () => {
     // todo store the +1 in the database
-
+    const form = new FormData()
+    form.append('position', '1')
+    fetch(`http://localhost:8000/?slug=${slug}`, {
+      method: 'POST',
+      body: form,
+    })
+    setVoteValues([voteValues[0], voteValues[1] + 1])
     setShowResult(true)
   }
 
