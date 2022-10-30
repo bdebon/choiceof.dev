@@ -44,7 +44,7 @@ export const questions: QuestionInterface[] = [
       title: 'COBOL',
       img_path: '/assets/img/7.webp',
     },
-  }
+  },
   {
     slug: 'php-or-javascript',
     choiceLeft: {
