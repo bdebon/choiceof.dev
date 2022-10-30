@@ -46,14 +46,25 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
+    slug: 'single-or-double-quotes',
+    choiceLeft: {
+      title: "'",
+      img_path: '/assets/img/single-quote.webp',
+    },
+    choiceRight: {
+      title: '"',
+      img_path: '/assets/img/double-quotes.webp',
+    },
+  },
+  {
     slug: 'php-or-javascript',
     choiceLeft: {
       title: 'php',
-      img_path: '/assets/img/php.png',
+      img_path: '/assets/img/php.jpeg',
     },
     choiceRight: {
       title: 'javascript',
-      img_path: '/assets/img/js.png',
+      img_path: '/assets/img/js.jpeg',
     },
   },
 ]
