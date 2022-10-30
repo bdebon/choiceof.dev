@@ -44,18 +44,7 @@ export const questions: QuestionInterface[] = [
       title: 'COBOL',
       img_path: '/assets/img/7.webp',
     },
-  },
-  {
-    slug: 'single-or-double-quotes',
-    choiceLeft: {
-      title: "'",
-      img_path: '/assets/img/single-quote.webp',
-    },
-    choiceRight: {
-      title: '"',
-      img_path: '/assets/img/double-quotes.webp',
-    },
-  },
+  }
   {
     slug: 'php-or-javascript',
     choiceLeft: {
