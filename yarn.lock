@@ -11989,10 +11989,10 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.1.tgz#26c8a3cee6cc05fbcf1e333cd2fc3e003326c0b5"
   integrity sha512-9iN1ka/9zmX1ZvLV9ewJYEk9h7RyRRtqdK0woXcqohu8EWIerfPUjYJPg0ULy0UqP7cslmdGc8xKDJcojlKiaw==
 
-next-seo@^5.8.0:
-  version "5.8.0"
-  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-5.8.0.tgz#c71c791971e030af448cae61dc1ece5e79da1790"
-  integrity sha512-V5W/JwqdoX6/0zG4S7m5g8zNajYffytWigkPo2hrbHhLD18yGFBU9607OPhvbI9zX3QjWQFMBSmlUY456xt9cA==
+next-seo@^5.11.1:
+  version "5.11.1"
+  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-5.11.1.tgz#256071c2c359003924c64678fbf6ac283680b66f"
+  integrity sha512-P18E5mDaUEvIK/hDlCLAl7w02Ew6a8m1E3KO3d+rIPKWPcBRMckcMzxkdFkafFqwHl4ygCLNCWlKWM9EKD3jIQ==
 
 next@12.3.1:
   version "12.3.1"
