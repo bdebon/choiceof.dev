@@ -46,6 +46,17 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
+    slug: 'neovim-or-vscode',
+    choiceLeft: {
+      title: "neovim",
+      img_path: '/assets/img/neovim.jpg',
+    },
+    choiceRight: {
+      title: "vscode",
+      img_path: '/assets/img/vscode.jpg',
+    },
+  },
+  {
     slug: 'single-or-double-quotes',
     choiceLeft: {
       title: "'",
