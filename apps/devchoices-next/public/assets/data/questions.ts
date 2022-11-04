@@ -56,4 +56,37 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/vscode.jpg',
     },
   },
+  {
+    slug: 'single-or-double-quotes',
+    choiceLeft: {
+      title: "'",
+      img_path: '/assets/img/single-quote.webp',
+    },
+    choiceRight: {
+      title: '"',
+      img_path: '/assets/img/double-quotes.webp',
+    },
+  },
+  {
+    slug: 'camelCase-or-snake_case',
+    choiceLeft: {
+      title: 'camelCase',
+      img_path: '/assets/img/camelCase.jpg',
+    },
+    choiceRight: {
+      title: 'snake_case',
+      img_path: '/assets/img/snake_case.jpg',
+    },
+  },
+  {
+    slug: 'front-or-back',
+    choiceLeft: {
+      title: 'Front-end',
+      img_path: '/assets/img/front.png',
+    },
+    choiceRight: {
+      title: 'Back-end',
+      img_path: '/assets/img/back.jpg',
+    },
+  },
 ]

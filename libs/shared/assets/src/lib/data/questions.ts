@@ -67,4 +67,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/vscode.jpg',
     },
   },
+  {
+    slug: 'camelCase-or-snake_case',
+    choiceLeft: {
+      title: 'camelCase',
+      img_path: '/assets/img/camelCase.jpg',
+    },
+    choiceRight: {
+      title: 'snake_case',
+      img_path: '/assets/img/snake_case.jpg',
+    },
+  },
 ]
