@@ -73,7 +73,7 @@ jobs:
         with:
           node-version: 16
       - name: Nx Affected
-        run: yarn nx affected --target=${{ matrix.target }} --parallel --max-parallel=3 --configuration=${{ inputs.configuration }}
+        run: pnpm nx affected --target=${{ matrix.target }} --parallel --max-parallel=3 --configuration=${{ inputs.configuration }}
       - name: Resize images in lib above 800 width and 800 height
         if: matrix.target == 'build'
         id: resize-images
@@ -108,7 +108,7 @@ jobs:
           allow-repeats: true
       - name: Next export
         if: matrix.target == 'build'
-        run: yarn nx run devchoices-next:export
+        run: pnpm nx run devchoices-next:export
       - uses: actions/upload-artifact@master
         if: matrix.target == 'build'
         with:
