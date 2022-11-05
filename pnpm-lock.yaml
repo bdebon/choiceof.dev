@@ -15,6 +15,7 @@ specifiers:
   '@nrwl/storybook': 14.5.10
   '@nrwl/web': 14.5.10
   '@nrwl/workspace': 14.5.10
+  '@socialgouv/matomo-next': ^1.4.0
   '@storybook/addon-essentials': ^6.5.10
   '@storybook/addon-interactions': ^6.5.10
   '@storybook/addon-links': ^6.5.10
@@ -70,6 +71,7 @@ specifiers:
   webpack-cli: ^4.10.0
 
 dependencies:
+  '@socialgouv/matomo-next': 1.4.0_next@12.3.1
   '@storybook/addon-interactions': 6.5.13_tvfz2go47q3ajlpe3v4grsmgwy
   '@storybook/addon-links': 6.5.13_biqbaboplfbrettd7655fr4n2y
   animated-number-react: 0.1.2_biqbaboplfbrettd7655fr4n2y
@@ -3923,6 +3925,14 @@ packages:
     dependencies:
       '@sinonjs/commons': 1.8.4
     dev: true
+
+  /@socialgouv/matomo-next/1.4.0_next@12.3.1:
+    resolution: {integrity: sha512-S+kNX7dwo/cL0VE7GWY8Gnf3t7aeXD4CzallRz9IEttjHJDJI2S8xOrcyaGimYpInr3nDNo+WqeYrafKUdsn1g==}
+    peerDependencies:
+      next: '>= 9.5.5'
+    dependencies:
+      next: 12.3.1_mk5yftg2men2cn3ayx4t7ddtvy
+    dev: false
 
   /@storybook/addon-actions/6.5.13_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-3Tji0gIy95havhTpSc6CsFl5lNxGn4O5Y1U9fyji+GRkKqDFOrvVLYAHPtLOpYdEI5tF0bDo+akiqfDouY8+eA==}
