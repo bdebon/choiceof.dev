@@ -33,35 +33,15 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: cache-node-${{ hashFiles('pnpm-lock.yaml') }}
+          key: cache-node-${{ hashFiles('yarn.lock') }}
       - name: Setup Node
         uses: actions/setup-node@v1
         if: steps.cache.outputs.cache-hit != 'true'
         with:
           node-version: 16
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2.2.4
-      - name: pnpm install
-        run: pnpm install
-
-  check_pr_title:
-    name: Check Pr Title
-    runs-on: ubuntu-latest
-    needs: [install-deps]
-    steps:
-      - name: Checkout [${{ inputs.branch }}]
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2.2.4
-      - name: Cache node modules
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: cache-node-${{ hashFiles('pnpm-lock.yaml') }}
-      - name: lint pull request title
-        run: echo "${{ github.event.pull_request.title }}" | pnpm commitlint
+      - name: yarn install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn
 
   nx:
     name: Nx Commands
@@ -80,13 +60,11 @@ jobs:
         name: Change timezone
         with:
           timezoneLinux: 'Europe/Paris'
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2.2.4
       - name: Cache node modules
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: cache-node-${{ hashFiles('pnpm-lock.yaml') }}
+          key: cache-node-${{ hashFiles('yarn.lock') }}
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
         with:
@@ -95,7 +73,7 @@ jobs:
         with:
           node-version: 16
       - name: Nx Affected
-        run: pnpm nx affected --target=${{ matrix.target }} --parallel --max-parallel=3 --configuration=${{ inputs.configuration }}
+        run: yarn nx affected --target=${{ matrix.target }} --parallel --max-parallel=3 --configuration=${{ inputs.configuration }}
       - name: Resize images in lib above 800 width and 800 height
         if: matrix.target == 'build'
         id: resize-images
@@ -130,7 +108,7 @@ jobs:
           allow-repeats: true
       - name: Next export
         if: matrix.target == 'build'
-        run: pnpm nx run devchoices-next:export
+        run: yarn nx run devchoices-next:export
       - uses: actions/upload-artifact@master
         if: matrix.target == 'build'
         with:

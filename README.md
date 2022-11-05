@@ -48,7 +48,7 @@ There are also many [community plugins](https://nx.dev/community) you could add.
 Clone the repository, install the dependencies and run the project:
 
 ```bash
-  pnpm install
+  yarn install
   npx nx serve
 ```
 You should see this:
