@@ -33,7 +33,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: cache-node-${{ hashFiles('yarn.lock') }}
+          key: cache-node-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Setup Node
         uses: actions/setup-node@v1
         if: steps.cache.outputs.cache-hit != 'true'
@@ -42,8 +42,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2.2.4
       - name: pnpm install
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: pnpm
+        run: pnpm install
 
   check_pr_title:
     name: Nx Commands
@@ -51,7 +50,7 @@ jobs:
     needs: [install-deps]
     steps:
       - name: lint pull request title
-        run: echo "${{ github.event.pull_request.title }}" | yarn commitlint
+        run: echo "${{ github.event.pull_request.title }}" | pnpm commitlint
 
   nx:
     name: Nx Commands
@@ -74,7 +73,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: cache-node-${{ hashFiles('yarn.lock') }}
+          key: cache-node-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
         with:
