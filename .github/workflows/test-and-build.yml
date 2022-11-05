@@ -39,9 +39,12 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         with:
           node-version: 16
-      - name: yarn install
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.4
+
+      - name: pnpm install
         if: steps.cache.outputs.cache-hit != 'true'
-        run: yarn
+        run: pnpm
 
   nx:
     name: Nx Commands
