@@ -9,6 +9,7 @@
   },
   "private": true,
   "dependencies": {
+    "@socialgouv/matomo-next": "^1.4.0",
     "@storybook/addon-interactions": "^6.5.10",
     "@storybook/addon-links": "^6.5.10",
     "animated-number-react": "^0.1.2",

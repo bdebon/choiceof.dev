@@ -8,6 +8,10 @@ import { createContext, Dispatch, SetStateAction, useEffect, useState } from 're
 import { QuestionInterface } from '@benjamincode/shared/interfaces'
 import { questions } from '../public/assets/data/questions'
 import Script from 'next/script'
+import init from '@socialgouv/matomo-next'
+
+const MATOMO_URL = `https://choiceof.dev/matomo/` // process.env.NEXT_PUBLIC_MATOMO_URL; todo replace with env and github token
+const MATOMO_SITE_ID = `1` // process.env.NEXT_PUBLIC_MATOMO_SITE_ID; todo replace with env and github token
 
 export const QuestionContext = createContext<{
   questions: QuestionInterface[]
@@ -40,6 +44,10 @@ function CustomApp({ Component, pageProps, router }: AppProps) {
 
   fillingForm()
 
+  useEffect(() => {
+    init({ url: MATOMO_URL, siteId: MATOMO_SITE_ID })
+  }, [])
+
   return (
     <QuestionContext.Provider value={{ questions: contextQuestions, setQuestions: setContextQuestions }}>
       <Head>
@@ -68,17 +76,20 @@ function CustomApp({ Component, pageProps, router }: AppProps) {
         <Component {...pageProps} key={url} />
       </AnimatePresence>
 
-      <Script id="gtag" strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=G-5XL7L6Z7XL`} />
-
-      <Script id="init-gtag" strategy="lazyOnload">
+      <Script id="matomo" strategy="lazyOnload">
         {`
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', 'G-5XL7L6Z7XL', {
-                    page_path: window.location.pathname,
-                    });
-                `}
+          var _paq = window._paq = window._paq || [];
+          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+          var u="//choiceof.dev/matomo/";
+          _paq.push(['setTrackerUrl', u+'matomo.php']);
+          _paq.push(['setSiteId', '1']);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+        `}
       </Script>
     </QuestionContext.Provider>
   )
