@@ -44,7 +44,7 @@ export function QuestionPage(props: QuestionPageProps) {
       const currentQuestion = questionContext.questions.find((q) => q.slug === slug)
 
       let nextQuestion: QuestionInterface
-      if (questionContext.questions[questionContext.questions.indexOf(currentQuestion) + 1]) {
+      if (currentQuestion && questionContext.questions[questionContext.questions.indexOf(currentQuestion) + 1]) {
         nextQuestion = questionContext.questions[questionContext.questions.indexOf(currentQuestion) + 1]
       } else {
         nextQuestion = questionContext.questions[0]
