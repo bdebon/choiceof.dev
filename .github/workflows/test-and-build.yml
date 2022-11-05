@@ -55,6 +55,11 @@ jobs:
           fetch-depth: 0
       - name: Setup pnpm
         uses: pnpm/action-setup@v2.2.4
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: cache-node-${{ hashFiles('pnpm-lock.yaml') }}
       - name: lint pull request title
         run: echo "${{ github.event.pull_request.title }}" | pnpm commitlint
 
