@@ -18,7 +18,7 @@ export const QuestionContext = createContext<{
 })
 
 function CustomApp({ Component, pageProps, router }: AppProps) {
-  const [contextQuestions, setContextQuestions] = useState([])
+  const [contextQuestions, setContextQuestions] = useState<QuestionInterface[]>([])
   const url = `https://choiceof.dev${router.query.slug ? '/question/' + router.query.slug : ''}`
 
   const fillingForm = () => {
@@ -26,9 +26,11 @@ function CustomApp({ Component, pageProps, router }: AppProps) {
       // if we land on the website on a specific url, we fill the questions with first the question of the url
       // then the rest of the questions in a random order
       if (router.query.slug) {
-        const question = questions.find((q) => q.slug === router.query.slug)
+        const question: QuestionInterface | undefined = questions.find((q) => q.slug === router.query.slug)
         const otherQuestions = questions.filter((q) => q.slug !== router.query.slug)
-        setContextQuestions([question, ...otherQuestions.sort(() => 0.5 - Math.random())])
+
+        if (question) setContextQuestions([question, ...otherQuestions.sort(() => 0.5 - Math.random())])
+        else setContextQuestions(otherQuestions.sort(() => 0.5 - Math.random()))
       } else {
         // if we land on the website without any URL we fill the question in a absolute random order
         setContextQuestions(questions.sort(() => 0.5 - Math.random()))
