@@ -49,6 +49,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [install-deps]
     steps:
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.4
       - name: lint pull request title
         run: echo "${{ github.event.pull_request.title }}" | pnpm commitlint
 
@@ -62,13 +64,15 @@ jobs:
         target: [test, build]
     steps:
       - name: Checkout [${{ inputs.branch }}]
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3x`
         with:
           fetch-depth: 0
       - uses: szenius/set-timezone@v1.0
         name: Change timezone
         with:
           timezoneLinux: 'Europe/Paris'
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.4
       - name: Cache node modules
         uses: actions/cache@v2
         with:
