@@ -1,0 +1,87 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d
+      - ./var/log:/var/log/nginx
+    depends_on:
+      - php
+    ports:
+      - "8000:80"
+    networks:
+      - dev-symfony
+
+  maildev:
+    image: maildev/maildev
+    command: bin/maildev --web 80 --smtp 25 --hide-extensions STARTTLS
+    ports:
+      - "8081:80"
+    networks:
+      - dev-symfony
+
+  php:
+    build:
+      context: ./docker/php
+    volumes:
+      - ./:/var/www
+      - ./docker/php/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+      - ./docker/php/error_reporting.ini:/usr/local/etc/php/conf.d/error_reporting.ini
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - dev-symfony
+    depends_on:
+      - database
+#
+#  node:
+#    build:
+#      context: ./
+#      dockerfile: ./docker/node/Dockerfile
+#    environment:
+#      - NODE_ENV=developement
+#    volumes:
+#      - ./:/srv/app
+#    ports:
+#      - "3000:3000"
+#      - "4000:4000"
+#    networks:
+#      - dev-symfony
+
+  node:
+    image: "node:lts-alpine"
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./:/home/node/app
+    command:
+      >
+      sh -c "yarn install &
+      yarn start & yarn storybook"
+    ports:
+      - "4400:4400"
+      - "4200:4200"
+    networks:
+      - dev-symfony
+
+  database:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: local
+    ports:
+      - "5432:5432"
+    networks:
+      - dev-symfony
+    volumes:
+      - /var/lib/postgresql/data
+
+networks:
+  dev-symfony:
+
+volumes:
+  db-data-symfony:

@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 
-import Question, { QuestionProps } from './question'
+import QuestionComponent, { QuestionProps } from './questionComponent'
 
 const props: QuestionProps = {
   showResult: false,

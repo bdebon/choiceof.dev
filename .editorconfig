@@ -11,3 +11,24 @@ trim_trailing_whitespace = true
 [*.md]
 max_line_length = off
 trim_trailing_whitespace = false
+
+
+[.php_cs{,.dist}]
+indent_style = space
+indent_size = 4
+
+[composer.json]
+indent_style = space
+indent_size = 4
+
+[docker-compose{,.*}.{yaml,yml}]
+indent_style = space
+indent_size = 2
+
+[Dockerfile]
+indent_style = tab
+indent_size = 4
+
+[*.php]
+indent_style = space
+indent_size = 4

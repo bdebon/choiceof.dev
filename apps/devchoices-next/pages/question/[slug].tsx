@@ -1,155 +1,102 @@
 import { useRouter } from 'next/router'
-import { questions } from '../../public/assets/data/questions'
-import { useCallback, useContext, useEffect, useState } from 'react'
-import { QuestionInterface } from '@benjamincode/shared/interfaces'
-import { PageTransitionWrapper, Question } from '@benjamincode/shared/ui'
+import { useContext, useEffect, useState } from 'react'
+import { PageTransitionWrapper, QuestionComponent } from '@benjamincode/shared/ui'
 import { QuestionContext } from '../_app'
 import Image from 'next/future/image'
+import {ApiQuestionItem, getQuestions} from "../../../../libs/shared/api/question";
+import {QuestionItem} from "../../../../libs/shared/question/QuestionCollection";
+import {addVote} from "../../../../libs/shared/api/vote";
+import {ChoiceItem} from "../../../../libs/shared/question/Choice";
 
 export async function getStaticProps(context): Promise<{ props: QuestionPageProps }> {
-  const slug = context.params.slug
-  // Get external data from the file system, API, DB, etc.
-  const question = questions.find((q) => q.slug === slug)
+  const {data} = await getQuestions()
 
-  // The value of the `props` key will be
-  //  passed to the `Home` component
   return {
     props: {
-      question,
+      question: data.findBySlug(context.params.slug).item
     },
   }
 }
 
 export async function getStaticPaths(context) {
+  const {data} = await getQuestions()
+
   return {
-    paths: questions.map((q) => ({ params: { slug: q.slug } })),
+    paths: data.collection.map(question => ({params: { slug: question.item.slug }})),
     fallback: false,
   }
 }
 
 export interface QuestionPageProps {
-  question?: QuestionInterface
+  question?: ApiQuestionItem
 }
 
 export function QuestionPage(props: QuestionPageProps) {
   const router = useRouter()
   const { slug } = router.query
-  const [showResult, setShowResult] = useState(false)
+  const [hasVoted, setHasVoted] = useState<boolean>(false)
   const questionContext = useContext(QuestionContext)
-  const [nextQuestion, setNextQuestion] = useState<QuestionInterface>()
-  const [voteValues, setVoteValues] = useState<number[]>([0, 0])
-
-  const computeNextQuestion = useCallback(() => {
-    if (slug) {
-      const currentQuestion = questionContext.questions.find((q) => q.slug === slug)
-
-      let nextQuestion: QuestionInterface
-      if (questionContext.questions[questionContext.questions.indexOf(currentQuestion) + 1]) {
-        nextQuestion = questionContext.questions[questionContext.questions.indexOf(currentQuestion) + 1]
-      } else {
-        nextQuestion = questionContext.questions[0]
-      }
-
-      return nextQuestion
-    }
-    return null
-  }, [slug, questionContext.questions])
+  const [nextQuestionItem, setNextQuestionItem] = useState<QuestionItem|null>()
+  const [questionItem, setQuestionItem] = useState<QuestionItem|null>(null)
 
   useEffect(() => {
-    // todo replace with values fetched from database
-    setVoteValues([Math.trunc(Math.random() * 1000), Math.trunc(Math.random() * 1000)])
-  }, [setVoteValues])
+    if (!questionContext.questionCollection) return
+    setQuestionItem(questionContext.questionCollection.findBySlug(slug as string))
+    setNextQuestionItem(questionContext.questionCollection.next())
+  }, [questionContext.questionCollection, slug])
 
-  useEffect(() => {
-    const nextQuestion = computeNextQuestion()
-    if (!nextQuestion) return
-    router.prefetch(`/question/${nextQuestion.slug}`).then()
-  }, [slug, router, computeNextQuestion])
+  const addVoteHandler = (choiceItem: ChoiceItem) => {
+    addVote(choiceItem.item["@id"])
+      .then(() => {
+        setQuestionItem(questionItem)
+      })
 
-  useEffect(() => {
-    setNextQuestion(computeNextQuestion())
-  }, [slug, computeNextQuestion])
-
-  const onNext = async () => {
-    await router.push(`/question/${computeNextQuestion().slug}`)
+    questionItem.addVote(choiceItem.item.id)
+    setHasVoted(true)
   }
 
-  const onSkip = async () => {
-    await router.push(
-      '/question/' + questionContext.questions[questionContext.questions.indexOf(props.question) + 1].slug
-    )
-  }
-
-  const onLeft = () => {
-    // todo store the +1 in the database
-    setShowResult(true)
-  }
-
-  const onRight = () => {
-    // todo store the +1 in the database
-
-    setShowResult(true)
+  const nextQuestionHandler = () => {
+    questionContext.questionCollection.currentItem = questionContext.questionCollection.next()
+    questionContext.setQuestionCollection(questionContext.questionCollection)
+    router.push(`/question/${questionContext.questionCollection.currentItem.item.slug}`)
   }
 
   const NextImagesPreloader = () => {
     return (
       <div className="fixed top-[-4000px] left-[-4000px] w-[100vw] h-[50vh] lg:h-[100vh]">
-        <Image
-          src={nextQuestion.choiceLeft.img_path}
-          alt="next image left"
-          sizes="(max-width: 768px) 100vw,
+        {
+          questionItem.choiceItems.map(choiceItem => (
+            <Image
+              key={choiceItem.item.content}
+              src={choiceItem.getImgUrl()}
+              alt="next image left"
+              sizes="(max-width: 768px) 100vw,
               50vw"
-          fill
-          className="w-full h-full"
-          loading="eager"
-        />
-        <Image
-          src={nextQuestion.choiceRight.img_path}
-          alt="next image right"
-          sizes="(max-width: 768px) 100vw,
-              50vw"
-          fill
-          className="w-full h-full"
-          loading="eager"
-        />
+              fill
+              className="w-full h-full"
+              loading="eager"
+            />
+          ))
+        }
       </div>
     )
   }
 
   return (
-    <PageTransitionWrapper
-      className="w-full h-full absolute inset-0"
-      key={`${props.question.choiceLeft.title}-${props.question.choiceRight.title}`}
-      title={`${props.question.choiceLeft.title} or ${props.question.choiceRight.title}`}
-      description={`${props.question.choiceLeft.title} or ${props.question.choiceRight.title}`}
-    >
-      {nextQuestion && <NextImagesPreloader />}
-      <Question
-        leftChoiceProps={{
-          showResult: showResult,
-          voteCount: voteValues[0],
-          imgUrl: props.question?.choiceLeft.img_path,
-          position: 'left',
-          title: props.question?.choiceLeft.title,
-          onClick: onLeft,
-          totalCount: voteValues[0] + voteValues[1],
-        }}
-        rightChoiceProps={{
-          showResult: showResult,
-          voteCount: voteValues[1],
-          imgUrl: props.question?.choiceRight.img_path,
-          position: 'right',
-          title: props.question?.choiceRight.title,
-          onClick: onRight,
-          totalCount: voteValues[0] + voteValues[1],
-        }}
-        showResult={showResult}
-        onNext={onNext}
-        onSkip={onSkip}
-        onLeft={onLeft}
-        onRight={onRight}
-      />
-    </PageTransitionWrapper>
+    <div>
+      {questionItem && <PageTransitionWrapper
+        className="w-full h-full absolute inset-0"
+        key={`${questionItem.choiceItems[0].item.content}-${questionItem.choiceItems[1].item.content}`}
+        title={`${questionItem.choiceItems[0].item.content} or ${questionItem.choiceItems[1].item.content}`}
+        description={`${questionItem.choiceItems[0].item.content} or ${questionItem.choiceItems[1].item.content}`}
+      >
+        {nextQuestionItem && <NextImagesPreloader/>}
+        <QuestionComponent
+          questionItem={questionItem}
+          addVote={addVoteHandler}
+          onNext={nextQuestionHandler}/>
+      </PageTransitionWrapper>}
+    </div>
   )
 }
 

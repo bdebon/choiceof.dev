@@ -1,16 +1,15 @@
 import Link from 'next/link'
-import { useContext, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { QuestionContext } from './_app'
+import {getQuestions} from "../../../libs/shared/api/question";
 
-// todo find the type for context
 export function Home() {
   const router = useRouter()
   const { slug } = router.query
-  const questionContext = useContext(QuestionContext)
 
   useEffect(() => {
-    if (!slug) router.push('question/' + questionContext.questions[0].slug)
+    getQuestions()
+      .then(response => router.push('/question/' + response.data.currentItem.item.slug))
   }, [slug])
 
   return (

@@ -27,7 +27,7 @@ module.exports = {
     // but it does not seems to work with my project configuration. As soon as I uncomment the below lines
     // the compilation crash and I can't find why.
 
-    // config.module.rules.push({
+    // config.Module.rules.push({
     //   test: /\.css$/,
     //   use: [
     //     {

@@ -1,13 +1,13 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Question } from './question'
+import { QuestionComponent } from './questionComponent'
 import { questions } from '@benjamincode/shared/assets'
 
 export default {
-  component: Question,
+  component: QuestionComponent,
   title: 'Question',
-} as ComponentMeta<typeof Question>
+} as ComponentMeta<typeof QuestionComponent>
 
-const Template: ComponentStory<typeof Question> = (args) => <Question {...args} />
+const Template: ComponentStory<typeof QuestionComponent> = (args) => <QuestionComponent {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {

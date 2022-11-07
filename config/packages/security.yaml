@@ -1,0 +1,37 @@
+# api/config/packages/security.yaml
+security:
+  # https://symfony.com/doc/current/security.html#c-hashing-passwords
+  password_hashers:
+    App\Module\User\User: 'auto'
+
+  # https://symfony.com/doc/current/security/authenticator_manager.html
+  enable_authenticator_manager: true
+  # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+  providers:
+    # used to reload user from session & other features (e.g. switch_user)
+    app_user_provider:
+      entity:
+        class: App\Module\User\User
+        property: email
+
+  firewalls:
+    dev:
+      pattern: ^/_(profiler|wdt)
+      security: false
+    api:
+      pattern: ^/api/
+      stateless: true
+      provider: app_user_provider
+      jwt: ~
+    main:
+      json_login:
+        check_path: /authentication_token
+        username_path: email
+        password_path: password
+        success_handler: lexik_jwt_authentication.handler.authentication_success
+        failure_handler: lexik_jwt_authentication.handler.authentication_failure
+
+  access_control:
+#    - { path: ^api/docs, roles: PUBLIC_ACCESS }
+#    - { path: ^/authentication_token, roles: PUBLIC_ACCESS }
+#    - { path: ^/, roles: IS_AUTHENTICATED_FULLY }

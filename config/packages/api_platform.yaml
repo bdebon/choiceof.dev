@@ -1,0 +1,10 @@
+api_platform:
+  show_webby: false
+  mapping:
+    paths: [ '%kernel.project_dir%/src/Module' ]
+  swagger:
+    api_keys:
+      JWT:
+        name: Authorization
+        type: header
+
