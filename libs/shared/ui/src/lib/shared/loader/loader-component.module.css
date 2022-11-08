@@ -1,0 +1,35 @@
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.loader_fixed {
+  align-items: center;
+  display: inline-flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+.donut_spinner {
+  animation: donut-spin 1.2s linear infinite;
+  border: 4px solid #e6edff;
+  border-left-color: dodgerblue;
+  border-radius: 50%;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+}
+@keyframes donut-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

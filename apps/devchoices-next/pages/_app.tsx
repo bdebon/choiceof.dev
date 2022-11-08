@@ -27,12 +27,10 @@ function CustomApp({ Component, pageProps, router }: AppProps) {
     setQuestionCollection: setQuestions
   }
 
-  getQuestions()
-    .then(response => {
-      if (!questions) {
-        setQuestions(response.data)
-      }
-    })
+  if (!questions) {
+    console.log('ça get de la question')
+    getQuestions().then(response => setQuestions(response.data))
+  }
 
   return (
     <QuestionContext.Provider value={context}>

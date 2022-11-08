@@ -6,6 +6,7 @@ import {
 } from "../../../../api/question";
 import QuestionItemComponent from "./question-item-component";
 import QuestionCollection from "../../../../question/QuestionCollection";
+import LoaderComponent from "../shared/loader/loader-component";
 
 export default function QuestionCollectionComponent(): JSX.Element {
   const [questionCollection, setQuestionCollection] = useState<QuestionCollection>();
@@ -27,7 +28,7 @@ export default function QuestionCollectionComponent(): JSX.Element {
 
   return (<div>
     {!questionCollection && <div>
-      <span>loading...</span>
+      <LoaderComponent/>
     </div>}
     {questionCollection && <div>
       {

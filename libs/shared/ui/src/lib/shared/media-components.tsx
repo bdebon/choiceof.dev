@@ -1,4 +1,4 @@
-import {useRef} from "react";
+import {useRef, useState} from "react";
 import {addMedia} from "../../../../api/media";
 
 export interface MediaProps {
@@ -8,26 +8,27 @@ export interface MediaProps {
 }
 
 export default function MediaComponents(props: MediaProps) {
-  const imgRef = useRef<HTMLImageElement>();
-  const handlePhoto = (e: InputEvent) => {
-    const target = e.target as HTMLInputElement;
+  const [imgSrc, setImgSrc] = useState<string|null>(null)
+  const handlePhoto = (e: { target: HTMLInputElement; }) => {
+    const target = e.target;
     const fileReader = new FileReader();
     fileReader.onload = () => {
       const result = fileReader.result as string;
-      imgRef.current.src = result
+      setImgSrc(result)
       addMedia(result)
         .then((response) => {
           props.contentUrl.image = response.data["@id"]
         })
     }
-
-    fileReader.readAsDataURL(target.files[0]);
+    if  (target.files) {
+      fileReader.readAsDataURL(target.files[0]);
+    }
   }
 
   return (
     <>
       <input onChange={handlePhoto} type="file" placeholder={'photo'}/>
-      <img ref={imgRef}/>
+      {imgSrc && <img src={imgSrc} alt={'alt image'}/>}
     </>
   )
 }

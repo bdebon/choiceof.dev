@@ -2,20 +2,20 @@ import Link from 'next/link'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import {getQuestions} from "../../../libs/shared/api/question";
+import LoaderComponent from "../../../libs/shared/ui/src/lib/shared/loader/loader-component";
 
 export function Home() {
   const router = useRouter()
   const { slug } = router.query
 
   useEffect(() => {
-    getQuestions()
-      .then(response => router.push('/question/' + response.data.currentItem.item.slug))
-  }, [slug])
+     getQuestions()
+       .then(response => router.push('/question/' + response.data.currentItem.item.slug))
+  }, [router, slug])
 
   return (
-    <div>
-      <h1>Welcome to devchoices-next!</h1>
-      <Link href={'/question/tab-or-space'}>Go to question 1</Link>
+    <div className={'bg-black min-w-screen min-h-screen'}>
+      <LoaderComponent fullPage={true}></LoaderComponent>
     </div>
   )
 }

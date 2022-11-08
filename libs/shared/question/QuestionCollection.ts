@@ -46,13 +46,13 @@ export default class QuestionCollection {
     }
   }
 
-  public next(): QuestionItem|null {
-    return this.change('next')
-  }
+  public getNext(): QuestionItem|null { return this.change('next') }
 
-  public prev(): QuestionItem|null {
-    return this.change('prev')
-  }
+  public getPrev(): QuestionItem|null { return this.change('prev') }
+
+  public next(): QuestionItem|null { return this.currentItem = this.getNext() }
+
+  public prev(): QuestionItem|null { return this.currentItem = this.getPrev() }
 
   private change(direction: 'next'|'prev'): QuestionItem|null {
     const currentIndex = this.findIndexById(this.currentItem.item.id)

@@ -25,14 +25,16 @@ export default function QuestionItemComponent(props: questionItemProps): JSX.Ele
     ))}
     <div>
       <span className={'font-bold mr-2'}>Statut :</span>
-      <select onChange={(e) => props.changeState(props.questionItem.item.id, e.target.value as QuestionState)}>
+      <select className={'appearance-none block w-full bg-grey-lighter text-grey-darker border border-gray-400 rounded py-3 px-4 w-64 cursor-pointer'}
+              onChange={(e) => props.changeState(props.questionItem.item.id, e.target.value as QuestionState)}
+      >
         {questionStateList.map(state => (
           <option key={state} value={state} selected={state === props.questionItem.item.state}>{state}</option>
         ))}
       </select>
     </div>
     <div>
-      <Button className={'bg-red-600'} onClick={() => props.removeQuestion(props.questionItem.item.id)}>Supprimer cette question</Button>
+      <Button className={'bg-red-600 mt-5'} onClick={() => props.removeQuestion(props.questionItem.item.id)}>Supprimer cette question</Button>
     </div>
     <hr className={'border my-1'}/>
     <div className={'flex'}>

@@ -36,14 +36,25 @@ export function QuestionPage(props: QuestionPageProps) {
   const { slug } = router.query
   const [hasVoted, setHasVoted] = useState<boolean>(false)
   const questionContext = useContext(QuestionContext)
-  const [nextQuestionItem, setNextQuestionItem] = useState<QuestionItem|null>()
+  const [nextQuestionItem, setNextQuestionItem] = useState<QuestionItem|null>(null)
   const [questionItem, setQuestionItem] = useState<QuestionItem|null>(null)
 
-  useEffect(() => {
+  if (!questionItem) {
+    setQuestionItem(new QuestionItem(props.question))
+  }
+
+  const onLoadPage = () => {
     if (!questionContext.questionCollection) return
-    setQuestionItem(questionContext.questionCollection.findBySlug(slug as string))
+
+    const questionItemBySlug = questionContext.questionCollection.findBySlug(slug as string)
+    if  (questionItemBySlug && questionItemBySlug.item.id !== questionItem.item.id) {
+      setQuestionItem(questionItemBySlug)
+    }
+
+    questionContext.questionCollection.currentItem = questionItem
     setNextQuestionItem(questionContext.questionCollection.next())
-  }, [questionContext.questionCollection, slug])
+  }
+  useEffect(onLoadPage, [questionContext.questionCollection, slug])
 
   const addVoteHandler = (choiceItem: ChoiceItem) => {
     addVote(choiceItem.item["@id"])
@@ -56,16 +67,14 @@ export function QuestionPage(props: QuestionPageProps) {
   }
 
   const nextQuestionHandler = () => {
-    questionContext.questionCollection.currentItem = questionContext.questionCollection.next()
-    questionContext.setQuestionCollection(questionContext.questionCollection)
-    router.push(`/question/${questionContext.questionCollection.currentItem.item.slug}`)
+    router.push(`/question/${nextQuestionItem.item.slug}`)
   }
 
   const NextImagesPreloader = () => {
     return (
       <div className="fixed top-[-4000px] left-[-4000px] w-[100vw] h-[50vh] lg:h-[100vh]">
         {
-          questionItem.choiceItems.map(choiceItem => (
+          nextQuestionItem.choiceItems.map(choiceItem => (
             <Image
               key={choiceItem.item.content}
               src={choiceItem.getImgUrl()}
