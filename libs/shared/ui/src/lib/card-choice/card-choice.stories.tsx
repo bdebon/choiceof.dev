@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { CardChoice } from './card-choice'
 import { questions } from '@benjamincode/shared/assets'
 
-const question = questions
+const question = questions[0]
 
 export default {
   component: CardChoice,
@@ -13,11 +13,11 @@ const Template: ComponentStory<typeof CardChoice> = (args) => <CardChoice {...ar
 
 export const Primary = Template.bind({})
 Primary.args = {
-  title: question[0].choiceLeft.title,
-  imgUrl: question[0].choiceLeft.img_path,
+  title: question.choiceLeft.title,
+  imgUrl: question.choiceLeft.img_path,
   totalCount: 100,
   voteCount: 40,
-  onClick: () => {},
+  onClick: () => console.log("Hello World"),
   position: 'left',
   showResult: false,
 }
