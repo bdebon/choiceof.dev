@@ -118,4 +118,4 @@ jobs:
           name: dist
           path: dist
       - name: Generate images previews
-        run: pnpm ts-node --project tsconfig-generator.json preview-generator.ts && ls
+        run: pnpm ts-node --project tsconfig-generator.json preview-generator.ts && git status && git add -A && git commit -m "Generate images previews"
