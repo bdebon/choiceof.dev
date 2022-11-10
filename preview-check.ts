@@ -7,7 +7,7 @@ const assetPath = 'apps/devchoices-next/public'
 
 questions.forEach(async (question) => {
   try {
-    if (!fs.existsSync(`${assetPath}/assets/img/preview-${question.slug}.jpg`)) {
+    if (!fs.existsSync(`${assetPath}/assets/img-previews/preview-${question.slug}.jpg`)) {
       console.log(`Preview for ${question.slug} already exists`)
       core.setFailed(`Preview for ${question.slug} not found, please generate it running: `)
       console.log('pnpm ts-node --project tsconfig-generator.json preview-generator.ts')

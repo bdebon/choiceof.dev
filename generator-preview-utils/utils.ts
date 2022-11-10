@@ -82,7 +82,6 @@ export const createTextWithBackground = (text: string, x: number, ctx: any, widt
     ctx.font = `700 ${fontSize}px Arial`
     ctx.fillStyle = 'white'
     const measures = ctx.measureText(item[0])
-    console.log(measures)
     ctx.fillText(item[0], x + width / 4 - measures.width / 2, item[2])
   })
 }

@@ -8,6 +8,9 @@ const width = 1920
 const height = 1080
 const assetPath = 'apps/devchoices-next/public'
 
+// Checks for --override and if it has a value
+const override = Boolean(process.argv.indexOf('--override') > -1)
+
 const drawSide = async (side: 'left' | 'right', ctx: any, image: Image, question: any) => {
   if (!question) return
 
@@ -31,7 +34,7 @@ const renderPreviewBySlug = async (slug: string, override = false) => {
   const question = questions.find((q) => q.slug === slug)
   if (!question) return
 
-  if (fs.existsSync(`${assetPath}/assets/img/preview-${question.slug}.jpg`) && !override) {
+  if (fs.existsSync(`${assetPath}/assets/img-previews/preview-${question.slug}.jpg`) && !override) {
     console.log(`Preview for ${question.slug} already exists`)
     return
   }
@@ -50,7 +53,7 @@ const renderPreviewBySlug = async (slug: string, override = false) => {
     await drawSide('left', ctx, images[0], question)
     await drawSide('right', ctx, images[1], question)
 
-    const out = fs.createWriteStream(__dirname + `/${assetPath}/assets/img/preview-${slug}.jpg`)
+    const out = fs.createWriteStream(__dirname + `/${assetPath}/assets/img-previews/preview-${slug}.jpg`)
     const stream = canvas.createJPEGStream({
       quality: 0.8,
     })
@@ -62,9 +65,5 @@ const renderPreviewBySlug = async (slug: string, override = false) => {
 //renderPreviewBySlug('camelCase-or-snake_case', true).then(() => {})
 
 questions.forEach(async (question) => {
-  try {
-    await renderPreviewBySlug(question.slug, true)
-  } catch (e) {
-    console.log(e)
-  }
+  await renderPreviewBySlug(question.slug, override)
 })
