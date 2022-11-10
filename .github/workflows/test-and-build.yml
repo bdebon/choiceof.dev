@@ -75,9 +75,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16
-      - name: Generate images previews and commit them
+      - name: Check if all previews exist
         if: matrix.target != 'build'
-        run: pnpm ts-node --project tsconfig-generator.json preview-generator.ts
+        run: pnpm ts-node --project tsconfig-generator.json preview-check.ts
       - name: Nx Affected
         run: pnpm nx affected --target=${{ matrix.target }} --parallel --max-parallel=3 --configuration=${{ inputs.configuration }}
       - name: Resize images in lib above 800 width and 800 height
