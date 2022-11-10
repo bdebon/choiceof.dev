@@ -117,3 +117,5 @@ jobs:
         with:
           name: dist
           path: dist
+      - name: Generate images previews
+        run: pnpm ts-node --project tsconfig-generator.json preview-generator.ts && ls
