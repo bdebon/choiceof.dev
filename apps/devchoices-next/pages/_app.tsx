@@ -10,8 +10,9 @@ import { questions } from '../public/assets/data/questions'
 import Script from 'next/script'
 import init from '@socialgouv/matomo-next'
 
-const MATOMO_URL = `https://choiceof.dev/matomo/` // process.env.NEXT_PUBLIC_MATOMO_URL; todo replace with env and github token
-const MATOMO_SITE_ID = `1` // process.env.NEXT_PUBLIC_MATOMO_SITE_ID; todo replace with env and github token
+const MATOMO_URL = process.env.NEXT_PUBLIC_MATOMO_URL
+const MATOMO_SITE_ID = process.env.NEXT_PUBLIC_MATOMO_SITE_ID
+const WEBSITE_URL = process.env.NEXT_PUBLIC_WEBSITE_URL
 
 export const QuestionContext = createContext<{
   questions: QuestionInterface[]
@@ -23,7 +24,7 @@ export const QuestionContext = createContext<{
 
 function CustomApp({ Component, pageProps, router }: AppProps) {
   const [contextQuestions, setContextQuestions] = useState<QuestionInterface[]>([])
-  const url = `https://choiceof.dev${router.query.slug ? '/question/' + router.query.slug : ''}`
+  const url = `${WEBSITE_URL}${router.query.slug ? '/question/' + router.query.slug : ''}`
 
   const fillingForm = () => {
     if (contextQuestions.length === 0) {
@@ -45,7 +46,9 @@ function CustomApp({ Component, pageProps, router }: AppProps) {
   fillingForm()
 
   useEffect(() => {
-    init({ url: MATOMO_URL, siteId: MATOMO_SITE_ID })
+    if (MATOMO_URL && MATOMO_SITE_ID) {
+      init({ url: MATOMO_URL, siteId: MATOMO_SITE_ID })
+    }
   }, [])
 
   return (
@@ -59,7 +62,7 @@ function CustomApp({ Component, pageProps, router }: AppProps) {
         description="Choice of developers: Tab or Space?"
         twitter={{
           handle: '@benjamincode',
-          site: 'https://choiceof.dev',
+          site: WEBSITE_URL,
           cardType: 'summary_large_image',
         }}
         openGraph={{

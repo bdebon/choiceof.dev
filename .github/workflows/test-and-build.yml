@@ -112,6 +112,16 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
           allow-repeats: true
+      - name: Make envfile
+        uses: SpicyPizza/create-envfile@v1.3
+        with:
+          envkey_NEXT_PUBLIC_WEBSITE_URL: "https://choiceof.dev"
+          envkey_NEXT_PUBLIC_MATOMO_URL: "https://choiceof.dev/matomo/"
+          envkey_NEXT_PUBLIC_MATOMO_SITE_ID: 1
+          file_name: .env.local
+          fail_on_empty: false
+      - name: show content of .env.local
+        run: cat .env.local
       - name: Next export
         if: matrix.target == 'build'
         run: pnpm nx run devchoices-next:export
