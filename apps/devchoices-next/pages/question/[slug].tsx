@@ -154,41 +154,33 @@ export function QuestionPage(props: QuestionPageProps) {
       />
       {nextQuestion && <NextImagesPreloader />}
       {question && (
-        <>
-          <Question
-            leftChoiceProps={{
-              showResult: showResult,
-              voteCount: voteValues[0],
-              imgUrl: question.choiceLeft.img_path,
-              position: 'left',
-              title: question.choiceLeft.title,
-              onClick: onLeft,
-              totalCount: voteValues[0] + voteValues[1],
-            }}
-            rightChoiceProps={{
-              showResult: showResult,
-              voteCount: voteValues[1],
-              imgUrl: question.choiceRight.img_path,
-              position: 'right',
-              title: question.choiceRight.title,
-              onClick: onRight,
-              totalCount: voteValues[0] + voteValues[1],
-            }}
-            showResult={showResult}
-            onNext={onNext}
-            onSkip={onSkip}
-            onLeft={onLeft}
-            onRight={onRight}
-          />
-          <div className="absolute bottom-0 right-4">
-            <TwitterShareButton
-              url={`${WEBSITE_URL}/question/${question.slug}/`}
-              title={'next-share is a social share buttons for your next React apps.'}
-            >
-              <TwitterIcon size={32} round />
-            </TwitterShareButton>
-          </div>
-        </>
+        <Question
+          leftChoiceProps={{
+            showResult: showResult,
+            voteCount: voteValues[0],
+            imgUrl: question.choiceLeft.img_path,
+            position: 'left',
+            title: question.choiceLeft.title,
+            onClick: onLeft,
+            totalCount: voteValues[0] + voteValues[1],
+          }}
+          rightChoiceProps={{
+            showResult: showResult,
+            voteCount: voteValues[1],
+            imgUrl: question.choiceRight.img_path,
+            position: 'right',
+            title: question.choiceRight.title,
+            onClick: onRight,
+            totalCount: voteValues[0] + voteValues[1],
+          }}
+          questionSlug={question.slug}
+          websiteUrl={WEBSITE_URL}
+          showResult={showResult}
+          onNext={onNext}
+          onSkip={onSkip}
+          onLeft={onLeft}
+          onRight={onRight}
+        />
       )}
     </PageTransitionWrapper>
   )

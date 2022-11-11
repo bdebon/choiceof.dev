@@ -4,6 +4,7 @@ specifiers:
   '@actions/core': ^1.10.0
   '@babel/core': 7.19.6
   '@babel/preset-typescript': 7.12.13
+  '@babel/runtime': ^7.20.1
   '@commitlint/cli': ^17.2.0
   '@commitlint/config-conventional': ^17.2.0
   '@nrwl/cli': 14.5.10
@@ -74,6 +75,7 @@ specifiers:
   webpack-cli: ^4.10.0
 
 dependencies:
+  '@babel/runtime': 7.20.1
   '@socialgouv/matomo-next': 1.4.0_next@12.3.1
   '@storybook/addon-interactions': 6.5.13_tvfz2go47q3ajlpe3v4grsmgwy
   '@storybook/addon-links': 6.5.13_biqbaboplfbrettd7655fr4n2y
