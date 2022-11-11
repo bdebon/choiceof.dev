@@ -33,6 +33,7 @@ export interface QuestionPageProps {
 }
 
 export function QuestionPage(props: QuestionPageProps) {
+  console.log(process.env['NODE_ENV'])
   const router = useRouter()
   const { slug } = router.query
   const [hasVoted, setHasVoted] = useState<boolean>(false)

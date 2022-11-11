@@ -35,20 +35,6 @@ services:
       - dev-symfony
     depends_on:
       - database
-#
-#  node:
-#    build:
-#      context: ./
-#      dockerfile: ./docker/node/Dockerfile
-#    environment:
-#      - NODE_ENV=developement
-#    volumes:
-#      - ./:/srv/app
-#    ports:
-#      - "3000:3000"
-#      - "4000:4000"
-#    networks:
-#      - dev-symfony
 
   node:
     image: "node:lts-alpine"
@@ -61,7 +47,7 @@ services:
     command:
       >
       sh -c "yarn install &
-      yarn start & yarn storybook"
+      yarn start"
     ports:
       - "4400:4400"
       - "4200:4200"
