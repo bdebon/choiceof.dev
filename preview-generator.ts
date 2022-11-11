@@ -2,10 +2,9 @@ import { Canvas, Image, loadImage } from 'canvas'
 import { createTextWithBackground, drawImageProp } from './generator-preview-utils/utils'
 import * as fs from 'fs'
 import { questions } from './apps/devchoices-next/public/assets/data/questions'
-const canvas = new Canvas(100, 100)
 
-const width = 1920
-const height = 1080
+const width = 1200
+const height = 628
 const assetPath = 'apps/devchoices-next/public'
 
 // Checks for --override and if it has a value
@@ -47,7 +46,7 @@ const renderPreviewBySlug = async (slug: string, override = false) => {
   const promiseImg1 = loadImage(assetPath + question.choiceLeft.img_path)
   const promiseImg2 = loadImage(assetPath + question.choiceRight.img_path)
   Promise.all([promiseImg1, promiseImg2]).then(async (images) => {
-    const canvas = new Canvas(1920, 1080)
+    const canvas = new Canvas(width, height)
     const ctx = canvas.getContext('2d')
 
     await drawSide('left', ctx, images[0], question)

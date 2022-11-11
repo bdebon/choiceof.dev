@@ -140,7 +140,14 @@ export function QuestionPage(props: QuestionPageProps) {
         openGraph={{
           title: `${props.question?.choiceLeft.title} or ${props.question?.choiceRight.title}`,
           description: `You won't believe how many people voted the left choice!`,
-          images: [{ url: `https:://choiceof.dev/assets/img-previews/preview-${props.question?.slug}.jpg` }],
+          images: [
+            {
+              url: `https://choiceof.dev/assets/img-previews/preview-${props.question?.slug}.jpg`,
+              height: 628,
+              width: 1200,
+              alt: `${props.question?.choiceLeft.title}-${props.question?.choiceRight.title}`,
+            },
+          ],
         }}
       />
       {nextQuestion && <NextImagesPreloader />}
