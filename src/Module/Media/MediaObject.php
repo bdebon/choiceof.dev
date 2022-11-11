@@ -48,14 +48,15 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 class MediaObject
 {
     #[ORM\Id, ORM\Column, ORM\GeneratedValue]
+    #[Groups(['media_object:read', 'read:question', 'create:question', 'update:question'])]
     private ?int $id = null;
 
     #[ApiProperty(types: ['https://schema.org/contentUrl'])]
-    #[Groups(['media_object:read', 'read:question'])]
+    #[Groups(['media_object:read', 'read:question', 'create:question', 'update:question'])]
     public ?string $contentUrl = null;
 
     #[Vich\UploadableField(mapping: "media_object", fileNameProperty: "filePath")]
-    #[Assert\NotNull(groups: ['media_object_create', 'create:question'])]
+    #[Assert\NotNull(groups: ['media_object_create'])]
     public ?File $file = null;
 
     #[ORM\Column(nullable: true)]

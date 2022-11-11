@@ -1,19 +1,20 @@
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
 import { PageTransitionWrapper, QuestionComponent } from '@benjamincode/shared/ui'
-import { QuestionContext } from '../_app'
+import { QuestionContext } from 'apps/devchoices-next/pages/_app'
 import Image from 'next/future/image'
-import {ApiQuestionItem, getQuestions} from "../../../../libs/shared/api/question";
-import {QuestionItem} from "../../../../libs/shared/question/QuestionCollection";
-import {addVote} from "../../../../libs/shared/api/vote";
-import {ChoiceItem} from "../../../../libs/shared/question/Choice";
+import {getQuestions} from "libs/shared/application/question/question-client";
+import {ApiReadChoiceDecorator} from "libs/shared/application/choice/api-read-choice-decorator";
+import {addVote} from "libs/shared/application/vote/vote-client";
+import {ApiReadQuestion} from "libs/shared/application/question/question";
+import {ApiReadQuestionDecorator} from "libs/shared/application/question/api-read-question-decorator";
 
 export async function getStaticProps(context): Promise<{ props: QuestionPageProps }> {
   const {data} = await getQuestions()
 
   return {
     props: {
-      question: data.findBySlug(context.params.slug).item
+      question: data.findBySlug(context.params.slug).item as ApiReadQuestion
     },
   }
 }
@@ -28,7 +29,7 @@ export async function getStaticPaths(context) {
 }
 
 export interface QuestionPageProps {
-  question?: ApiQuestionItem
+  question?: ApiReadQuestion
 }
 
 export function QuestionPage(props: QuestionPageProps) {
@@ -36,11 +37,11 @@ export function QuestionPage(props: QuestionPageProps) {
   const { slug } = router.query
   const [hasVoted, setHasVoted] = useState<boolean>(false)
   const questionContext = useContext(QuestionContext)
-  const [nextQuestionItem, setNextQuestionItem] = useState<QuestionItem|null>(null)
-  const [questionItem, setQuestionItem] = useState<QuestionItem|null>(null)
+  const [nextQuestionItem, setNextQuestionItem] = useState<ApiReadQuestionDecorator|null>(null)
+  const [questionItem, setQuestionItem] = useState<ApiReadQuestionDecorator|null>(null)
 
   if (!questionItem) {
-    setQuestionItem(new QuestionItem(props.question))
+    setQuestionItem(new ApiReadQuestionDecorator(props.question))
   }
 
   const onLoadPage = () => {
@@ -56,7 +57,7 @@ export function QuestionPage(props: QuestionPageProps) {
   }
   useEffect(onLoadPage, [questionContext.questionCollection, slug])
 
-  const addVoteHandler = (choiceItem: ChoiceItem) => {
+  const addVoteHandler = (choiceItem: ApiReadChoiceDecorator) => {
     addVote(choiceItem.item["@id"])
       .then(() => {
         setQuestionItem(questionItem)

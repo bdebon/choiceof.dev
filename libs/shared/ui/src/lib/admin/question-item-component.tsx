@@ -1,10 +1,10 @@
-import {QuestionState, questionStateList} from "../../../../api/question";
 import ChoiceItem from "./choice-item";
 import Button from "../button/button";
-import {QuestionItem} from "../../../../question/QuestionCollection";
+import {QuestionState, questionStateList} from "../../../../application/question/question";
+import {ApiReadQuestionDecorator} from "../../../../application/question/api-read-question-decorator";
 
 export interface questionItemProps {
-  questionItem: QuestionItem,
+  questionItem: ApiReadQuestionDecorator,
   removeQuestion: (id: number) => void,
   changeState: (id: number, state: QuestionState) => void
 }
@@ -13,7 +13,7 @@ export default function QuestionItemComponent(props: questionItemProps): JSX.Ele
   const headers: {label: string, value: string|number}[] = [
     { label: 'Id', value: props.questionItem.item.id },
     { label: 'Titre', value: props.questionItem.item.content },
-    { label: 'Vote total', value: props.questionItem.item.totalVote },
+    { label: 'VoteClient total', value: props.questionItem.item.totalVote },
   ]
 
   return (<div  className={'border-2 p-2 my-2'}>

@@ -2,13 +2,13 @@ import { CSSProperties, useCallback, useEffect, useState } from 'react'
 import CountUp from 'react-countup'
 import Or from '../or/or'
 import Image from 'next/future/image'
-import {ChoiceItem} from "../../../../question/Choice";
-import {QuestionItem} from "../../../../question/QuestionCollection";
+import {ApiReadChoiceDecorator} from "../../../../application/choice/api-read-choice-decorator";
+import {ApiReadQuestionDecorator} from "../../../../application/question/api-read-question-decorator";
 
 export interface CardChoiceProps {
-  questionItem: QuestionItem
-  choiceItem: ChoiceItem
-  addVote: (choiceItem: ChoiceItem) => void
+  questionItem: ApiReadQuestionDecorator
+  choiceItem: ApiReadChoiceDecorator
+  addVote: (choiceItem: ApiReadChoiceDecorator) => void
   position?: 'left' | 'right'
 }
 

@@ -5,12 +5,12 @@ import { DefaultSeo } from 'next-seo'
 import { AnimatePresence } from 'framer-motion'
 import {createContext, Dispatch, SetStateAction, useState} from 'react'
 import Script from 'next/script'
-import {getQuestions} from "../../../libs/shared/api/question";
-import QuestionCollection from "../../../libs/shared/question/QuestionCollection";
+import {getQuestions} from "../../../libs/shared/application/question/question-client";
+import ApiCollectionQuestionDecorator from "../../../libs/shared/application/question/api-collection-question-decorator";
 
 export interface DefaultQuestionContext {
-  questionCollection: QuestionCollection|null,
-  setQuestionCollection: Dispatch<SetStateAction<QuestionCollection>>|null
+  questionCollection: ApiCollectionQuestionDecorator|null,
+  setQuestionCollection: Dispatch<SetStateAction<ApiCollectionQuestionDecorator>>|null
 }
 
 export const QuestionContext = createContext<DefaultQuestionContext>({
@@ -19,7 +19,7 @@ export const QuestionContext = createContext<DefaultQuestionContext>({
 })
 
 function CustomApp({ Component, pageProps, router }: AppProps) {
-  const [questions, setQuestions] = useState<QuestionCollection|null>(null)
+  const [questions, setQuestions] = useState<ApiCollectionQuestionDecorator|null>(null)
   const url = `https://choiceof.dev${router.query.slug ? '/question/' + router.query.slug : ''}`
 
   const context: DefaultQuestionContext = {
@@ -28,7 +28,6 @@ function CustomApp({ Component, pageProps, router }: AppProps) {
   }
 
   if (!questions) {
-    console.log('ça get de la question')
     getQuestions().then(response => setQuestions(response.data))
   }
 

@@ -1,0 +1,23 @@
+.input {
+  @apply shadow appearance-none border rounded w-full py-2 px-3 p-2 border-gray-400
+}
+
+.base_button {
+  @apply cursor-pointer hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded
+}
+
+.button {
+  @apply base_button bg-blue-600
+}
+
+.button_danger {
+  @apply base_button bg-red-400
+}
+
+.label {
+  @apply block text-sm font-bold mb-2
+}
+
+.wrapper {
+  @apply bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4
+}

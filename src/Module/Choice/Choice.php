@@ -21,7 +21,7 @@ class Choice
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['read:question', 'create:question'])]
+    #[Groups(['read:question', 'create:question', 'update:question'])]
     private ?string $content = null;
 
     #[ORM\ManyToOne(inversedBy: 'choices')]
@@ -37,7 +37,7 @@ class Choice
     #[ORM\ManyToOne(targetEntity: MediaObject::class, cascade: ["persist"])]
     #[ORM\JoinColumn(nullable: true)]
     #[ApiProperty(types: ['https://schema.org/image'])]
-    #[Groups(['read:question', 'create:question'])]
+    #[Groups(['read:question', 'create:question', 'update:question'])]
     public ?MediaObject $image = null;
 
     public function __construct()

@@ -1,15 +1,14 @@
 import {useState} from "react";
 import {
   getQuestions,
-  removeQuestion,
-  updateQuestion
-} from "../../../../api/question";
-import QuestionItemComponent from "./question-item-component";
-import QuestionCollection from "../../../../question/QuestionCollection";
-import LoaderComponent from "../shared/loader/loader-component";
+} from "libs/shared/application/question/question-client";
+import ApiCollectionQuestionDecorator from "libs/shared/application/question/api-collection-question-decorator";
+import LoaderComponent from "libs/shared/ui/src/lib/shared/loader/loader-component";
+import FormQuestion, {Action} from "libs/shared/ui/src/lib/new-question/form-question";
+import {ApiReadQuestion} from "../../../../application/question/question";
 
 export default function QuestionCollectionComponent(): JSX.Element {
-  const [questionCollection, setQuestionCollection] = useState<QuestionCollection>();
+  const [questionCollection, setQuestionCollection] = useState<ApiCollectionQuestionDecorator>();
 
   const loadQuestionCollection = () => {
     return getQuestions()
@@ -18,11 +17,9 @@ export default function QuestionCollectionComponent(): JSX.Element {
       })
   }
 
-  const handleRemoveQuestion = (id: number) =>
-    removeQuestion(id).then(() => loadQuestionCollection())
-
-  const handleChangeState = (id: number, state: string) =>
-    updateQuestion(id, {state:state}).then(() => loadQuestionCollection())
+  const handleChange = (question: ApiReadQuestion|null, action: Action): void => {
+    loadQuestionCollection()
+  }
 
   !questionCollection && loadQuestionCollection()
 
@@ -32,12 +29,8 @@ export default function QuestionCollectionComponent(): JSX.Element {
     </div>}
     {questionCollection && <div>
       {
-        questionCollection.collection.map(question => (
-          <QuestionItemComponent
-            key={question.item.id}
-            removeQuestion={handleRemoveQuestion}
-            questionItem={question}
-            changeState={handleChangeState}/>
+        questionCollection.collection.map(questionDecorator => (
+          <FormQuestion onUpdate={handleChange} key={questionDecorator.item.id + '-question'} question={questionDecorator}/>
         ))
       }
     </div>}

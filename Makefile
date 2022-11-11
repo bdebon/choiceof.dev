@@ -17,12 +17,15 @@ test:
 	$(PHP_CMD) bin/console --env=test doctrine:database:create
 	$(PHP_CMD) bin/console --env=test doctrine:database:drop  --force
 	$(PHP_CMD) bin/console --env=test doctrine:schema:create
-	#$(PHP_CMD) bin/console --env=test doctrine:migrations:migrate --no-interaction --allow-no-migration
 	$(PHP_CMD) bin/console --env=test doctrine:fixtures:load --append
 	$(PHP_CMD) bin/phpunit
+
 
 database-dev:
 	$(PHP_CMD) bin/console doctrine:database:drop --if-exists --force
 	$(PHP_CMD) bin/console doctrine:database:create --if-not-exists
 	$(PHP_CMD) bin/console doctrine:migrations:migrate --no-interaction --allow-no-migration
 	$(PHP_CMD) bin/console doctrine:fixtures:load --append
+
+docker-install:
+	docker-compose build

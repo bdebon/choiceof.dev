@@ -1,12 +1,12 @@
 import { CardChoice, CardChoiceProps } from '../card-choice/card-choice'
 import Or from '../or/or'
 import Button from '../button/button'
-import { QuestionItem } from 'libs/shared/question/QuestionCollection';
-import {ChoiceItem} from "../../../../question/Choice";
+import {ApiReadChoiceDecorator} from "../../../../application/choice/api-read-choice-decorator";
+import {ApiReadQuestionDecorator} from "../../../../application/question/api-read-question-decorator";
 
 export interface QuestionProps {
-  questionItem: QuestionItem
-  addVote: (choiceItem: ChoiceItem) => void
+  questionItem: ApiReadQuestionDecorator
+  addVote: (choiceItem: ApiReadChoiceDecorator) => void
   onNext: () => void
   // onSkip: () => void
   // onLeft: () => void

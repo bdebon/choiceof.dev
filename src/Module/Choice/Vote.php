@@ -11,7 +11,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 #[ORM\Entity(repositoryClass: VoteRepository::class)]
 #[ApiResource(operations: [
     new Post(
-        description: "Add Vote",
+        description: "Add VoteClient",
         denormalizationContext: ['groups' => 'vote:create']
     ),
 ])]

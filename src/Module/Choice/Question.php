@@ -22,7 +22,8 @@ use Gedmo\Mapping\Annotation\Slug;
         normalizationContext: ['groups' => 'read:question']
     ),
     new Post(
-        denormalizationContext: ['groups' => 'create:question']
+        normalizationContext: ['groups' => 'read:question'],
+        denormalizationContext: ['groups' => 'create:question'],
     ),
     new GetCollection(
         normalizationContext: ['groups' => 'read:question'],
@@ -31,10 +32,14 @@ use Gedmo\Mapping\Annotation\Slug;
         security: "is_granted('ROLE_ADMIN')"
     ),
     new Patch(
+        normalizationContext: ['groups' => 'read:question'],
+        denormalizationContext: ['groups' => 'update:question'],
         security: "is_granted('ROLE_ADMIN')"
     )
 ])]
-#[ApiFilter(SearchFilter::class, properties: ['id' => 'exact', 'slug' => 'exact'])]
+#[ApiFilter(
+    SearchFilter::class, properties: ['id' => 'exact', 'slug' => 'exact'],
+)]
 class Question
 {
     public const VALIDATED_STATE = 'validated';
@@ -47,11 +52,11 @@ class Question
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['read:question', 'create:question'])]
+    #[Groups(['read:question', 'create:question', 'update:question'])]
     private ?string $content = null;
 
     #[ORM\OneToMany(mappedBy: 'question', targetEntity: Choice::class, cascade: ["all"], orphanRemoval: true)]
-    #[Groups(['read:question', 'create:question'])]
+    #[Groups(['read:question', 'create:question', 'update:question'])]
     private Collection $choices;
 
     #[ORM\Column(length: 255)]
@@ -114,8 +119,8 @@ class Question
     {
         if ($this->choices->removeElement($choice)) {
             // set the owning side to null (unless already changed)
-            if ($choice->getChoices() === $this) {
-                $choice->setChoices(null);
+            if ($choice->getQuestion() === $this) {
+                $choice->setQuestion(null);
             }
         }
 

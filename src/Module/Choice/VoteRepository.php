@@ -7,11 +7,6 @@ use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @extends ServiceEntityRepository<Vote>
- *
- * @method Vote|null find($id, $lockMode = null, $lockVersion = null)
- * @method Vote|null findOneBy(array $criteria, array $orderBy = null)
- * @method Vote[]    findAll()
- * @method Vote[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class VoteRepository extends ServiceEntityRepository
 {
@@ -39,7 +34,7 @@ class VoteRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Vote[] Returns an array of Vote objects
+//     * @return VoteClient[] Returns an array of VoteClient objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -53,7 +48,7 @@ class VoteRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Vote
+//    public function findOneBySomeField($value): ?VoteClient
 //    {
 //        return $this->createQueryBuilder('v')
 //            ->andWhere('v.exampleField = :val')

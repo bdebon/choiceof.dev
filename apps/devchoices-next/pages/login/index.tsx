@@ -1,9 +1,12 @@
-import UserToken, {UserConnection} from "../../../../libs/shared/user/user";
-import {useEffect, useState} from "react";
+import {useUserToken} from "libs/shared/application/user/user";
+import {FormEvent, useEffect, useState} from "react";
 import {useRouter} from 'next/router'
+import sharedStyle from "libs/shared/ui/src/lib/shared/shared.module.css";
+import {UserConnection} from "libs/shared/application/user/user-client";
 
 export default function Page() {
   const router = useRouter()
+  const userToken = useUserToken()
   const userConnection: UserConnection = {
     email: '',
     password: ''
@@ -12,15 +15,15 @@ export default function Page() {
   const [error, setError] = useState<boolean>(false);
 
   const redirectToAdminPage = () => {
-    if (UserToken.isConnected()) router.push("admin/home")
+    if (userToken.isConnected()) router.push("admin/home")
   }
 
-  const handleSubmit = (e) => {
-    UserToken.connection(userConnection)
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    userToken.connection(userConnection)
       .then(() => {
         redirectToAdminPage()
       })
-      .catch((e) => {
+      .catch(() => {
         setError(true);
       })
     e.preventDefault()
@@ -31,33 +34,33 @@ export default function Page() {
   return (
     <div className={'md:h-screen bg-white relative flex flex-col justify-center items-center'}>
       <form onSubmit={handleSubmit}>
-        <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+        <div className={sharedStyle.wrapper}>
           <div className="mb-4">
-            <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="username">
+            <label className={sharedStyle.label} htmlFor="username">
               Email
             </label>
-            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+            <input className={sharedStyle.input}
                    type="text" placeholder="email"
                    onChange={(e) => userConnection.email = e.target.value}
                    required
             />
           </div>
           <div className="mb-6">
-            <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="password">
+            <label className={sharedStyle.label} htmlFor="password">
               Password
             </label>
-            <input className="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3"
+            <input className={sharedStyle.input}
                    type="password" placeholder="******************"
                    onChange={(e) => userConnection.password = e.target.value}
                    required
             />
           </div>
-          <div className="flex items-center justify-between">
-            <input value="Sign In" className="cursor-pointer bg-blue-600 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded" type="submit" />
+          <div>
+            <input value="Sign In" className={sharedStyle.button} type="submit" />
           </div>
           <div>
             {error &&
-              <span>Problème de connection</span>
+              <span className={'text-red-500'}>Problème de connection</span>
             }
           </div>
         </div>

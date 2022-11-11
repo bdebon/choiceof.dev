@@ -39,7 +39,7 @@ final class QuestionRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Question[] Returns an array of Question objects
+//     * @return QuestionClient[] Returns an array of QuestionClient objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -53,7 +53,7 @@ final class QuestionRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Question
+//    public function findOneBySomeField($value): ?QuestionClient
 //    {
 //        return $this->createQueryBuilder('q')
 //            ->andWhere('q.exampleField = :val')
