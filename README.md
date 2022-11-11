@@ -12,6 +12,9 @@ Developers have to cope with pretty hard choices every day. This is a collection
 
 As it is a project by the developers for the developers, we want to make the act to contribute a cool and fun way to learn how to contribute to open source project.
 To add a question, you must clone the project locally, built it, updating one file and adding your two images.
+
+Just a quick reminder, the project is supposed to be funny. Therefore, questions must be... funny. If you are creating a question that is not extremely funny in the choice, at least, try to find funny images to illustrate it.
+
 The file to edit is: `apps/devchoices-next/public/assets/data/questions.ts`
 <p style="text-align: center;"><img src="readme/question-format.jpg" width="450"></p>
 
@@ -22,9 +25,19 @@ Then you have to add two images in the folder ``apps/devchoices-next/public/asse
 Then you can run the project locally and check if everything is working fine. You can test your question directly by going to the following url:
 `localhost:4200/question/your-slug`
 
-If you like the result, you can submit your PR, we will review it and if everything is fine, and the joke is fun, we will merge it and your question will be available on the website 🎉
+If you like the result, it's time to generate the preview of this question for social networks.
+To do this run the command:
 
-## How to contribute
+``pnpm ts-node --project tsconfig-generator.json preview-generator.ts``
+
+if you want for any reason to regenerate all the previews, you can run the command:
+
+``pnpm ts-node --project tsconfig-generator.json preview-generator.ts --override``
+
+Now you are ready to submit your PR. We will review it and if everything is fine, and the joke is fun, we will merge it and your question will be available on the website 🎉
+
+
+## How to contribute to the core project and adding features
 
 In the issues of the repository, you will see many open tickets. You can take one of them if you fancy and propose your solution on a PR.
 You can also create issues by yourself if you experienced a bug or if you have an idea for a new feature.

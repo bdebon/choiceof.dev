@@ -27,6 +27,7 @@
     "webpack": ">=5.0.0 <6.0.0"
   },
   "devDependencies": {
+    "@actions/core": "^1.10.0",
     "@babel/core": "7.19.6",
     "@babel/preset-typescript": "7.12.13",
     "@commitlint/cli": "^17.2.0",
@@ -58,6 +59,7 @@
     "autoprefixer": "10.4.8",
     "babel-jest": "27.5.1",
     "babel-loader": "8.1.0",
+    "canvas": "^2.10.2",
     "cypress": "^10.2.0",
     "eslint": "~8.15.0",
     "eslint-config-next": "12.3.1",
