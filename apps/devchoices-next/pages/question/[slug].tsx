@@ -6,6 +6,7 @@ import { PageTransitionWrapper, Question } from '@benjamincode/shared/ui'
 import { QuestionContext } from '../_app'
 import Image from 'next/future/image'
 import { NextSeo } from 'next-seo'
+import { TwitterIcon, TwitterShareButton } from 'next-share'
 
 export const getStaticProps = async (context: { params: { slug: string } }): Promise<{ props: QuestionPageProps }> => {
   const slug = context.params.slug
@@ -32,6 +33,8 @@ export interface QuestionPageProps {
   question?: QuestionInterface
 }
 
+const WEBSITE_URL = process.env.NEXT_PUBLIC_WEBSITE_URL
+
 export function QuestionPage(props: QuestionPageProps) {
   const router = useRouter()
   const { slug } = router.query
@@ -39,6 +42,7 @@ export function QuestionPage(props: QuestionPageProps) {
   const questionContext = useContext(QuestionContext)
   const [nextQuestion, setNextQuestion] = useState<QuestionInterface>()
   const [voteValues, setVoteValues] = useState<number[]>([0, 0])
+  const { question } = props
 
   const computeNextQuestion = useCallback(() => {
     if (slug) {
@@ -76,10 +80,8 @@ export function QuestionPage(props: QuestionPageProps) {
   }
 
   const onSkip = async () => {
-    if (props.question)
-      await router.push(
-        '/question/' + questionContext.questions[questionContext.questions.indexOf(props.question) + 1].slug
-      )
+    if (question)
+      await router.push('/question/' + questionContext.questions[questionContext.questions.indexOf(question) + 1].slug)
   }
 
   const onLeft = () => {
@@ -125,52 +127,54 @@ export function QuestionPage(props: QuestionPageProps) {
   return (
     <PageTransitionWrapper
       className="w-full h-full absolute inset-0"
-      key={`${props.question?.choiceLeft.title}-${props.question?.choiceRight.title}`}
-      title={`${props.question?.choiceLeft.title} or ${props.question?.choiceRight.title}`}
-      description={`${props.question?.choiceLeft.title} or ${props.question?.choiceRight.title}`}
+      key={`${question?.choiceLeft.title}-${question?.choiceRight.title}`}
+      title={`${question?.choiceLeft.title} or ${question?.choiceRight.title}`}
+      description={`${question?.choiceLeft.title} or ${question?.choiceRight.title}`}
     >
       <NextSeo
-        title={`${props.question?.choiceLeft.title} or ${props.question?.choiceRight.title}`}
+        title={`${question?.choiceLeft.title} or ${question?.choiceRight.title}`}
         description={`You won't believe how many people voted the left choice!`}
         twitter={{
           handle: '@benjamincode',
-          site: 'https://choiceof.dev',
+          site: WEBSITE_URL,
           cardType: 'summary_large_image',
         }}
         openGraph={{
-          title: `${props.question?.choiceLeft.title} or ${props.question?.choiceRight.title}`,
+          title: `${question?.choiceLeft.title} or ${question?.choiceRight.title}`,
           description: `You won't believe how many people voted the left choice!`,
           images: [
             {
-              url: `https://choiceof.dev/assets/img-previews/preview-${props.question?.slug}.jpg`,
+              url: `${WEBSITE_URL}/assets/img-previews/preview-${question?.slug}.jpg`,
               height: 628,
               width: 1200,
-              alt: `${props.question?.choiceLeft.title}-${props.question?.choiceRight.title}`,
+              alt: `${question?.choiceLeft.title}-${question?.choiceRight.title}`,
             },
           ],
         }}
       />
       {nextQuestion && <NextImagesPreloader />}
-      {props.question && (
+      {question && (
         <Question
           leftChoiceProps={{
             showResult: showResult,
             voteCount: voteValues[0],
-            imgUrl: props.question.choiceLeft.img_path,
+            imgUrl: question.choiceLeft.img_path,
             position: 'left',
-            title: props.question.choiceLeft.title,
+            title: question.choiceLeft.title,
             onClick: onLeft,
             totalCount: voteValues[0] + voteValues[1],
           }}
           rightChoiceProps={{
             showResult: showResult,
             voteCount: voteValues[1],
-            imgUrl: props.question.choiceRight.img_path,
+            imgUrl: question.choiceRight.img_path,
             position: 'right',
-            title: props.question.choiceRight.title,
+            title: question.choiceRight.title,
             onClick: onRight,
             totalCount: voteValues[0] + voteValues[1],
           }}
+          questionSlug={question.slug}
+          websiteUrl={WEBSITE_URL}
           showResult={showResult}
           onNext={onNext}
           onSkip={onSkip}

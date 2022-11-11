@@ -4,6 +4,7 @@ specifiers:
   '@actions/core': ^1.10.0
   '@babel/core': 7.19.6
   '@babel/preset-typescript': 7.12.13
+  '@babel/runtime': ^7.20.1
   '@commitlint/cli': ^17.2.0
   '@commitlint/config-conventional': ^17.2.0
   '@nrwl/cli': 14.5.10
@@ -52,6 +53,7 @@ specifiers:
   jest: 27.5.1
   next: 12.3.1
   next-seo: ^5.8.0
+  next-share: ^0.19.0
   nx: 14.5.10
   postcss: 8.4.16
   postcss-loader: ^7.0.1
@@ -73,6 +75,7 @@ specifiers:
   webpack-cli: ^4.10.0
 
 dependencies:
+  '@babel/runtime': 7.20.1
   '@socialgouv/matomo-next': 1.4.0_next@12.3.1
   '@storybook/addon-interactions': 6.5.13_tvfz2go47q3ajlpe3v4grsmgwy
   '@storybook/addon-links': 6.5.13_biqbaboplfbrettd7655fr4n2y
@@ -81,6 +84,7 @@ dependencies:
   framer-motion: 7.6.4_biqbaboplfbrettd7655fr4n2y
   next: 12.3.1_mk5yftg2men2cn3ayx4t7ddtvy
   next-seo: 5.14.0_azq6kxkn3od7qdylwkyksrwopy
+  next-share: 0.19.0_react@18.2.0
   postcss-loader: 7.0.1_qjv4cptcpse3y5hrjkrbb7drda
   react: 18.2.0
   react-countup: 6.3.2_react@18.2.0
@@ -13090,6 +13094,14 @@ packages:
     optionalDependencies:
       graceful-fs: 4.2.10
 
+  /jsonp/0.2.1:
+    resolution: {integrity: sha512-pfog5gdDxPdV4eP7Kg87M8/bHgshlZ5pybl+yKxAnCZ5O7lCIn7Ixydj03wOlnDQesky2BPyA91SQ+5Y/mNwzw==}
+    dependencies:
+      debug: 2.6.9
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   /jsonparse/1.3.1:
     resolution: {integrity: sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg==}
     engines: {'0': node >= 0.2.0}
@@ -13912,6 +13924,18 @@ packages:
       next: 12.3.1_mk5yftg2men2cn3ayx4t7ddtvy
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /next-share/0.19.0_react@18.2.0:
+    resolution: {integrity: sha512-egqNtBkyoP/takhLK7yxcuXIOMnj55hQfBCdpq5iBkruqJM4JXcdtvQ7HvxYvLKrbWQ99ayKEcsv9dXwSdTd8g==}
+    engines: {node: '>=8', npm: '>=5'}
+    peerDependencies:
+      react: '>=17.0.2'
+    dependencies:
+      jsonp: 0.2.1
+      react: 18.2.0
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /next/12.3.1_mk5yftg2men2cn3ayx4t7ddtvy:
