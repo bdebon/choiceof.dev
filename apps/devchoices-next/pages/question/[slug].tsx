@@ -87,7 +87,18 @@ export function QuestionPage(props: QuestionPageProps) {
     )
   }
 
-  const onLeft = () => {
+  const onClick = (position) => {
+    const form = new FormData()
+    form.append('position', position)
+    fetch(`http://localhost:8000/?slug=${slug}`, {
+      method: 'POST',
+      body: form,
+    })
+    const leftValues = position === '0' ? voteValues[0] + 1 : voteValues[0]
+    const rightValues = position === '1' ? voteValues[1] + 1 : voteValues[1]
+    setVoteValues([leftValues, rightValues])
+    setShowResult(true)
+    }
     // todo store the +1 in the database
     const form = new FormData()
     form.append('position', '0')
