@@ -5,6 +5,7 @@ import { QuestionInterface } from '@benjamincode/shared/interfaces'
 import { PageTransitionWrapper, Question } from '@benjamincode/shared/ui'
 import { QuestionContext } from '../_app'
 import Image from 'next/future/image'
+import { NextSeo } from 'next-seo'
 
 export const getStaticProps = async (context: { params: { slug: string } }): Promise<{ props: QuestionPageProps }> => {
   const slug = context.params.slug
@@ -128,6 +129,20 @@ export function QuestionPage(props: QuestionPageProps) {
       title={`${props.question?.choiceLeft.title} or ${props.question?.choiceRight.title}`}
       description={`${props.question?.choiceLeft.title} or ${props.question?.choiceRight.title}`}
     >
+      <NextSeo
+        title={`${props.question?.choiceLeft.title} or ${props.question?.choiceRight.title}`}
+        description={`You won't believe how many people voted the left choice!`}
+        twitter={{
+          handle: '@benjamincode',
+          site: 'https://choiceof.dev',
+          cardType: 'summary_large_image',
+        }}
+        openGraph={{
+          title: `${props.question?.choiceLeft.title} or ${props.question?.choiceRight.title}`,
+          description: `You won't believe how many people voted the left choice!`,
+          images: [{ url: `https:://choiceof.dev/assets/img-previews/preview-${props.question?.slug}.jpg` }],
+        }}
+      />
       {nextQuestion && <NextImagesPreloader />}
       {props.question && (
         <Question
