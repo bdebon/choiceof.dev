@@ -49,16 +49,15 @@ export default function FormQuestion(props: FormQuestionProps) {
     e.preventDefault()
   }
 
-  const handleRemove = (e: FormEvent<HTMLFormElement>) => {
+  const handleRemove = () => {
     if (!idQuestion) return
+
     removeQuestion(idQuestion)
       .then(() => {
         if (props.onUpdate) {
           props.onUpdate(null, Action.REMOVED)
         }
       })
-
-    e.preventDefault()
   }
 
   const questionContentHandler = (questionContent: string): void => {
@@ -75,7 +74,7 @@ export default function FormQuestion(props: FormQuestionProps) {
     setQuestionUpdate({...questionUpdate, ...{choices: choices}})
   }
 
-  const imageHandler = (image: Image, index): void => {
+  const imageHandler = (image: Image, index: number): void => {
     console.log(image, index)
     const choices = questionUpdate.choices
     choices[index].image.id = image.id
@@ -118,7 +117,10 @@ export default function FormQuestion(props: FormQuestionProps) {
                 onChange={(e) => questionStateHandler(e.target.value as QuestionState)}
         >
           {questionStateList.map(state => (
-            <option key={state} value={state} selected={state === questionUpdate.state}>{state}</option>
+            <option
+              key={state}
+              value={state}
+              selected={state === props.question?.item.state}>{state}</option>
           ))}
         </select>
       </div>}
@@ -133,7 +135,7 @@ export default function FormQuestion(props: FormQuestionProps) {
           value={context === Context.CREATE ? 'Envoyer' : 'Mettre à jour'}/>
         {context === Context.UPDATE &&
           <button
-            onClick={handleRemove}
+            onClick={() => handleRemove()}
             className={sharedStyle.button_danger + ' mx-6'}
           >
             Supprimmer la question

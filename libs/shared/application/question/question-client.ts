@@ -1,13 +1,9 @@
-import {useClient} from "../api/client";
-import ApiCollectionQuestionDecorator, {questionCollectionFactory} from "./api-collection-question-decorator";
+import {useClient} from "libs/shared/application/api/client";
+import ApiCollectionQuestionDecorator, {questionCollectionFactory} from "libs/shared/application/question/api-collection-question-decorator";
 import {AxiosResponse} from "axios";
 import {
-  ApiCollectionQuestion,
-  ApiCreateQuestion,
-  apiUpdateQuestionFactory,
   ApiReadQuestion,
   ApiUpdateQuestion,
-  Question
 } from "./question";
 
 export interface getQuestionsFilter {

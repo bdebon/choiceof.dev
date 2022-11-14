@@ -24,6 +24,7 @@ export default function MediaComponents(props: MediaProps) {
         if (props.onChange) {
           props.onChange({
             id: response.data.id,
+            contentUrl: response.data.contentUrl
           })
         }
       })
