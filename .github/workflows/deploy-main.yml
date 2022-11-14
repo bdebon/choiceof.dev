@@ -30,6 +30,10 @@ jobs:
           strip_components: 4
           # The path is based on the directory where the user logged into the server starts
           target: "~/domains/choiceof.dev/public_html"
+      - name: Launch Semantic release
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: npx semantic-release
 
 
 
