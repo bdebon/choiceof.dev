@@ -1,11 +1,12 @@
 {
   "name": "devchoices",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "semantic-release": "semantic-release"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +26,7 @@
     "react-dom": "18.2.0",
     "regenerator-runtime": "0.13.7",
     "require-from-string": "^2.0.2",
+    "semantic-release": "^19.0.5",
     "tslib": "^2.3.0",
     "webpack": ">=5.0.0 <6.0.0"
   },
@@ -44,6 +46,7 @@
     "@nrwl/storybook": "14.5.10",
     "@nrwl/web": "14.5.10",
     "@nrwl/workspace": "14.5.10",
+    "@semantic-release/github": "^8.0.6",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/builder-webpack5": "^6.5.10",
     "@storybook/core-server": "~6.5.9",
@@ -77,6 +80,7 @@
     "prettier": "^2.6.2",
     "react-test-renderer": "18.2.0",
     "sass": "1.55.0",
+    "semantic-release": "^19.0.5",
     "tailwindcss": "3.1.8",
     "ts-jest": "27.1.4",
     "ts-node": "10.9.1",
@@ -84,5 +88,17 @@
     "url-loader": "^4.1.1",
     "webpack-cli": "^4.10.0"
   },
-  "packageManager": "pnpm@7.14.2"
+  "packageManager": "pnpm@7.14.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bdebon/dev-hard-choices.git"
+  },
+  "release": {
+    "branches": ["main", "staging"],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      ["@semantic-release/github"]
+    ]
+  }
 }
