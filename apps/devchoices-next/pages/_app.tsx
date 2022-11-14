@@ -5,8 +5,8 @@ import { DefaultSeo } from 'next-seo'
 import { AnimatePresence } from 'framer-motion'
 import {createContext, Dispatch, SetStateAction, useState} from 'react'
 import Script from 'next/script'
-import {getQuestions} from "../../../libs/shared/application/question/question-client";
-import ApiCollectionQuestionDecorator from "../../../libs/shared/application/question/api-collection-question-decorator";
+import {getQuestions} from "libs/shared/application/question/question-client";
+import ApiCollectionQuestionDecorator from "libs/shared/application/question/api-collection-question-decorator";
 
 export interface DefaultQuestionContext {
   questionCollection: ApiCollectionQuestionDecorator|null,

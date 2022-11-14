@@ -5,7 +5,7 @@ import {
 import ApiCollectionQuestionDecorator from "libs/shared/application/question/api-collection-question-decorator";
 import LoaderComponent from "libs/shared/ui/src/lib/shared/loader/loader-component";
 import FormQuestion, {Action} from "libs/shared/ui/src/lib/new-question/form-question";
-import {ApiReadQuestion} from "../../../../application/question/question";
+import {ApiReadQuestion} from "libs/shared/application/question/question";
 
 export default function QuestionCollectionComponent(): JSX.Element {
   const [questionCollection, setQuestionCollection] = useState<ApiCollectionQuestionDecorator>();

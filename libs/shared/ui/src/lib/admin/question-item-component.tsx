@@ -1,7 +1,7 @@
-import ChoiceItem from "./choice-item";
-import Button from "../button/button";
-import {QuestionState, questionStateList} from "../../../../application/question/question";
-import {ApiReadQuestionDecorator} from "../../../../application/question/api-read-question-decorator";
+import ChoiceItem from "libs/shared/ui/src/lib/admin/choice-item";
+import Button from "libs/shared/ui/src/lib/button/button";
+import {QuestionState, questionStateList} from "libs/shared/application/question/question";
+import {ApiReadQuestionDecorator} from "libs/shared/application/question/api-read-question-decorator";
 
 export interface questionItemProps {
   questionItem: ApiReadQuestionDecorator,

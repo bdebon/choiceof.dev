@@ -1,4 +1,4 @@
-import {ApiRessourceItem} from "../api/api";
+import {ApiRessourceItem} from "libs/shared/application/api/api";
 
 export interface Image {
   id?: number

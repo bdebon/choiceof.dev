@@ -1,4 +1,4 @@
-import {ApiRessourceItem} from "../api/client";
+import {ApiRessourceItem} from "libs/shared/application/api/client";
 
 export interface Vote {
   createAt: Date;

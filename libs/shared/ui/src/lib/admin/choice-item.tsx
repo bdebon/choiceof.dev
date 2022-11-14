@@ -1,5 +1,5 @@
-import {ChoiceRead} from "../../../../application/question/question-client";
-import {mediaUrl} from "../../../../application/media/media-client";
+import {ChoiceRead} from "libs/shared/application/question/question-client";
+import {mediaUrl} from "libs/shared/application/media/media-client";
 
 export interface ChoiceItemProps {
   choice: ChoiceRead

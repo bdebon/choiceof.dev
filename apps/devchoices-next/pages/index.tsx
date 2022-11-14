@@ -1,8 +1,7 @@
-import Link from 'next/link'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import {getQuestions} from "../../../libs/shared/application/question/question-client";
-import LoaderComponent from "../../../libs/shared/ui/src/lib/shared/loader/loader-component";
+import {getQuestions} from "libs/shared/application/question/question-client";
+import LoaderComponent from "libs/shared/ui/src/lib/shared/loader/loader-component";
 
 export function Home() {
   const router = useRouter()

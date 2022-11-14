@@ -1,9 +1,9 @@
 import { CSSProperties, useCallback, useEffect, useState } from 'react'
 import CountUp from 'react-countup'
-import Or from '../or/or'
+import Or from 'libs/shared/ui/src/lib/or/or'
 import Image from 'next/future/image'
-import {ApiReadChoiceDecorator} from "../../../../application/choice/api-read-choice-decorator";
-import {ApiReadQuestionDecorator} from "../../../../application/question/api-read-question-decorator";
+import {ApiReadChoiceDecorator} from "libs/shared/application/choice/api-read-choice-decorator";
+import {ApiReadQuestionDecorator} from "libs/shared/application/question/api-read-question-decorator";
 
 export interface CardChoiceProps {
   questionItem: ApiReadQuestionDecorator
