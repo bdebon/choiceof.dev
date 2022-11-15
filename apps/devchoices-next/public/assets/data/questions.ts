@@ -78,4 +78,48 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/back.jpg',
     },
   },
+  {
+    slug: 'windows-or-linux',
+    choiceLeft: {
+      title: 'Windows',
+      img_path: '/assets/img/windows.jpg',
+    },
+    choiceRight: {
+      title: 'Linux',
+      img_path: '/assets/img/linux.jpg',
+    },
+  },
+  {
+    slug: 'single-or-double-quotes',
+    choiceLeft: {
+      title: "'",
+      img_path: '/assets/img/single-quote.webp',
+    },
+    choiceRight: {
+      title: '"',
+      img_path: '/assets/img/double-quotes.webp',
+    },
+  },
+  {
+    slug: 'camelCase-or-snake_case',
+    choiceLeft: {
+      title: 'camelCase',
+      img_path: '/assets/img/camelCase.jpg',
+    },
+    choiceRight: {
+      title: 'snake_case',
+      img_path: '/assets/img/snake_case.jpg',
+    },
+  },
+  {
+    slug: 'windows-or-linux',
+    choiceLeft: {
+      title: 'Windows',
+      img_path: '/assets/img/windows.jpg',
+    },
+    choiceRight: {
+      title: 'Linux',
+      img_path: '/assets/img/linux.jpg',
+    },
+  },
 ]
