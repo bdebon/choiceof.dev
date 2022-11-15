@@ -17,7 +17,9 @@ Primary.args = {
   imgUrl: question[0].choiceLeft.img_path,
   totalCount: 100,
   voteCount: 40,
-  onClick: () => {},
+  onClick: () => {
+    console.log('Hello')
+  },
   position: 'left',
   showResult: false,
 }
