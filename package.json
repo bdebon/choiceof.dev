@@ -1,6 +1,6 @@
 {
   "name": "devchoices",
-  "version": "0.0.0-development",
+  "version": "v1.1.1",
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
