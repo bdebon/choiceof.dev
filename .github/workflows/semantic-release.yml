@@ -6,25 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Cache node modules
-        id: cache
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: cache-node-${{ hashFiles('pnpm-lock.yaml') }}
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        if: steps.cache.outputs.cache-hit != 'true'
-        with:
-          node-version: 16
-      - name: yarn install
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: yarn
-      - name: Merge staging in main
-        uses: devmasx/merge-branch@master
-        with:
-          type: now
-          from_branch: staging
-          target_branch: main
-          github_token: ${{ secrets.GH_TOKEN }}
+      - name: checkout main
+        run: git checkout main
+      - name: rabase staging into main
+        run: git rebase staging
+      - name: push main
+        run: git push origin main
 
