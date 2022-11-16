@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { questions } from '../../public/assets/data/questions'
 import { useCallback, useContext, useEffect, useState } from 'react'
-import { QuestionInterface } from '@benjamincode/shared/interfaces'
+import { QuestionInterface, VoteInterface } from '@benjamincode/shared/interfaces'
 import { PageTransitionWrapper, Question } from '@benjamincode/shared/ui'
 import { QuestionContext } from '../_app'
 import Image from 'next/future/image'
@@ -65,8 +65,8 @@ export function QuestionPage(props: QuestionPageProps) {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}?slug=${slug}`)
       .then((res) => res.json())
       .then((data) => {
-        const left = data.find((v) => v.position === 0) || { count: 0 }
-        const right = data.find((v) => v.position === 1) || { count: 0 }
+        const left = data.find((v: VoteInterface) => v.position === 0) || { count: 0 }
+        const right = data.find((v: VoteInterface) => v.position === 1) || { count: 0 }
         setVoteValues([+left.count, +right.count])
       })
       .catch(() => {
