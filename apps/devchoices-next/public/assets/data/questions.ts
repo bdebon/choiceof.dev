@@ -24,13 +24,13 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
-    slug: 'svn-or-cvs',
+    slug: 'svn-or-floppy-disk',
     choiceLeft: {
       title: 'SVN',
       img_path: '/assets/img/4.jpeg',
     },
     choiceRight: {
-      title: 'CVS',
+      title: 'FLOPPY DISK',
       img_path: '/assets/img/5.jpeg',
     },
   },
@@ -38,21 +38,21 @@ export const questions: QuestionInterface[] = [
     slug: 'fortran-or-cobol',
     choiceLeft: {
       title: 'FORTRAN',
-      img_path: '/assets/img/6.jpeg',
+      img_path: '/assets/img/chevalier-gitlab.jpeg',
     },
     choiceRight: {
       title: 'COBOL',
-      img_path: '/assets/img/7.jpeg',
+      img_path: '/assets/img/chevalier-bitbucket.jpeg',
     },
   },
   {
     slug: 'single-or-double-quotes',
     choiceLeft: {
-      title: "'",
+      title: 'single quote',
       img_path: '/assets/img/single-quote.jpeg',
     },
     choiceRight: {
-      title: '"',
+      title: 'double quote',
       img_path: '/assets/img/double-quotes.jpeg',
     },
   },
@@ -70,11 +70,11 @@ export const questions: QuestionInterface[] = [
   {
     slug: 'front-or-back',
     choiceLeft: {
-      title: 'Front-end',
+      title: 'Frontend',
       img_path: '/assets/img/front.png',
     },
     choiceRight: {
-      title: 'Back-end',
+      title: 'Backend',
       img_path: '/assets/img/back.jpg',
     },
   },
@@ -98,6 +98,94 @@ export const questions: QuestionInterface[] = [
     choiceRight: {
       title: 'Instant Noodle',
       img_path: '/assets/img/noodle.jpg',
+    },
+  },
+  {
+    slug: 'remote-or-office',
+    choiceLeft: {
+      title: 'Remote',
+      img_path: '/assets/img/remote.jpeg',
+    },
+    choiceRight: {
+      title: 'Office',
+      img_path: '/assets/img/office.jpeg',
+    },
+  },
+  {
+    slug: 'indian-youtube-or-reading-doc',
+    choiceLeft: {
+      title: 'Indian YouTube Tutorial ',
+      img_path: '/assets/img/indian-youtube-2.jpeg',
+    },
+    choiceRight: {
+      title: 'Reading the Doc',
+      img_path: '/assets/img/documentation.jpeg',
+    },
+  },
+  {
+    slug: 'dumb-mouse-or-cursed-keyboard',
+    choiceLeft: {
+      title: 'Dumb Mouse',
+      img_path: '/assets/img/finger_mouse.jpeg',
+    },
+    choiceRight: {
+      title: 'Weird Keyboard',
+      img_path: '/assets/img/cursed-keyboard.png',
+    },
+  },
+  {
+    slug: 'pomodoro-nonstop',
+    choiceLeft: {
+      title: 'Pomodoro',
+      img_path: '/assets/img/pomodoro.jpeg',
+    },
+    choiceRight: {
+      title: 'Non-stop',
+      img_path: '/assets/img/24chrono.jpg',
+    },
+  },
+  {
+    slug: '1-screen-or-9-screens',
+    choiceLeft: {
+      title: '1 Screen',
+      img_path: '/assets/img/1-screen.jpg',
+    },
+    choiceRight: {
+      title: '9 Screens',
+      img_path: '/assets/img/9-screens.jpeg',
+    },
+  },
+  {
+    slug: 'music-or-stackoverflow',
+    choiceLeft: {
+      title: 'Music',
+      img_path: '/assets/img/lofi-girl.jpeg',
+    },
+    choiceRight: {
+      title: 'Stackoverflow',
+      img_path: '/assets/img/GoodGuyGreg.jpeg',
+    },
+  },
+  {
+    slug: 'bootstrap-or-poop',
+    choiceLeft: {
+      title: 'Bootstrap',
+      img_path: '/assets/img/poop.jpg',
+    },
+    choiceRight: {
+      title: 'Poop',
+      img_path: '/assets/img/flower.jpg',
+    },
+  },
+  {
+    slug: 'pushf-or-review-138-commits',
+    choiceLeft: {
+      title: 'push -f',
+      img_path: '/assets/img/bulldozer.jpg',
+    },
+    choiceRight: {
+      title: 'REVIEW 138 COMMITS',
+      img_path: '/assets/img/lotr.jpg',
     },
   },
 ]
