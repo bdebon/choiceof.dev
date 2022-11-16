@@ -1,0 +1,36 @@
+name: Resize image on push
+
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  resize-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout [${{ inputs.branch }}]
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Resize images in lib above 800 width and 800 height
+        id: resize-images
+        uses: petems/image-resizer-gh-action@master
+        with:
+          target: apps/devchoices-next/public/assets/img/ # directory to look for images in
+          dimensions: 800x800 # parameter to change size, passed to mogrify as ``
+          widthLimit: 800 # max width to check
+          heightLimit: 800 # max height to check
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v4
+        with:
+          add: 'apps/devchoices-next/public/assets/img/'
+          author_name: "github-actions[bot]"
+          author_email: "github-actions@users.noreply.github.com"
+          message: |
+            chore(images): images resized by github action\n
+            ```
+            ${{steps.resize-images.outputs.images_changed}}
+            ```
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
