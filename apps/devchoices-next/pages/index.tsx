@@ -1,9 +1,12 @@
-import Link from 'next/link'
 import { useContext, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { QuestionContext } from './_app'
+import { NextSeo } from 'next-seo'
+import { questions } from '../public/assets/data/questions'
 
-// todo find the type for context
+const WEBSITE_URL = process.env.NEXT_PUBLIC_WEBSITE_URL
+const question = questions.find((q) => q.slug === process.env.NEXT_PUBLIC_SLUG_FOR_OFFICIAL_PREVIEW)
+
 export function Home() {
   const router = useRouter()
   const { slug } = router.query
@@ -14,10 +17,27 @@ export function Home() {
   }, [slug])
 
   return (
-    <div>
-      <h1>Welcome to devchoices-next!</h1>
-      <Link href={'/question/tab-or-space'}>Go to question 1</Link>
-    </div>
+    <NextSeo
+      title={`${question?.choiceLeft.title} or ${question?.choiceRight.title}`}
+      description={`You won't believe how many people voted the left choice!`}
+      twitter={{
+        handle: '@benjamincode',
+        site: WEBSITE_URL,
+        cardType: 'summary_large_image',
+      }}
+      openGraph={{
+        title: `${question?.choiceLeft.title} or ${question?.choiceRight.title}`,
+        description: `You won't believe how many people voted the left choice!`,
+        images: [
+          {
+            url: `${WEBSITE_URL}/assets/img-previews/preview-${question?.slug}.jpg`,
+            height: 628,
+            width: 1200,
+            alt: `${question?.choiceLeft.title} or ${question?.choiceRight.title}`,
+          },
+        ],
+      }}
+    />
   )
 }
 
