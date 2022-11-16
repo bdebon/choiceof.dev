@@ -62,7 +62,16 @@ export function QuestionPage(props: QuestionPageProps) {
 
   useEffect(() => {
     // todo replace with values fetched from database
-    setVoteValues([Math.trunc(Math.random() * 1000), Math.trunc(Math.random() * 1000)])
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}?slug=${slug}`)
+      .then((res) => res.json())
+      .then((data) => {
+        const left = data.find((v) => v.position === 0) || { count: 0 }
+        const right = data.find((v) => v.position === 1) || { count: 0 }
+        setVoteValues([+left.count, +right.count])
+      })
+      .catch(() => {
+        setVoteValues([Math.trunc(Math.random() * 1000), Math.trunc(Math.random() * 1000)])
+      })
   }, [setVoteValues])
 
   useEffect(() => {
@@ -86,12 +95,29 @@ export function QuestionPage(props: QuestionPageProps) {
 
   const onLeft = () => {
     // todo store the +1 in the database
+    const form = new FormData()
+    form.append('position', '0')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}?slug=${slug}`, {
+      method: 'POST',
+      body: form,
+    }).catch(() => {
+      setVoteValues([voteValues[0], voteValues[1] + 1])
+    })
+    setVoteValues([voteValues[0] + 1, voteValues[1]])
     setShowResult(true)
   }
 
   const onRight = () => {
     // todo store the +1 in the database
-
+    const form = new FormData()
+    form.append('position', '1')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}?slug=${slug}`, {
+      method: 'POST',
+      body: form,
+    }).catch(() => {
+      setVoteValues([voteValues[0], voteValues[1] + 1])
+    })
+    setVoteValues([voteValues[0], voteValues[1] + 1])
     setShowResult(true)
   }
 
