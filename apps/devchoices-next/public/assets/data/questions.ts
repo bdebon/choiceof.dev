@@ -89,4 +89,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/linux.jpg',
     },
   },
+  {
+    slug: 'pizza-or-instant-noodles',
+    choiceLeft: {
+      title: 'Pizza',
+      img_path: '/assets/img/developer-pizza.jpeg',
+    },
+    choiceRight: {
+      title: 'Instant Noodle',
+      img_path: '/assets/img/noodle.jpg',
+    },
+  },
 ]
