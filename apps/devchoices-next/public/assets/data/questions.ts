@@ -78,4 +78,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/back.jpg',
     },
   },
+  {
+    slug: 'windows-or-linux',
+    choiceLeft: {
+      title: 'windows',
+      img_path: '/assets/img/windows.jpg',
+    },
+    choiceRight: {
+      title: 'linux',
+      img_path: '/assets/img/linux.jpg',
+    },
+  },
 ]
