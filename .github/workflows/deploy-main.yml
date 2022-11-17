@@ -37,7 +37,7 @@ jobs:
           strip_components: 4
           # The path is based on the directory where the user logged into the server starts
           target: "~/domains/choiceof.dev/public_html"
-      - name: create and .env.local file
+      - name: create and .env.local file for php
         run: |
           touch .env.local
           echo "DB_HOST=${{ secrets.DB_HOST }}" >> .env.local
