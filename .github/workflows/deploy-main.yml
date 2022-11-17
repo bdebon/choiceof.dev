@@ -13,6 +13,7 @@ jobs:
       flow: deploy-main
       branch: main
       configuration: prod
+    secrets: inherit
 
   deploy:
     runs-on: ubuntu-latest
