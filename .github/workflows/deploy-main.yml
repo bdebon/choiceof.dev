@@ -5,10 +5,6 @@ on:
     branches:
       - main
 
-env:
-  NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
-  NEXT_PUBLIC_SLUG_FOR_OFFICIAL_PREVIEW: ${{ secrets.NEXT_PUBLIC_SLUG_FOR_OFFICIAL_PREVIEW }}
-  NEXT_PUBLIC_WEBSITE_URL: ${{ secrets.NEXT_PUBLIC_WEBSITE_URL }}
 
 jobs:
   test-and-build:
@@ -41,6 +37,13 @@ jobs:
           strip_components: 4
           # The path is based on the directory where the user logged into the server starts
           target: "~/domains/choiceof.dev/public_html"
+      - name: create and .env.local file
+        run: |
+          touch .env.local
+          echo "DB_HOST=${{ secret.DB_HOST }}" >> .env.local
+          echo "DB_NAME=${{ secret.DB_NAME }}" >> .env.local
+          echo "DB_PASSWORD=${{ secret.DB_PASSWORD }}" >> .env.local
+          echo "DB_USER=${{ secret.DB_USER }}" >> .env.local
       - uses: appleboy/scp-action@master
         name: Deploying php files
         with:
@@ -48,7 +51,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           port: ${{ secrets.SSH_PORT }}
           password: ${{ secrets.SSH_PASSWORD }}
-          source: "php/.,!node_modules"
+          source: ".env.local,php/.,!node_modules"
           # The path is based on the directory where the user logged into the server starts
           target: "~/domains/choiceof.dev/public_html"
       - name: Launch Semantic release
