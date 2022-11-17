@@ -19,10 +19,6 @@ concurrency:
   group: pr-${{ github.ref }}
   cancel-in-progress: true
 
-env:
-  NX_BRANCH: ${{ github.head_ref }}
-  NX_CLOUD_DISTRIBUTED_EXECUTION: false
-
 jobs:
   install-deps:
     runs-on: ubuntu-latest
