@@ -90,9 +90,11 @@ jobs:
       - name: Make envfile
         uses: SpicyPizza/create-envfile@v1.3
         with:
-          envkey_NEXT_PUBLIC_WEBSITE_URL: "https://choiceof.dev"
-          envkey_NEXT_PUBLIC_MATOMO_URL: "https://choiceof.dev/matomo/"
-          envkey_NEXT_PUBLIC_MATOMO_SITE_ID: 1
+          envkey_NEXT_PUBLIC_WEBSITE_URL: ${{ secrets.NEXT_PUBLIC_WEBSITE_URL }}
+          envkey_NEXT_PUBLIC_MATOMO_URL: ${{ secrets.NEXT_PUBLIC_MATOMO_URL }}
+          envkey_NEXT_PUBLIC_MATOMO_SITE_ID: ${{ secrets.NEXT_PUBLIC_MATOMO_SITE_ID }}
+          envkey_NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          envkey_NEXT_PUBLIC_SLUG_FOR_OFFICIAL_PREVIEW: ${{ secrets.NEXT_PUBLIC_SLUG_FOR_OFFICIAL_PREVIEW }}
           file_name: .env.local
           fail_on_empty: false
       - name: show content of .env.local
