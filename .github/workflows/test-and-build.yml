@@ -57,6 +57,18 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - name: Make envfile
+        uses: SpicyPizza/create-envfile@v1.3
+        with:
+          envkey_NEXT_PUBLIC_WEBSITE_URL: ${{ secrets.NEXT_PUBLIC_WEBSITE_URL }}
+          envkey_NEXT_PUBLIC_MATOMO_URL: ${{ secrets.NEXT_PUBLIC_MATOMO_URL }}
+          envkey_NEXT_PUBLIC_MATOMO_SITE_ID: ${{ secrets.NEXT_PUBLIC_MATOMO_SITE_ID }}
+          envkey_NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          envkey_NEXT_PUBLIC_SLUG_FOR_OFFICIAL_PREVIEW: ${{ secrets.NEXT_PUBLIC_SLUG_FOR_OFFICIAL_PREVIEW }}
+          file_name: .env.local
+          fail_on_empty: false
+      - name: show content of .env.local
+        run: cat .env.local
       - uses: szenius/set-timezone@v1.0
         name: Change timezone
         with:
@@ -80,22 +92,6 @@ jobs:
         run: pnpm ts-node --project tsconfig-generator.json preview-check.ts
       - name: Nx Affected
         run: pnpm nx affected --target=${{ matrix.target }} --parallel --max-parallel=3 --configuration=${{ inputs.configuration }}
-      - name: print secrets variable
-        run: echo ${{ secrets.NEXT_PUBLIC_WEBSITE_URL }}
-        env:
-          NEXT_PUBLIC_WEBSITE_URL: ${{ secrets.NEXT_PUBLIC_WEBSITE_URL }}
-      - name: Make envfile
-        uses: SpicyPizza/create-envfile@v1.3
-        with:
-          envkey_NEXT_PUBLIC_WEBSITE_URL: ${{ secrets.NEXT_PUBLIC_WEBSITE_URL }}
-          envkey_NEXT_PUBLIC_MATOMO_URL: ${{ secrets.NEXT_PUBLIC_MATOMO_URL }}
-          envkey_NEXT_PUBLIC_MATOMO_SITE_ID: ${{ secrets.NEXT_PUBLIC_MATOMO_SITE_ID }}
-          envkey_NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
-          envkey_NEXT_PUBLIC_SLUG_FOR_OFFICIAL_PREVIEW: ${{ secrets.NEXT_PUBLIC_SLUG_FOR_OFFICIAL_PREVIEW }}
-          file_name: .env.local
-          fail_on_empty: false
-      - name: show content of .env.local
-        run: cat .env.local
       - name: Next export
         if: matrix.target == 'build'
         run: pnpm nx run devchoices-next:export
