@@ -1,8 +1,9 @@
 <?php
 
 header("Access-Control-Allow-Origin: *");
+include('../../config.php');
 
-$pdo = new PDO("mysql:dbname=" . getenv('DB_NAME') . ";host=" . getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASSWORD'));
+$pdo = new PDO("mysql:dbname=" . $config['DB_NAME'] . ";host=" . $config['DB_HOST'], $config['DB_USER'], $config['DB_PASSWORD']);
 $method = $_SERVER['REQUEST_METHOD'];
 $slug = $_GET['slug'] ?? null;
 $dispatchCountOn = 50;
