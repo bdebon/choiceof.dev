@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main
+
+env:
+  NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+  NEXT_PUBLIC_SLUG_FOR_OFFICIAL_PREVIEW: ${{ secrets.NEXT_PUBLIC_SLUG_FOR_OFFICIAL_PREVIEW }}
+  NEXT_PUBLIC_WEBSITE_URL: ${{ secrets.NEXT_PUBLIC_WEBSITE_URL }}
+
 jobs:
   test-and-build:
     uses: ./.github/workflows/test-and-build.yml
