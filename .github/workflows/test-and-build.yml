@@ -75,12 +75,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16
-      - name: create and .env.local file
-        run: |
-          touch .env.local
-          echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env.local
-          echo "NEXT_PUBLIC_SLUG_FOR_OFFICIAL_PREVIEW=${{ secrets.NEXT_PUBLIC_SLUG_FOR_OFFICIAL_PREVIEW }}" >> .env.local
-          echo "NEXT_PUBLIC_WEBSITE_URL=${{ secrets.NEXT_PUBLIC_WEBSITE_URL }}" >> .env.local
       - name: Check if all previews exist
         if: matrix.target != 'build'
         run: pnpm ts-node --project tsconfig-generator.json preview-check.ts
@@ -96,7 +90,7 @@ jobs:
           envkey_NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
           envkey_NEXT_PUBLIC_SLUG_FOR_OFFICIAL_PREVIEW: ${{ secrets.NEXT_PUBLIC_SLUG_FOR_OFFICIAL_PREVIEW }}
           file_name: .env.local
-          fail_on_empty: false
+          fail_on_empty: true
       - name: show content of .env.local
         run: cat .env.local
       - name: Next export
