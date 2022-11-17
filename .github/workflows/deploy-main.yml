@@ -40,10 +40,10 @@ jobs:
       - name: create and .env.local file
         run: |
           touch .env.local
-          echo "DB_HOST=${{ secret.DB_HOST }}" >> .env.local
-          echo "DB_NAME=${{ secret.DB_NAME }}" >> .env.local
-          echo "DB_PASSWORD=${{ secret.DB_PASSWORD }}" >> .env.local
-          echo "DB_USER=${{ secret.DB_USER }}" >> .env.local
+          echo "DB_HOST=${{ secrets.DB_HOST }}" >> .env.local
+          echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env.local
+          echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env.local
+          echo "DB_USER=${{ secrets.DB_USER }}" >> .env.local
       - uses: appleboy/scp-action@master
         name: Deploying php files
         with:

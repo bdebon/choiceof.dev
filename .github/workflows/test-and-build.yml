@@ -78,9 +78,9 @@ jobs:
       - name: create and .env.local file
         run: |
           touch .env.local
-          echo "NEXT_PUBLIC_API_URL=${{ secret.NEXT_PUBLIC_API_URL }}" >> .env.local
-          echo "NEXT_PUBLIC_SLUG_FOR_OFFICIAL_PREVIEW=${{ secret.NEXT_PUBLIC_SLUG_FOR_OFFICIAL_PREVIEW }}" >> .env.local
-          echo "NEXT_PUBLIC_WEBSITE_URL=${{ secret.NEXT_PUBLIC_WEBSITE_URL }}" >> .env.local
+          echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env.local
+          echo "NEXT_PUBLIC_SLUG_FOR_OFFICIAL_PREVIEW=${{ secrets.NEXT_PUBLIC_SLUG_FOR_OFFICIAL_PREVIEW }}" >> .env.local
+          echo "NEXT_PUBLIC_WEBSITE_URL=${{ secrets.NEXT_PUBLIC_WEBSITE_URL }}" >> .env.local
       - name: Check if all previews exist
         if: matrix.target != 'build'
         run: pnpm ts-node --project tsconfig-generator.json preview-check.ts
