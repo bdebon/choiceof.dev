@@ -60,6 +60,7 @@ jobs:
       - name: Make envfile
         uses: SpicyPizza/create-envfile@v1.3
         with:
+          envkey_DB_USER: ${{ secrets.DB_USER }}
           envkey_NEXT_PUBLIC_WEBSITE_URL: ${{ secrets.NEXT_PUBLIC_WEBSITE_URL }}
           envkey_NEXT_PUBLIC_MATOMO_URL: ${{ secrets.NEXT_PUBLIC_MATOMO_URL }}
           envkey_NEXT_PUBLIC_MATOMO_SITE_ID: ${{ secrets.NEXT_PUBLIC_MATOMO_SITE_ID }}
