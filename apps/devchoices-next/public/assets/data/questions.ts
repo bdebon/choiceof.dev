@@ -244,17 +244,6 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
-    slug: 'noisy-eater-or-noisy-typist',
-    choiceLeft: {
-      title: 'Noisy Eater',
-      img_path: '/assets/img/cow.jpeg',
-    },
-    choiceRight: {
-      title: 'Noisy Typist',
-      img_path: '/assets/img/noisy-typer.jpeg',
-    },
-  },
-  {
     slug: 'center-div-or-solving-poincaret',
     choiceLeft: {
       title: 'Center a div',
