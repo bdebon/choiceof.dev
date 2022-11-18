@@ -3,7 +3,7 @@ name: Pull request
 on:
   pull_request:
     branches:
-      - main
+      - staging
 jobs:
   test-and-build:
     uses: ./.github/workflows/test-and-build.yml
@@ -12,3 +12,21 @@ jobs:
       branch: main
       configuration: prod
 
+  check_pr_title:
+    name: Check Pr Title
+    runs-on: ubuntu-latest
+    needs: [ test-and-build ]
+    steps:
+      - name: Checkout [${{ inputs.branch }}]
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.4
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: cache-node-${{ hashFiles('pnpm-lock.yaml') }}
+      - name: lint pull request title
+        run: echo "${{ github.event.pull_request.title }}" | pnpm commitlint
