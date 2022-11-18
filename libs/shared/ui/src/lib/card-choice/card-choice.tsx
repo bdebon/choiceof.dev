@@ -80,7 +80,7 @@ export function CardChoice(props: CardChoiceProps) {
               50vw"
       />
 
-      <h1 className="px-4 py-2 text-3xl lg:text-5xl bg-black text-white uppercase font-bold w-56 lg:w-80 text-center relative">
+      <h1 className="px-4 py-2 text-3xl lg:text-5xl bg-black/70 text-white uppercase font-bold w-56 lg:w-80 text-center relative">
         {title}
       </h1>
 

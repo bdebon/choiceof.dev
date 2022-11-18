@@ -190,13 +190,24 @@ export const questions: QuestionInterface[] = [
   },
   {
     slug: 'javascript-or-php',
-    choiceLeft: {
+    choiceRight: {
       title: 'javascript',
       img_path: '/assets/img/javascript.jpeg',
     },
-    choiceRight: {
+    choiceLeft: {
       title: 'php',
       img_path: '/assets/img/php.jpeg',
+    },
+  },
+  {
+    slug: 'four-days-working-week-or-fulltime',
+    choiceLeft: {
+      title: '4 days working week',
+      img_path: '/assets/img/four-days.jpg',
+    },
+    choiceRight: {
+      title: 'fulltime',
+      img_path: '/assets/img/fulltime.jpg',
     },
   },
 ]
