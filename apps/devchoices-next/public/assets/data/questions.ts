@@ -13,28 +13,6 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
-    slug: 'notepad-or-emacs',
-    choiceLeft: {
-      title: 'Notepad',
-      img_path: '/assets/img/2.jpeg',
-    },
-    choiceRight: {
-      title: 'Emacs',
-      img_path: '/assets/img/3.jpeg',
-    },
-  },
-  {
-    slug: 'svn-or-floppy-disk',
-    choiceLeft: {
-      title: 'SVN',
-      img_path: '/assets/img/4.jpeg',
-    },
-    choiceRight: {
-      title: 'FLOPPY DISK',
-      img_path: '/assets/img/5.jpeg',
-    },
-  },
-  {
     slug: 'fortran-or-cobol',
     choiceLeft: {
       title: 'FORTRAN',
@@ -263,6 +241,28 @@ export const questions: QuestionInterface[] = [
     choiceRight: {
       title: 'Noisy Typist',
       img_path: '/assets/img/noisy-typer.jpeg',
+    },
+  },
+  {
+    slug: 'noisy-eater-or-noisy-typist',
+    choiceLeft: {
+      title: 'Noisy Eater',
+      img_path: '/assets/img/cow.jpeg',
+    },
+    choiceRight: {
+      title: 'Noisy Typist',
+      img_path: '/assets/img/noisy-typer.jpeg',
+    },
+  },
+  {
+    slug: 'center-div-or-solving-poincaret',
+    choiceLeft: {
+      title: 'Center a div',
+      img_path: '/assets/img/centerdiv.jpeg',
+    },
+    choiceRight: {
+      title: 'Solving Poincaré Conjecture',
+      img_path: '/assets/img/pointcarret.jpeg',
     },
   },
 ]
