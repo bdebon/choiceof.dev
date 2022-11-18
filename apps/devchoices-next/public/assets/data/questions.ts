@@ -188,4 +188,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/lotr.jpg',
     },
   },
+  {
+    slug: 'javascript-or-php',
+    choiceLeft: {
+      title: 'javascript',
+      img_path: '/assets/img/javascript.jpeg',
+    },
+    choiceRight: {
+      title: 'php',
+      img_path: '/assets/img/php.jpeg',
+    },
+  },
 ]
