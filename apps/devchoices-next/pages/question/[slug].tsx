@@ -6,7 +6,6 @@ import { PageTransitionWrapper, Question } from '@benjamincode/shared/ui'
 import { QuestionContext } from '../_app'
 import Image from 'next/future/image'
 import { NextSeo } from 'next-seo'
-import { TwitterIcon, TwitterShareButton } from 'next-share'
 
 export const getStaticProps = async (context: { params: { slug: string } }): Promise<{ props: QuestionPageProps }> => {
   const slug = context.params.slug
@@ -64,15 +63,16 @@ export function QuestionPage(props: QuestionPageProps) {
     // todo replace with values fetched from database
     fetch(`${process.env.NEXT_PUBLIC_API_URL}?slug=${slug}`)
       .then((res) => res.json())
-      .then((data) => {
-        const left = data.find((v: VoteInterface) => v.position === 0) || { count: 0 }
-        const right = data.find((v: VoteInterface) => v.position === 1) || { count: 0 }
+      .then((data: VoteInterface[]) => {
+        console.log(data)
+        const left = data.find((v: VoteInterface) => v.position === '0') || { count: 0 }
+        const right = data.find((v: VoteInterface) => v.position === '1') || { count: 0 }
         setVoteValues([+left.count, +right.count])
       })
       .catch(() => {
         setVoteValues([Math.trunc(Math.random() * 1000), Math.trunc(Math.random() * 1000)])
       })
-  }, [setVoteValues])
+  }, [setVoteValues, slug])
 
   useEffect(() => {
     const nextQuestion = computeNextQuestion()

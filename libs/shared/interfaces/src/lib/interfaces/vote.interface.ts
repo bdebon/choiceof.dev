@@ -1,4 +1,4 @@
 export interface VoteInterface {
   count: string
-  position: number
+  position: string
 }
