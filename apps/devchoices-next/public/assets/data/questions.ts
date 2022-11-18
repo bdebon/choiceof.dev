@@ -243,4 +243,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/trash.jpeg',
     },
   },
+  {
+    slug: 'rm-rf-or-showing-search-history',
+    choiceLeft: {
+      title: 'rm -rf computer',
+      img_path: '/assets/img/nuclear.jpeg',
+    },
+    choiceRight: {
+      title: 'Showing search history',
+      img_path: '/assets/img/shame.jpeg',
+    },
+  },
 ]
