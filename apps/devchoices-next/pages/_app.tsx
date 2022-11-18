@@ -75,6 +75,16 @@ function CustomApp({ Component, pageProps, router }: AppProps) {
         }}
         canonical={url}
       />
+      <a
+        href="https://bit.ly/hostinger-benjamin-code"
+        target="_blank"
+        className="fixed z-10 lg:bottom-6 lg:right-6 bottom-4 right-4"
+      >
+        <img
+          src="/assets/logo/hostinger.jpg"
+          className="filter grayscale rounded-full w-10 lg:w-14 hover:grayscale-0 transition-all"
+        />
+      </a>
       <AnimatePresence initial={false} presenceAffectsLayout={false} onExitComplete={() => window.scrollTo(0, 0)}>
         <Component {...pageProps} key={url} />
       </AnimatePresence>
