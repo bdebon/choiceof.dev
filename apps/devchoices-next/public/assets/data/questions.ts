@@ -232,4 +232,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/bezos.jpeg',
     },
   },
+  {
+    slug: 'new-side-or-finish-side',
+    choiceLeft: {
+      title: 'New Side Project',
+      img_path: '/assets/img/diamond.jpeg',
+    },
+    choiceRight: {
+      title: 'Finishing Side Project',
+      img_path: '/assets/img/trash.jpeg',
+    },
+  },
 ]
