@@ -210,4 +210,26 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/fulltime.jpg',
     },
   },
+  {
+    slug: 'no-specs-or-deadline-too-shorts',
+    choiceLeft: {
+      title: 'No Specs',
+      img_path: '/assets/img/yolo.jpeg',
+    },
+    choiceRight: {
+      title: 'Deadlines Too Short',
+      img_path: '/assets/img/this_is_fine.jpeg',
+    },
+  },
+  {
+    slug: 'musk-or-bezos',
+    choiceLeft: {
+      title: 'Working for',
+      img_path: '/assets/img/elon.jpeg',
+    },
+    choiceRight: {
+      title: 'Working for',
+      img_path: '/assets/img/bezos.jpeg',
+    },
+  },
 ]
