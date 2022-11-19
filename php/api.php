@@ -1,6 +1,9 @@
 <?php
 
-header("Access-Control-Allow-Origin: *");
+if (isset($_SERVER['HTTP_ORIGIN']))
+  header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+header('Access-Control-Allow-Methods: GET, POST');
+
 include('../../config.php');
 
 $pdo = new PDO("mysql:dbname=" . $config['DB_NAME'] . ";host=" . $config['DB_HOST'], $config['DB_USER'], $config['DB_PASSWORD']);
