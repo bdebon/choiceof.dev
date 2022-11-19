@@ -130,4 +130,22 @@ describe('CardChoice', () => {
       expect(card.classList).toContain('lg:right-0')
     })
   })
+
+  it('should call onClick on click and if showResult is false', () => {
+    props.onClick = jest.fn()
+    props.showResult = false
+    const { baseElement } = render(<CardChoice {...props} />)
+    const card = getByTestId(baseElement, 'card')
+    card.click()
+    expect(props.onClick).toHaveBeenCalled()
+  })
+
+  it('should not call onClick on click and if showResult is true', () => {
+    props.onClick = jest.fn()
+    props.showResult = true
+    const { baseElement } = render(<CardChoice {...props} />)
+    const card = getByTestId(baseElement, 'card')
+    card.click()
+    expect(props.onClick).not.toHaveBeenCalled()
+  })
 })
