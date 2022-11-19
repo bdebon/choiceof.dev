@@ -254,4 +254,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/pointcarret.jpeg',
     },
   },
+  {
+    slug: 'jetbrains-or-vscode',
+    choiceLeft: {
+      title: 'Jetbrains',
+      img_path: '/assets/img/jetbrains-toolbox.jpg',
+    },
+    choiceRight: {
+      title: 'VS Code',
+      img_path: '/assets/img/vscode.jpg',
+    },
+  },
 ]
