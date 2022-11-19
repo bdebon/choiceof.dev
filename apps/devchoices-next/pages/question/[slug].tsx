@@ -64,7 +64,6 @@ export function QuestionPage(props: QuestionPageProps) {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}?slug=${slug}`)
       .then((res) => res.json())
       .then((data: VoteInterface[]) => {
-        console.log(data)
         const left = data.find((v: VoteInterface) => v.position === '0') || { count: 0 }
         const right = data.find((v: VoteInterface) => v.position === '1') || { count: 0 }
         setVoteValues([+left.count, +right.count])

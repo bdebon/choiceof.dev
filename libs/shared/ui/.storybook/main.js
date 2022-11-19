@@ -1,28 +1,21 @@
-const path = require("path");
-const rootMain = require('../../../../.storybook/main');
-
+const path = require('path')
+const rootMain = require('../../../../.storybook/main')
 
 module.exports = {
-  stories: [
-    ...rootMain.stories,
-    '../src/lib/**/*.stories.mdx',
-    '../src/lib/**/*.stories.@(js|jsx|ts|tsx)',
-  ],
+  stories: [...rootMain.stories, '../src/lib/**/*.stories.mdx', '../src/lib/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     ...rootMain.addons,
     '@nrwl/react/plugins/storybook',
-    "@storybook/addon-links",
-    "@storybook/addon-interactions",
+    '@storybook/addon-links',
+    '@storybook/addon-interactions',
   ],
   staticDirs: [{ from: '../../assets/src/lib', to: '/assets' }],
-  framework: "@storybook/react",
+  framework: '@storybook/react',
   core: { ...rootMain.core, builder: 'webpack5' },
   webpackFinal: async (config, { configType }) => {
     if (rootMain.webpackFinal) {
-      config = await rootMain.webpackFinal(config, { configType });
+      config = await rootMain.webpackFinal(config, { configType })
     }
-
-    console.log('and here ?')
     // main.js copied pasted from here https://github.com/tailwindlabs/tailwindcss/discussions/6570
     // but it does not seems to work with my project configuration. As soon as I uncomment the below lines
     // the compilation crash and I can't find why.
@@ -43,6 +36,6 @@ module.exports = {
     //
     // });
 
-    return config;
+    return config
   },
-};
+}
