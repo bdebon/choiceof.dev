@@ -169,11 +169,11 @@ export const questions: QuestionInterface[] = [
   {
     slug: 'javascript-or-php',
     choiceRight: {
-      title: 'javascript',
+      title: 'Javascript',
       img_path: '/assets/img/javascript.jpeg',
     },
     choiceLeft: {
-      title: 'php',
+      title: 'PHP',
       img_path: '/assets/img/php.jpeg',
     },
   },
