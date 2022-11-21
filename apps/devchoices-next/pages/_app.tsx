@@ -4,7 +4,7 @@ import 'tailwindcss/tailwind.css'
 import { DefaultSeo } from 'next-seo'
 import { AnimatePresence } from 'framer-motion'
 
-import { createContext, Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import { QuestionInterface } from '@benjamincode/shared/interfaces'
 import { questions } from '../public/assets/data/questions'
 import Script from 'next/script'
@@ -27,15 +27,25 @@ function CustomApp({ Component, pageProps, router }: AppProps) {
   const url = `${WEBSITE_URL}${router.query.slug ? '/question/' + router.query.slug : ''}`
 
   const fillingForm = () => {
+    console.log(contextQuestions)
     if (contextQuestions.length === 0) {
       // if we land on the website on a specific url, we fill the questions with first the question of the url
       // then the rest of the questions in a random order
       if (router.query.slug) {
         const question: QuestionInterface | undefined = questions.find((q) => q.slug === router.query.slug)
-        const otherQuestions = questions.filter((q) => q.slug !== router.query.slug)
+        const partnerSlug = 'hostinger-or-hostinger'
+        const questionPartner: QuestionInterface = questions.find((q) => q.slug === partnerSlug) as QuestionInterface
 
-        if (question) setContextQuestions([question, ...otherQuestions.sort(() => 0.5 - Math.random())])
-        else setContextQuestions(otherQuestions.sort(() => 0.5 - Math.random()))
+        let otherQuestions = questions.filter((q) => q.slug !== router.query.slug && q.slug !== partnerSlug)
+
+        // randomize otherQuestions
+        otherQuestions = otherQuestions.sort(() => 0.5 - Math.random())
+        // insert the question partner at the fifth position in otherQuestions
+        const partnerPositionIndex = 10
+        otherQuestions.splice(partnerPositionIndex - 2, 0, questionPartner)
+
+        if (question) setContextQuestions([question, ...otherQuestions])
+        else setContextQuestions(otherQuestions)
       } else {
         // if we land on the website without any URL we fill the question in a absolute random order
         setContextQuestions(questions.sort(() => 0.5 - Math.random()))
