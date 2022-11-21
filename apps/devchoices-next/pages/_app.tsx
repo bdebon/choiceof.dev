@@ -41,7 +41,7 @@ function CustomApp({ Component, pageProps, router }: AppProps) {
         // randomize otherQuestions
         otherQuestions = otherQuestions.sort(() => 0.5 - Math.random())
         // insert the question partner at the fifth position in otherQuestions
-        const partnerPositionIndex = 10
+        const partnerPositionIndex = 9
         otherQuestions.splice(partnerPositionIndex - 2, 0, questionPartner)
 
         if (question) setContextQuestions([question, ...otherQuestions])
