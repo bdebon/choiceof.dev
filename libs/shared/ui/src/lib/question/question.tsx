@@ -1,8 +1,7 @@
 import { CardChoice, CardChoiceProps } from '../card-choice/card-choice'
-import Or from '../or/or'
 import Button from '../button/button'
-import { TwitterIcon, TwitterShareButton } from 'next-share'
 import ShareTwitter from '../share-twitter/share-twitter'
+import Info from '../info/info'
 
 export interface QuestionProps {
   leftChoiceProps: CardChoiceProps
@@ -39,6 +38,7 @@ export function Question(props: QuestionProps) {
       >
         Next question
       </Button>
+      <Info />
     </div>
   )
 }

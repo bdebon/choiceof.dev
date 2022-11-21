@@ -88,7 +88,7 @@ function CustomApp({ Component, pageProps, router }: AppProps) {
       <a
         href="https://bit.ly/hostinger-benjamin-code"
         target="_blank"
-        className="fixed z-10 lg:bottom-6 lg:right-6 bottom-4 right-4"
+        className="fixed z-10 lg:bottom-6 lg:right-6 bottom-4 right-2"
       >
         <img
           src="/assets/logo/hostinger.jpg"
