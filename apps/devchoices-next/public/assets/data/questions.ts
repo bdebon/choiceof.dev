@@ -254,4 +254,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/pointcarret.jpeg',
     },
   },
+  {
+    slug: 'hostinger-or-hostinger',
+    choiceLeft: {
+      title: 'Hostinger',
+      img_path: '/assets/img/hostinger.jpeg',
+    },
+    choiceRight: {
+      title: 'Hostinger',
+      img_path: '/assets/img/hostinger.jpeg',
+    },
+  },
 ]
