@@ -27,7 +27,6 @@ function CustomApp({ Component, pageProps, router }: AppProps) {
   const url = `${WEBSITE_URL}${router.query.slug ? '/question/' + router.query.slug : ''}`
 
   const fillingForm = () => {
-    console.log(contextQuestions)
     if (contextQuestions.length === 0) {
       // if we land on the website on a specific url, we fill the questions with first the question of the url
       // then the rest of the questions in a random order
