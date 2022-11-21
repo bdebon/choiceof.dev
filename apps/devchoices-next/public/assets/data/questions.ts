@@ -35,17 +35,6 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
-    slug: 'camelCase-or-snake_case',
-    choiceLeft: {
-      title: 'camelCase',
-      img_path: '/assets/img/camelCase.jpg',
-    },
-    choiceRight: {
-      title: 'snake_case',
-      img_path: '/assets/img/snake_case.jpg',
-    },
-  },
-  {
     slug: 'front-or-back',
     choiceLeft: {
       title: 'Frontend',
@@ -60,11 +49,11 @@ export const questions: QuestionInterface[] = [
     slug: 'windows-or-linux',
     choiceLeft: {
       title: 'windows',
-      img_path: '/assets/img/windows.jpg',
+      img_path: '/assets/img/windows.jpeg',
     },
     choiceRight: {
       title: 'linux',
-      img_path: '/assets/img/linux.jpg',
+      img_path: '/assets/img/linux.jpeg',
     },
   },
   {
@@ -263,6 +252,39 @@ export const questions: QuestionInterface[] = [
     choiceRight: {
       title: 'Hostinger',
       img_path: '/assets/img/hostinger.jpeg',
+    },
+  },
+  {
+    slug: 'fingers-on-screen-or-no-touching',
+    choiceLeft: {
+      title: 'Showing things on screen touching it with oily fat fingers',
+      img_path: '/assets/img/greasy.jpeg',
+    },
+    choiceRight: {
+      title: 'Keeping your hand far from the monitor',
+      img_path: '/assets/img/theresa.jpeg',
+    },
+  },
+  {
+    slug: 'lick-mouse-or-lick-keyboard',
+    choiceLeft: {
+      title: 'Lick a public mouse',
+      img_path: '/assets/img/dirty-mouse-2.jpeg',
+    },
+    choiceRight: {
+      title: 'Lick a public keyboard ',
+      img_path: '/assets/img/dirty-keyboard.jpeg',
+    },
+  },
+  {
+    slug: 'winrar-or-youtube-premium',
+    choiceLeft: {
+      title: 'Paying Winrar',
+      img_path: '/assets/img/winrar.jpeg',
+    },
+    choiceRight: {
+      title: 'Paying YouTube Premium',
+      img_path: '/assets/img/youtube-premium.jpeg',
     },
   },
 ]
