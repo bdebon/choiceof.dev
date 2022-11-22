@@ -287,4 +287,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/youtube-premium.jpeg',
     },
   },
+  {
+    slug: 'datetime-or-timestamp',
+    choiceLeft: {
+      title: 'Datetime',
+      img_path: '/assets/img/datetime.jpg',
+    },
+    choiceRight: {
+      title: 'Timestamp',
+      img_path: '/assets/img/timestamp.jpg',
+    },
+  },
 ]
