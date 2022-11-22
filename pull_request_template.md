@@ -20,7 +20,7 @@ Your PR will be reviewed and our CI will run some tests and checks. If everythin
 
 ### Tests
 
-- [ ] I have run the tests of the project. `nx affected --target=test `
+- [ ] I have run the tests of the project. `nx affected --target=test`
 
 ### Clean Code
 
