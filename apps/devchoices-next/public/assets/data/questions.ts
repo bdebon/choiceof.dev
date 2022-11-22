@@ -287,4 +287,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/youtube-premium.jpeg',
     },
   },
+  {
+    slug: 'deploy-friday-or-light-theme',
+    choiceLeft: {
+      title: 'Deploy on a Friday',
+      img_path: '/assets/img/friday.jpg',
+    },
+    choiceRight: {
+      title: 'Code with Light Theme',
+      img_path: '/assets/img/light-theme.png',
+    },
+  }
 ]
