@@ -287,4 +287,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/youtube-premium.jpeg',
     },
   },
+  {
+    slug: 'breakpoints-debugueur-or-print',
+    choiceLeft: {
+      title: 'Utiliser des breakpoints et débugueur',
+      img_path: '/assets/img/breakpoint.jpg',
+    },
+    choiceRight: {
+      title: 'print("got this far")',
+      img_path: '/assets/img/print.jpg',
+    },
+  }
 ]
