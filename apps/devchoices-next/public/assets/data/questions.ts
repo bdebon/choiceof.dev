@@ -298,4 +298,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/Rebase.jpg',
     }
   },
+  {
+    slug: 'Assembly-or-Python',
+    choiceLeft: {
+      title: 'Hello World in Assembly',
+      img_path:'/assets/img/ASM.jpg',
+    },
+    choiceRight: {
+      title: 'Microprocessor in Python',
+      img_path: '/assets/img/Python.jpg',
+    }
+  },
 ]
