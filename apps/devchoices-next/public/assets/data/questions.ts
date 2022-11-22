@@ -288,7 +288,7 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
-    slug: 'Merge-or-Rebase',
+    slug: 'merge-or-rebase',
     choiceLeft: {
       title: 'Merge',
       img_path:'/assets/img/Merge.png',
@@ -299,7 +299,7 @@ export const questions: QuestionInterface[] = [
     }
   },
   {
-    slug: 'Assembly-or-Python',
+    slug: 'assembly-or-python',
     choiceLeft: {
       title: 'Hello World in Assembly',
       img_path:'/assets/img/ASM.jpg',
