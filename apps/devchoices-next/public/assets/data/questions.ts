@@ -287,4 +287,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/youtube-premium.jpeg',
     },
   },
+  {
+    slug: 'notepad-or-word',
+    choiceLeft: {
+      title: 'Code with notepad',
+      img_path: '/assets/img/notepad.jpeg',
+    },
+    choiceRight: {
+      title: 'Code with Microsoft word',
+      img_path: '/assets/img/word.jpeg',
+    },
+  },
 ]
