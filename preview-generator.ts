@@ -30,7 +30,7 @@ const drawSide = async (side: 'left' | 'right', ctx: any, image: Image, choice: 
   )
 }
 
-const renderPreview = async (question: QuestionInterface, override = false) => {
+function renderPreview (question: QuestionInterface, override = false) {
 
   if (!override && existsSync(`${assetPath}/assets/img-previews/preview-${question.slug}.jpg`)) {
     console.log(`Preview for ${question.slug} already exists`)
