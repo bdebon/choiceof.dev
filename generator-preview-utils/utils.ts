@@ -1,33 +1,23 @@
 import { wrapText } from './wrap-text-canvas'
 
 export function drawImageProp(
-  ctx: any,
+  ctx: CanvasRenderingContext2D,
   img: any,
-  x: number,
-  y: number,
-  w: number,
-  h: number,
-  offsetX: number,
-  offsetY: number
+  x: number = 0,
+  y: number = 0,
+  w: number = ctx.canvas.width,
+  h: number = ctx.canvas.height,
+  offsetX: number = 0.5,
+  offsetY: number = 0.5
 ) {
-  if (arguments.length === 2) {
-    x = y = 0
-    w = ctx.canvas.width
-    h = ctx.canvas.height
-  }
-
-  // default offset is center
-  offsetX = typeof offsetX === 'number' ? offsetX : 0.5
-  offsetY = typeof offsetY === 'number' ? offsetY : 0.5
-
   // keep bounds [0.0, 1.0]
   if (offsetX < 0) offsetX = 0
   if (offsetY < 0) offsetY = 0
   if (offsetX > 1) offsetX = 1
   if (offsetY > 1) offsetY = 1
 
-  var iw = img.width,
-    ih = img.height,
+  let iw = img.width as number,
+    ih = img.height as number,
     r = Math.min(w / iw, h / ih),
     nw = iw * r, // new prop. width
     nh = ih * r, // new prop. height
@@ -60,26 +50,25 @@ export function drawImageProp(
   ctx.drawImage(img, cx, cy, cw, ch, x, y, w, h)
 }
 
-export const createTextWithBackground = (text: string, x: number, ctx: any, width: number, height: number) => {
+export function createTextWithBackground (text: string, x: number, ctx: any, width: number, height: number)  {
   // wrap a long text inside a canvas
   const fontSize = width / 20
   const paddingX = width / 20
   const maxWidth = width / 2 - paddingX * 2
+  
   ctx.font = `700 ${fontSize}px Arial`
-  ctx.fillStyle = 'white'
-  let wrappedText = wrapText(ctx, text, x + paddingX, maxWidth, height, fontSize * 0.8)
+  const wrappedText = wrapText(ctx, text, x + paddingX, maxWidth, height, fontSize * 0.8)
 
   ctx.fillStyle = 'black'
   const paddingBox = fontSize / 4
   ctx.fillRect(
     x + paddingX - paddingBox,
-    height / 2 - wrappedText.heightText / 2 - paddingBox,
+    (height - wrappedText.textHeight) / 2 - paddingBox,
     maxWidth + 2 * paddingBox,
-    wrappedText.heightText + 2 * paddingBox
+    wrappedText.textHeight + 2 * paddingBox
   )
 
   wrappedText.lineArray.forEach(function (item) {
-    ctx.font = `700 ${fontSize}px Arial`
     ctx.fillStyle = 'white'
     const measures = ctx.measureText(item[0])
     ctx.fillText(item[0], x + width / 4 - measures.width / 2, item[2])
