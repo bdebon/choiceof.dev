@@ -2,6 +2,17 @@ import { QuestionInterface } from '@benjamincode/shared/interfaces'
 
 export const questions: QuestionInterface[] = [
   {
+    slug: 'light-or-dark',
+    choiceLeft: {
+      title: 'Light theme',
+      img_path: '/assets/img/light-theme.jpg',
+    },
+    choiceRight: {
+      title: 'Dark theme',
+      img_path: '/assets/img/dark-theme.jpg',
+    },
+  },
+  {
     slug: 'tab-or-space',
     choiceLeft: {
       title: 'Tabs',
