@@ -87,5 +87,5 @@ and on `localhost:4400` you should see the storybook running.
 This open source project and this website have been created by Benjamin Code to celebrate his 100k subscribers on YouTube.
 The project is inspired by [choixdemerde.fr](https://choixdemerde.fr) which is a project also created by [Benjamin Code](https://twitter.com/benjamincode) and that costed him a lot of money back in the day... If you want to learn more about this story and how a big buzz on your funny side project can ruins you, you will find [this article on Medium](https://medium.com/@benjamindebonmountain/choixdemerde-fr-le-buzz-couteux-6a46d3d6a480)
 
-"The story of choix de merde is terrible. It costed me a lot of time and money and never brought me anything. But the stories about this catastrophic development made me starts a YouTube channel and it has been so far the best experience of my life. For the 100k subscribers I wanted to bring back some light on this story and complete the loop"
+"The story of choixdemerde.fr is terrible. It costed me a lot of time and money and never brought me anything. But the stories about this catastrophic development made me starts a YouTube channel and it has been so far the best experience of my life. For the 100k subscribers I wanted to bring back some light on this story and complete the loop"
 – Benjamin Code
