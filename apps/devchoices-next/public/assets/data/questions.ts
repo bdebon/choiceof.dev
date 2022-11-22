@@ -287,4 +287,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/youtube-premium.jpeg',
     },
   },
+  {
+    slug: 'vim-or-vscode',
+    choiceLeft: {
+      title: ':q',
+      img_path: '/assets/img/vim.jpg',
+    },
+    choiceRight: {
+      title: 'Exit button',
+      img_path: '/assets/img/vscode.jpeg',
+    },
+  },
 ]
