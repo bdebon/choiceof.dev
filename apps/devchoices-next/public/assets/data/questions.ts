@@ -287,4 +287,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/youtube-premium.jpeg',
     },
   },
+  {
+    slug: 'assembly-forever-or-bash-forever',
+    choiceLeft: {
+      title: 'Stuck to assembly forever',
+      img_path: '/assets/img/x86-assembly.png',
+    },
+    choiceRight: {
+      title: 'Stuck to shell scripting forever',
+      img_path: '/assets/img/bash.png',
+    },
+  },
 ]
