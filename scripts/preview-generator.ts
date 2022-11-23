@@ -69,7 +69,7 @@ const renderPreviewBySlug = async (slug: string, override = false) => {
   })
 }
 
-//renderPreviewBySlug('camelCase-or-snake_case', true).then(() => {})
+//renderPreviewBySlug('camel-case-or-snake-case', true).then(() => {})
 
 const { isQuestionValid, showReport } = getValidator()
 

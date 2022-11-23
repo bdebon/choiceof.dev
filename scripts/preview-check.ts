@@ -5,7 +5,7 @@ import { getValidator } from './validation'
 
 const assetPath = 'apps/devchoices-next/public'
 
-//renderPreviewBySlug('camelCase-or-snake_case', true).then(() => {})
+//renderPreviewBySlug('camel-case-or-snake-case', true).then(() => {})
 
 const { isQuestionValid, showReport } = getValidator()
 
