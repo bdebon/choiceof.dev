@@ -5,6 +5,13 @@ on:
     types: [opened, edited]
     branches:
       - staging
+
+# Define a concurrency group at the branch level for the current workflows.
+# Triggered workflow will be queued and cancel the previous ones
+concurrency:
+  group: pr-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   check_pr_title:
     name: Check PR Title
