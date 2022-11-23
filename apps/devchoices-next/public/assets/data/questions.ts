@@ -298,4 +298,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/yarn-among-us.jpeg',
     },
   },
+  {
+    slug: 'string-or-string',
+    choiceLeft: {
+      title: 'string',
+      img_path: '/assets/img/string-inoxtag.png',
+    },
+    choiceRight: {
+      title: "'string'",
+      img_path: '/assets/img/string-hello-world.jpeg',
+    },
+  },
 ]
