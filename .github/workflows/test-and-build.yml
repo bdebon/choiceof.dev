@@ -14,7 +14,7 @@ on:
         type: string
 
 # Define a concurrency group at the branch level for the current workflows.
-# Trigerred workflow will be queued and cancel the previous ones
+# Triggered workflow will be queued and cancel the previous ones
 concurrency:
   group: pr-${{ github.ref }}
   cancel-in-progress: true
@@ -69,7 +69,7 @@ jobs:
       - uses: szenius/set-timezone@v1.0
         name: Change timezone
         with:
-          timezoneLinux: 'Europe/Paris'
+          timezoneLinux: Europe/Paris
       - name: Setup pnpm
         uses: pnpm/action-setup@v2.2.4
       - name: Cache node modules
@@ -86,7 +86,7 @@ jobs:
           node-version: 16
       - name: Check if all previews exist
         if: matrix.target != 'build'
-        run: pnpm ts-node --project tsconfig-generator.json preview-check.ts
+        run: pnpm ts-node scripts/preview-check.ts
       - name: Nx Affected
         run: pnpm nx affected --target=${{ matrix.target }} --parallel --max-parallel=3 --configuration=${{ inputs.configuration }}
       - name: Next export

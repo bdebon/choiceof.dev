@@ -1,0 +1,11 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "paths": {
+      "@benjamincode/shared/assets": ["../libs/shared/assets/src/index.ts"],
+      "@benjamincode/shared/interfaces": ["../libs/shared/interfaces/src/index.ts"],
+      "@benjamincode/shared/ui": ["../libs/shared/ui/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
