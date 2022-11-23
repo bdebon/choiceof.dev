@@ -309,4 +309,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'iphone-or-android',
+    choiceLeft: {
+      title: 'iPhone',
+      img_path: '/assets/img/iphone.jpg',
+    },
+    choiceRight: {
+      title: 'Android',
+      img_path: '/assets/img/android.jpg',
+    },
+  },
 ]
