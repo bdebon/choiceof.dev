@@ -1,7 +1,9 @@
 import { Canvas, Image, loadImage } from 'canvas'
-import { createTextWithBackground, drawImageProp } from './generator-preview-utils/utils'
+import { createTextWithBackground, drawImageProp } from '../generator-preview-utils/utils'
 import * as fs from 'fs'
-import { questions } from './apps/devchoices-next/public/assets/data/questions'
+import { questions } from '../apps/devchoices-next/public/assets/data/questions'
+import { getValidator } from './validation'
+import * as path from 'path'
 
 const width = 1200
 const height = 628
@@ -38,31 +40,45 @@ const renderPreviewBySlug = async (slug: string, override = false) => {
     return
   }
 
-  if (question.choiceLeft.img_path.indexOf('webp') > -1 || question.choiceRight.img_path.indexOf('webp') > -1) {
+  if (question.choiceLeft.img_path.endsWith('.webp') || question.choiceRight.img_path.endsWith('.webp')) {
     console.log('Webp not supported')
     return
   }
 
   const promiseImg1 = loadImage(assetPath + question.choiceLeft.img_path)
   const promiseImg2 = loadImage(assetPath + question.choiceRight.img_path)
-  Promise.all([promiseImg1, promiseImg2]).then(async (images) => {
+
+  await Promise.all([promiseImg1, promiseImg2]).then(async (images) => {
     const canvas = new Canvas(width, height)
     const ctx = canvas.getContext('2d')
+    const filename = `preview-${slug}.jpg`
 
     await drawSide('left', ctx, images[0], question)
     await drawSide('right', ctx, images[1], question)
 
-    const out = fs.createWriteStream(__dirname + `/${assetPath}/assets/img-previews/preview-${slug}.jpg`)
-    const stream = canvas.createJPEGStream({
+    const writeStream = fs.createWriteStream(path.join(__dirname, `../${assetPath}/assets/img-previews/${filename}`))
+    const jpegStream = canvas.createJPEGStream({
       quality: 0.8,
     })
-    stream.pipe(out)
-    out.on('finish', () => console.log('The JPG preview-' + slug + '.jpg file was created.'))
+
+    jpegStream.pipe(writeStream)
+
+    await new Promise(resolve => writeStream.on('finish', resolve))
+
+    console.log(`The JPG file ${filename} was created.`)
   })
 }
 
-//renderPreviewBySlug('camelCase-or-snake_case', true).then(() => {})
+const { isQuestionValid, showReport } = getValidator()
 
-questions.forEach(async (question) => {
-  await renderPreviewBySlug(question.slug, override)
+Promise.all(
+  questions.map(async (question) => {
+    if (!isQuestionValid(question)) {
+      return
+    }
+
+    await renderPreviewBySlug(question.slug, override)
+  })
+).then(() => {
+  showReport()
 })
