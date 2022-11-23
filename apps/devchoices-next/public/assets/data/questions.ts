@@ -81,7 +81,7 @@ export const questions: QuestionInterface[] = [
   {
     slug: 'indian-youtube-or-reading-doc',
     choiceLeft: {
-      title: 'Indian YouTube Tutorial ',
+      title: 'Indian YouTube Tutorial',
       img_path: '/assets/img/indian-youtube-2.jpeg',
     },
     choiceRight: {
@@ -101,7 +101,7 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
-    slug: 'pomodoro-nonstop',
+    slug: 'pomodoro-or-nonstop',
     choiceLeft: {
       title: 'Pomodoro',
       img_path: '/assets/img/pomodoro.jpeg',
@@ -272,7 +272,7 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/dirty-mouse-2.jpeg',
     },
     choiceRight: {
-      title: 'Lick a public keyboard ',
+      title: 'Lick a public keyboard',
       img_path: '/assets/img/dirty-keyboard.jpeg',
     },
   },

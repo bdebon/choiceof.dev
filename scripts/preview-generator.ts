@@ -1,7 +1,8 @@
 import { Canvas, Image, loadImage } from 'canvas'
-import { createTextWithBackground, drawImageProp } from './generator-preview-utils/utils'
+import { createTextWithBackground, drawImageProp } from '../generator-preview-utils/utils'
 import * as fs from 'fs'
-import { questions } from './apps/devchoices-next/public/assets/data/questions'
+import { questions } from '../apps/devchoices-next/public/assets/data/questions'
+import { getValidator } from './validation'
 
 const width = 1200
 const height = 628
@@ -63,6 +64,14 @@ const renderPreviewBySlug = async (slug: string, override = false) => {
 
 //renderPreviewBySlug('camelCase-or-snake_case', true).then(() => {})
 
+const { isQuestionValid, showReport } = getValidator()
+
 questions.forEach(async (question) => {
+  if (!isQuestionValid(question)) {
+    return
+  }
+
   await renderPreviewBySlug(question.slug, override)
 })
+
+showReport()
