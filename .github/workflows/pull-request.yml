@@ -5,17 +5,9 @@ on:
     branches:
       - staging
 jobs:
-  test-and-build:
-    uses: ./.github/workflows/test-and-build.yml
-    with:
-      flow: pull-request
-      branch: main
-      configuration: prod
-
   check_pr_title:
     name: Check Pr Title
     runs-on: ubuntu-latest
-    needs: [ test-and-build ]
     steps:
       - name: Checkout [${{ inputs.branch }}]
         uses: actions/checkout@v3
@@ -30,3 +22,11 @@ jobs:
           key: cache-node-${{ hashFiles('pnpm-lock.yaml') }}
       - name: lint pull request title
         run: echo "${{ github.event.pull_request.title }}" | pnpm commitlint
+
+
+  test-and-build:
+    uses: ./.github/workflows/test-and-build.yml
+    with:
+      flow: pull-request
+      branch: main
+      configuration: prod
