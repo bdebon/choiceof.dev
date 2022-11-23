@@ -16,7 +16,7 @@ export const questions: QuestionInterface[] = [
     slug: 'working-code-or-clean-code',
     choiceLeft: {
       title: 'Working Code',
-      img_path: '/assets/img/working-code.png',
+      img_path: '/assets/img/working-code.jpg',
     },
     choiceRight: {
       title: 'Clean Code',
