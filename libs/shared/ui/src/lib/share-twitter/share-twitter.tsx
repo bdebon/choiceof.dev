@@ -1,4 +1,6 @@
 import { TwitterIcon, TwitterShareButton } from 'next-share'
+import { useCallback } from 'react'
+import { push } from "@socialgouv/matomo-next";
 
 export interface ShareTwitterProps {
   websiteUrl: string
@@ -11,9 +13,14 @@ export function ShareTwitter(props: ShareTwitterProps) {
   const showResultButton = props.showResult
     ? `transition-opacity duration-300 delay-700 !opacity-100`
     : `opacity-0 pointer-events-none`
+  
+  const onShare = useCallback(() => {
+    push(["trackEvent", "share", "twitter"]);
+  }, [])
 
   return (
     <TwitterShareButton
+      onClick={onShare}
       url={`${websiteUrl}/question/${questionSlug}/`}
       title={`You  won't believe what people voted on this one...`}
     >
