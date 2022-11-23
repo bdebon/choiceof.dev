@@ -13,6 +13,17 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
+    slug: 'Cloud',
+    choiceLeft: {
+      title: 'Google Cloud',
+      img_path: '/assets/img/GoogleCloud.webp',
+    },
+    choiceRight: {
+      title: 'AWS',
+      img_path: '/assets/img/AWS.webp',
+    },
+  },
+  {
     slug: 'notepad-or-emacs',
     choiceLeft: {
       title: 'Notepad',
