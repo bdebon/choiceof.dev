@@ -298,4 +298,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/vegetables-meal.jpeg',
     },
   },
+  {
+    slug: 'merge-or-rebase',
+    choiceLeft: {
+      title: 'Merge',
+      img_path: '/assets/img/merge.png',
+    },
+    choiceRight: {
+      title: 'Rebase',
+      img_path: '/assets/img/rebase.jpg',
+    },
+  },
 ]
