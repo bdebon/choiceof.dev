@@ -287,4 +287,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/youtube-premium.jpeg',
     },
   },
+  {
+    slug: 'without-ide-or-mobile',
+    choiceLeft: {
+      title: 'Code without IDE',
+      img_path: '/assets/img/without-ide.png'
+    },
+    choiceRight: {
+      title: 'Code on a mobile',
+      img_path: '/assets/img/mobile.jpg'
+    }
+  }
 ]
