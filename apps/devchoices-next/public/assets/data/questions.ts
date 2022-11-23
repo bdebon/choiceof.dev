@@ -298,4 +298,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/vegetables-meal.jpeg',
     },
   },
+  {
+    slug: 'writing-parentheses',
+    choiceLeft: {
+      title: 'Normal',
+      img_path: '/assets/img/parentheses-normal.jpeg',
+    },
+    choiceRight: {
+      title: 'hideous',
+      img_path: '/assets/img/parentheses-hideous.jpeg',
+    },
+  },
 ]
