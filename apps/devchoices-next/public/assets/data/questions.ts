@@ -287,4 +287,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/youtube-premium.jpeg',
     },
   },
+  {
+    slug: 'shower-or-good-meal',
+    choiceLeft: {
+      title: 'Taking a Shower',
+      img_path: '/assets/img/shower.jpeg',
+    },
+    choiceRight: {
+      title: 'Cooking a balanced meal',
+      img_path: '/assets/img/vegetables-meal.jpeg',
+    },
+  },
 ]
