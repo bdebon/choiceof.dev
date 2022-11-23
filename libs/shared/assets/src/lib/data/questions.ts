@@ -57,14 +57,14 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
-    slug: 'camelCase-or-snake_case',
+    slug: 'camel-case-or-snake-case',
     choiceLeft: {
-      title: 'camelCase',
-      img_path: '/assets/img/camelCase.jpg',
+      title: 'camel-case',
+      img_path: '/assets/img/camel-case.jpg',
     },
     choiceRight: {
-      title: 'snake_case',
-      img_path: '/assets/img/snake_case.jpg',
+      title: 'snake-case',
+      img_path: '/assets/img/snake-case.jpg',
     },
   },
 ]
