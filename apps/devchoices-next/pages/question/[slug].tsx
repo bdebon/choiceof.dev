@@ -131,7 +131,7 @@ export function QuestionPage(props: QuestionPageProps) {
               sizes="(max-width: 768px) 100vw,
                 50vw"
               fill
-              className="w-full h-full"
+              className="w-full h-full cursor-pointer"
               loading="eager"
             />
             <Image
@@ -140,7 +140,7 @@ export function QuestionPage(props: QuestionPageProps) {
               sizes="(max-width: 768px) 100vw,
                 50vw"
               fill
-              className="w-full h-full"
+              className="w-full h-full cursor-pointer"
               loading="eager"
             />
           </>
