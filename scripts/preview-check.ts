@@ -5,8 +5,6 @@ import { getValidator } from './validation'
 
 const assetPath = 'apps/devchoices-next/public'
 
-//renderPreviewBySlug('camel-case-or-snake-case', true).then(() => {})
-
 const { isQuestionValid, showReport } = getValidator()
 
 Promise.all(

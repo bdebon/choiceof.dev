@@ -28,11 +28,11 @@ Then you can run the project locally and check if everything is working fine. Yo
 If you like the result, it's time to generate the preview of this question for social networks.
 To do this run the command:
 
-``pnpm ts-node --project tsconfig-generator.json preview-generator.ts``
+``pnpm ts-node --project scripts/tsconfig.json scripts/preview-generator.ts``
 
-if you want for any reason to regenerate all the previews, you can run the command:
+If for some reason you want to regenerate all the previews, you can run the command:
 
-``pnpm ts-node --project tsconfig-generator.json preview-generator.ts --override``
+``pnpm ts-node --project scripts/tsconfig.json scripts/preview-generator.ts --override``
 
 Now you are ready to submit your PR. We will review it and if everything is fine, and the joke is fun, we will merge it and your question will be available on the website 🎉
 
