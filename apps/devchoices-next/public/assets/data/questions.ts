@@ -298,4 +298,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/vegetables-meal.jpeg',
     },
   },
+  {
+    slug: 'download-zip-or-git-clone',
+    choiceLeft: {
+      title: 'Download zip',
+      img_path: '/assets/img/dowload-zip.jpg',
+    },
+    choiceRight: {
+      title: 'Git clone',
+      img_path: '/assets/img/git-clone.jpg',
+    },
+  },
 ]
