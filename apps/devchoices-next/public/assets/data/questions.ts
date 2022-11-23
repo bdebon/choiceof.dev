@@ -287,4 +287,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/youtube-premium.jpeg',
     },
   },
+  {
+    slug: 'npm-or-pnpm',
+    choiceLeft: {
+      title: 'npm',
+      img_path: '/assets/img/among-us.jpeg',
+    },
+    choiceRight: {
+      title: 'pnpm',
+      img_path: '/assets/img/yarn-among-us.jpeg',
+    },
+  },
 ]
