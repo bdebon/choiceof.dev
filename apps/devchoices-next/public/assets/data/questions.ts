@@ -287,4 +287,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/youtube-premium.jpeg',
     },
   },
+  {
+    slug: 'coffee or tea',
+    choiceLeft: {
+      title: 'Drink Coffee',
+      img_path: '/assets/img/coffee.jpg',
+    },
+    choiceRight: {
+      title: 'Drink Tea',
+      img_path: '/assets/img/tea.jpg',
+    },
+  },
 ]
