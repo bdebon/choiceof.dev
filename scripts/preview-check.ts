@@ -16,7 +16,7 @@ Promise.all(
     try {
       if (!fs.existsSync(`${assetPath}/assets/img-previews/preview-${question.slug}.jpg`)) {
         core.setFailed(`Preview for ${question.slug} not found, please generate it running: `)
-        console.log('pnpm ts-node --project scripts/tsconfig.json scripts/preview-generator.ts')
+        console.log('pnpm ts-node scripts/preview-generator.ts')
         console.log('Then, do not forget to commit the generated preview')
         return
       }
