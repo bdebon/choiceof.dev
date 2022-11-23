@@ -298,4 +298,26 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/vegetables-meal.jpeg',
     },
   },
+  {
+    slug: 'tailwind-bootstrap',
+    choiceLeft: {
+      title: 'Tailwind',
+      img_path: '/assets/img/tailwind.jpg',
+    },
+    choiceRight: {
+      title: 'Bootstrap',
+      img_path: '/assets/img/bootstrap.jpeg',
+    },
+  },
+  {
+    slug: 'vscodewhite-or-vscodedark',
+    choiceLeft: {
+      title: 'VSCode White',
+      img_path: '/assets/img/vscodewhite.jpeg',
+    },
+    choiceRight: {
+      title: 'VSCode Dark',
+      img_path: '/assets/img/vscodeblack.jpeg',
+    },
+  },
 ]
