@@ -9,21 +9,23 @@ const assetPath = 'apps/devchoices-next/public'
 
 const { isQuestionValid, showReport } = getValidator()
 
-questions.forEach(async (question) => {
-  if (isQuestionValid(question)) {
-    return
-  }
-
-  try {
-    if (!fs.existsSync(`${assetPath}/assets/img-previews/preview-${question.slug}.jpg`)) {
-      core.setFailed(`Preview for ${question.slug} not found, please generate it running: `)
-      console.log('pnpm ts-node --project tsconfig-generator.json preview-generator.ts')
-      console.log('Then, do not forget to commit the generated preview')
+Promise.all(
+  questions.map(async (question) => {
+    if (isQuestionValid(question)) {
       return
     }
-  } catch (e) {
-    console.log(e)
-  }
-})
 
-showReport()
+    try {
+      if (!fs.existsSync(`${assetPath}/assets/img-previews/preview-${question.slug}.jpg`)) {
+        core.setFailed(`Preview for ${question.slug} not found, please generate it running: `)
+        console.log('pnpm ts-node --project scripts/tsconfig.json scripts/preview-generator.ts')
+        console.log('Then, do not forget to commit the generated preview')
+        return
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  })
+).then(() => {
+  showReport()
+})
