@@ -288,7 +288,7 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
-    slug: 'coffee or tea',
+    slug: 'coffee-or-tea',
     choiceLeft: {
       title: 'Drink Coffee',
       img_path: '/assets/img/coffee.jpg',
@@ -296,6 +296,17 @@ export const questions: QuestionInterface[] = [
     choiceRight: {
       title: 'Drink Tea',
       img_path: '/assets/img/tea.jpg',
+    },
+  },
+  {
+    slug: 'type-script-or-java-script',
+    choiceLeft: {
+      title: 'Typescript',
+      img_path: '/assets/img/typescript.jpeg',
+    },
+    choiceRight: {
+      title: 'Javascript',
+      img_path: '/assets/img/javascript2.jpeg',
     },
   },
 ]
