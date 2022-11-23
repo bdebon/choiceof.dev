@@ -287,4 +287,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/youtube-premium.jpeg',
     },
   },
+  {
+    slug: 'console-log-or-debugger',
+    choiceLeft: {
+      title: 'console.log("here")',
+      img_path: '/assets/img/console-log().jpg',
+    },
+    choiceRight: {
+      title: 'Debugger',
+      img_path: '/assets/img/debugger.jpeg',
+    },
+  },
 ]
