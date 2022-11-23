@@ -13,9 +13,9 @@ jobs:
       configuration: prod
 
   check_pr_title:
-    name: Check Pr Title
+    name: Check PR Title
     runs-on: ubuntu-latest
-    needs: [ test-and-build ]
+    needs: [test-and-build]
     steps:
       - name: Checkout [${{ inputs.branch }}]
         uses: actions/checkout@v3
