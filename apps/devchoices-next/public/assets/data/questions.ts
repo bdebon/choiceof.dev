@@ -309,4 +309,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'dark-mode-or-light-mode',
+    choiceLeft: {
+      title: 'Dark mode',
+      img_path: '/assets/img/dark-mode.jpg',
+    },
+    choiceRight: {
+      title: 'Light mode',
+      img_path: '/assets/img/light-mode.jpg',
+    },
+  },
 ]
