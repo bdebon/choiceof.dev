@@ -1,0 +1,25 @@
+name: Pull Request Title
+
+on:
+  pull_request:
+    types: [opened, edited]
+    branches:
+      - staging
+jobs:
+  check_pr_title:
+    name: Check PR Title
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout [${{ inputs.branch }}]
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.4
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: cache-node-${{ hashFiles('pnpm-lock.yaml') }}
+      - name: Lint PR title
+        run: echo "${{ github.event.pull_request.title }}" | pnpm commitlint
