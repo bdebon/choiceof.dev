@@ -81,7 +81,7 @@ export const questions: QuestionInterface[] = [
   {
     slug: 'indian-youtube-or-reading-doc',
     choiceLeft: {
-      title: 'Indian YouTube Tutorial ',
+      title: 'Indian YouTube Tutorial',
       img_path: '/assets/img/indian-youtube-2.jpeg',
     },
     choiceRight: {
@@ -101,7 +101,7 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
-    slug: 'pomodoro-nonstop',
+    slug: 'pomodoro-or-nonstop',
     choiceLeft: {
       title: 'Pomodoro',
       img_path: '/assets/img/pomodoro.jpeg',
@@ -272,7 +272,7 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/dirty-mouse-2.jpeg',
     },
     choiceRight: {
-      title: 'Lick a public keyboard ',
+      title: 'Lick a public keyboard',
       img_path: '/assets/img/dirty-keyboard.jpeg',
     },
   },
@@ -296,6 +296,36 @@ export const questions: QuestionInterface[] = [
     choiceRight: {
       title: 'Debugger',
       img_path: '/assets/img/debugger.jpeg',
+    slug: 'deploy-friday-or-light-theme',
+    choiceLeft: {
+      title: 'Deploy on a Friday',
+      img_path: '/assets/img/friday.jpg',
+    },
+    choiceRight: {
+      title: 'Code with Light Theme',
+      img_path: '/assets/img/burnt-eyes.jpg',
+    },
+  },
+  {
+    slug: 'shower-or-good-meal',
+    choiceLeft: {
+      title: 'Taking a Shower',
+      img_path: '/assets/img/shower.jpeg',
+    },
+    choiceRight: {
+      title: 'Cooking a balanced meal',
+      img_path: '/assets/img/vegetables-meal.jpeg',
+    },
+  },
+  {
+    slug: 'merge-or-rebase',
+    choiceLeft: {
+      title: 'Merge',
+      img_path: '/assets/img/merge.png',
+    },
+    choiceRight: {
+      title: 'Rebase',
+      img_path: '/assets/img/rebase.jpg',
     },
   },
 ]
