@@ -295,7 +295,7 @@ export const questions: QuestionInterface[] = [
     },
     choiceRight: {
       title: 'Code with Light Theme',
-      img_path: '/assets/img/burnt-eyes.jpg',
+      img_path: '/assets/img/light-theme.jpg',
     },
   },
   {
