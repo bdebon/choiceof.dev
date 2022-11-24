@@ -309,7 +309,7 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/vegetables-meal.jpeg',
     },
   },
-  {
+   {
     slug: 'merge-or-rebase',
     choiceLeft: {
       title: 'Merge',
@@ -318,6 +318,17 @@ export const questions: QuestionInterface[] = [
     choiceRight: {
       title: 'Rebase',
       img_path: '/assets/img/rebase.jpg',
+    },
+  },
+  {
+    slug: 'tailwind-or-bootstrap',
+    choiceLeft: {
+      title: 'tailwind',
+      img_path: '/assets/img/tailwindcss.jpg',
+    },
+    choiceRight: {
+      title: 'bootstrap',
+      img_path: '/assets/img/bootstrap.jpeg',
     },
   },
 ]
