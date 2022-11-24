@@ -288,6 +288,17 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
+    slug: 'console-log-or-debugger',
+    choiceLeft: {
+      title: 'console.log("here")',
+      img_path: '/assets/img/console-log().jpg',
+    },
+    choiceRight: {
+      title: 'Debugger',
+      img_path: '/assets/img/debugger.jpeg',
+    }
+  },
+  {
     slug: 'deploy-friday-or-light-theme',
     choiceLeft: {
       title: 'Deploy on a Friday',
