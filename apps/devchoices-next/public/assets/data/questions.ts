@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'drop-or-truncate',
+    choiceLeft: {
+      title: 'DROP DATABASE',
+      img_path: '/assets/img/delete-database.jpg',
+    },
+    choiceRight: {
+      title: 'TRUNCATE TABLE',
+      img_path: '/assets/img/truncate-table.jpg',
+    },
+  },
 ]
