@@ -310,25 +310,14 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
-    slug: 'tailwind-bootstrap',
+    slug: 'tailwind-or-bootstrap',
     choiceLeft: {
-      title: 'Tailwind',
-      img_path: '/assets/img/tailwind.jpg',
+      title: 'tailwind',
+      img_path: '/assets/img/tailwindcss.jpg',
     },
     choiceRight: {
-      title: 'Bootstrap',
+      title: 'bootstrap',
       img_path: '/assets/img/bootstrap.jpeg',
     },
-  },
-  {
-    slug: 'vscodewhite-or-vscodedark',
-    choiceLeft: {
-      title: 'VSCode White',
-      img_path: '/assets/img/vscodewhite.jpeg',
-    },
-    choiceRight: {
-      title: 'VSCode Dark',
-      img_path: '/assets/img/vscodeblack.jpeg',
-     },
   },
 ]
