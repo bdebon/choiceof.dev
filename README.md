@@ -33,7 +33,7 @@ If for some reason you want to regenerate all the previews, you can run the comm
 
 `pnpm ts-node scripts/preview-generator.ts --override`
 
-Now you are ready to submit your PR. We will review it and if everything is fine, and the joke is fun, we will merge it and your question will be available on the website 🎉
+Now you are ready to submit your PR. We will review it and if everything is fine, and if the joke is fun, we will merge it and your question will be available on the website 🎉
 
 ## How to contribute to the core project and adding features
 
