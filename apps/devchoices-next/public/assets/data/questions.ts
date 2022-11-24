@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'regexp-or-dummy-if-statements',
+    choiceLeft: {
+      title: 'Regexp',
+      img_path: '/assets/img/regex-meme.jpg',
+    },
+    choiceRight: {
+      title: 'Dummy if statements',
+      img_path: '/assets/img/dummy-if-statements.jpg',
+    },
+  }
 ]
