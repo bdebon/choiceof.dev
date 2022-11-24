@@ -6,7 +6,7 @@ on:
       - staging
 jobs:
   check_pr_title:
-    name: Check Pr Title
+    name: Check PR Title
     runs-on: ubuntu-latest
     steps:
       - name: Checkout [${{ inputs.branch }}]
