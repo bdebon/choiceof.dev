@@ -26,30 +26,41 @@ export function CardChoice(props: CardChoiceProps) {
       // detect window screen width function
       _style = showResult
         ? window?.innerWidth > 1024
-          ? { width: `${percent}%`, height: '100%' }
+          ? { width: `${percent}%`, height: '100%'  }
           : { height: `${percent}%`, width: '100%' }
         : window?.innerWidth > 1024
         ? { width: `50%`, height: '100%' }
         : { height: `50%`, width: '100%' }
     }
 
-    //_style = { ..._style, backgroundImage: `url(${imgUrl})` }
-
     return _style
   }, [imgUrl, percent, showResult])
 
   const [style, setStyle] = useState<CSSProperties>()
 
+  const computeFontStyle = useCallback(() => {
+    let _fontStyle: CSSProperties = {}
+    if (typeof window !== 'undefined') {
+      _fontStyle = showResult ? {fontSize: `${percent}px`, transition: 'all 0.8s ease'} : {fontSize: 'text-3xl lg:text-5xl'}
+    }
+
+    return _fontStyle
+  }, [imgUrl, percent, showResult])
+
+  const [fontStyle, setFontStyle] = useState<CSSProperties>()
+
+
   useEffect(() => {
     const onResize = () => {
       setStyle(computeStyle())
+      setFontStyle(computeFontStyle())
     }
 
     window.addEventListener('resize', onResize)
     return () => {
       window.removeEventListener('resize', onResize)
     }
-  }, [computeStyle])
+  }, [computeStyle, computeFontStyle])
 
   useEffect(() => {
     if (showResult) {
@@ -59,7 +70,8 @@ export function CardChoice(props: CardChoiceProps) {
 
   useEffect(() => {
     setStyle(computeStyle())
-  }, [percent, setStyle, showResult, computeStyle])
+    setFontStyle(computeFontStyle())
+  }, [percent, setStyle, showResult, computeStyle, computeFontStyle])
 
   const onVote = (): void => {
     if (!showResult) return onClick()
@@ -71,7 +83,7 @@ export function CardChoice(props: CardChoiceProps) {
         onVote()
       }}
       data-testid="card"
-      className={`absolute lg-top-0 lg-bottom-0 flex items-center flex-col justify-center transition-size ease duration-1000  ${positionClass} lg:w-1/2 lg:h-full w-full h-1/2`}
+      className={`absolute lg-top-0 lg-bottom-0 flex items-center flex-col justify-center transition-size ease duration-1000 ${positionClass} lg:w-1/2 lg:h-full w-full h-1/2`}
       style={style}
     >
       <Image
@@ -85,13 +97,14 @@ export function CardChoice(props: CardChoiceProps) {
         sizes="(max-width: 768px) 100vw,
               50vw"
       />
-
-      <h1 className="px-4 py-2 text-3xl lg:text-5xl bg-black/70 text-white uppercase font-bold w-56 lg:w-80 text-center relative">
-        {title}
-      </h1>
+      <div className='flex justify-center mx-8 items-center w-fit bg-black/70 z-10'>
+        <h1 style={fontStyle} className={`px-4 py-2 text-3xl lg:text-5xl leading-normal text-white uppercase font-bold text-center relative`}>
+          {title}
+        </h1>
+      </div>
 
       <div
-        className={`relative mt-2 px-4 py-2 bg-white border-t-2 border-t-black font-bold text-black w-56 text-center opacity-0 ${
+        className={`relative mt-2 px-4 py-2 bg-white border-t-2 border-t-black font-bold text-black max-w-56 text-center opacity-0 ${
           showResult ? '!opacity-100 transition-opacity duration-500' : ''
         }`}
       >
