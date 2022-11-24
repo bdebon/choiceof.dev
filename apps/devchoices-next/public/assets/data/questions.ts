@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'low-level-or-high-level',
+    choiceLeft: {
+      title: 'Low level programming language',
+      img_path: '/assets/img/low-level.jpg',
+    },
+    choiceRight: {
+      title: 'Hig level programming language',
+      img_path: '/assets/img/high-level.jpg',
+    },
+  },
 ]
