@@ -112,6 +112,17 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
+    slug: 'writing-tests-or-writing-spec',
+    choiceLeft: {
+      title: 'Writing tests',
+      img_path: '/assets/img/writing-test.png',
+    },
+    choiceRight: {
+      title: 'Writing spec',
+      img_path: '/assets/img/writing-spec.png',
+    },
+  },
+  {
     slug: '1-screen-or-9-screens',
     choiceLeft: {
       title: '1 Screen',
