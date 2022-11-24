@@ -16,7 +16,7 @@ export function ShareTwitter(props: ShareTwitterProps) {
     : `opacity-0 pointer-events-none`
   
   const onTwitterShare = useCallback(() => {
-    push(LogPayload.twitterShare);
+    push([...LogPayload.twitterShare, questionSlug]);
   }, [])
 
   return (
