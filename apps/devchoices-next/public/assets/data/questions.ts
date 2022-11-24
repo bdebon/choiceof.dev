@@ -299,6 +299,17 @@ export const questions: QuestionInterface[] = [
     }
   },
   {
+    slug: 'deploy-friday-or-light-theme',
+    choiceLeft: {
+      title: 'Deploy on a Friday',
+      img_path: '/assets/img/friday.jpg',
+    },
+    choiceRight: {
+      title: 'Code with Light Theme',
+      img_path: '/assets/img/burnt-eyes.jpg',
+    }
+  },
+  {
     slug: 'shower-or-good-meal',
     choiceLeft: {
       title: 'Taking a Shower',
