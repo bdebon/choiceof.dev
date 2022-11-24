@@ -1,5 +1,3 @@
-
-
 # Choiceof.dev
 
 Developers have to cope with pretty hard choices every day. This is a collection of the most complex and funny choices. What will be yours?
@@ -16,11 +14,12 @@ To add a question, you must clone the project locally, built it, updating one fi
 Just a quick reminder, the project is supposed to be funny. Therefore, questions must be... funny. If you are creating a question that is not extremely funny in the choice, at least, try to find funny images to illustrate it.
 
 The file to edit is: `apps/devchoices-next/public/assets/data/questions.ts`
+
 <p style="text-align: center;"><img src="readme/question-format.jpg" width="450"></p>
 
 You will find there a list of questions, with a slug, a title, a description, the right and left choices and their respective images.
 You can add a question at the end of the list, or in the middle, it doesn't matter.
-Then you have to add two images in the folder ``apps/devchoices-next/public/assets/img`` with the name you have precise in the other file.
+Then you have to add two images in the folder `apps/devchoices-next/public/assets/img` with the name you have precise in the other file.
 
 Then you can run the project locally and check if everything is working fine. You can test your question directly by going to the following url:
 `localhost:4200/question/your-slug`
@@ -28,25 +27,24 @@ Then you can run the project locally and check if everything is working fine. Yo
 If you like the result, it's time to generate the preview of this question for social networks.
 To do this run the command:
 
-``pnpm ts-node --project tsconfig-generator.json preview-generator.ts``
+`pnpm ts-node scripts/preview-generator.ts`
 
-if you want for any reason to regenerate all the previews, you can run the command:
+If for some reason you want to regenerate all the previews, you can run the command:
 
-``pnpm ts-node --project tsconfig-generator.json preview-generator.ts --override``
+`pnpm ts-node scripts/preview-generator.ts --override`
 
-Now you are ready to submit your PR. We will review it and if everything is fine, and the joke is fun, we will merge it and your question will be available on the website 🎉
-
+Now you are ready to submit your PR. We will review it and if everything is fine, and if the joke is fun, we will merge it and your question will be available on the website 🎉
 
 ## How to contribute to the core project and adding features
 
 In the issues of the repository, you will see many open tickets. You can take one of them if you fancy and propose your solution on a PR.
 You can also create issues by yourself if you experienced a bug or if you have an idea for a new feature.
 
-
 ## Technologies
 
 The project is modernised copy of his little brother [choixdemerde.fr](https://choixdemerde.fr)
 It is built with:
+
 - [Nx](https://nx.dev/)
 - [Next.js](https://nextjs.org/)
 - [Tailwind](https://tailwindcss.com/)
@@ -64,10 +62,12 @@ Clone the repository, install the dependencies and run the project:
   pnpm install
   npx nx serve
 ```
+
 You should see this:
+
 <p style="text-align: center;"><img src="readme/server-running.jpg" width="450"></p>
 
-And going on `localhost:4200` you should see the project running. 
+And going on `localhost:4200` you should see the project running.
 
 ## Run the storybook
 
@@ -76,10 +76,13 @@ If you want to work on components, on design system, or on a dedicated environme
 ```bash
  nx run shared-ui:storybook
 ```
+
 You should see this in your terminal
+
 <p style="text-align: center;"><img src="readme/storybook-running.jpg" width="450"></p>
 
 and on `localhost:4400` you should see the storybook running.
+
 <p style="text-align: center;"><img src="readme/storybook-screenshot.jpg"></p>
 
 ## Credits
