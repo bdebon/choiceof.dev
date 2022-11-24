@@ -38,7 +38,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2.2.4
       - name: pnpm install
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
 
   nx:
     name: Nx Commands
