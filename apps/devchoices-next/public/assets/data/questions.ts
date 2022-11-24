@@ -296,6 +296,9 @@ export const questions: QuestionInterface[] = [
     choiceRight: {
       title: 'Debugger',
       img_path: '/assets/img/debugger.jpeg',
+    }
+  },
+  {
     slug: 'deploy-friday-or-light-theme',
     choiceLeft: {
       title: 'Deploy on a Friday',
