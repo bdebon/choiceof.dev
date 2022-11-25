@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'sql-or-nosql',
+    choiceLeft: {
+      title: 'SQL',
+      img_path: '/assets/img/sql.jpeg',
+    },
+    choiceRight: {
+      title: 'NoSQL',
+      img_path: '/assets/img/nosql.jpeg',
+    },
+  },
 ]
