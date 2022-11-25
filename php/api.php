@@ -63,7 +63,7 @@ if ($method === 'POST') {
   return;
 }
 
-function insertVote(PDO $pdo, string $slug, int $position, int $dispatchCountOn)
+function insertVote(PDO $pdo, string $slug, int $position, int $dispatchCountOn): void
 {
   $query = $pdo->prepare('INSERT INTO votes (slug, slot, count, position) VALUES (?, RAND() * '. $dispatchCountOn .', 1, ?) ON DUPLICATE KEY UPDATE count = count + 1;');
   $query->execute([$slug, $position]);
