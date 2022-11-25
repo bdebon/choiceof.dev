@@ -288,6 +288,17 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
+    slug: 'datetime-or-timestamp',
+    choiceLeft: {
+      title: 'Datetime',
+      img_path: '/assets/img/datetime.jpg',
+    },
+    choiceRight: {
+      title: 'Timestamp',
+      img_path: '/assets/img/timestamp.jpg',
+    }
+  },
+  {
     slug: 'deploy-friday-or-light-theme',
     choiceLeft: {
       title: 'Deploy on a Friday',
@@ -296,7 +307,7 @@ export const questions: QuestionInterface[] = [
     choiceRight: {
       title: 'Code with Light Theme',
       img_path: '/assets/img/burnt-eyes.jpg',
-    },
+    }
   },
   {
     slug: 'shower-or-good-meal',
