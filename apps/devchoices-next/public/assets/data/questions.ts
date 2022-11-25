@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'developer-or-happiness',
+    choiceLeft: {
+      title: 'Work as a developer',
+      img_path: '/assets/img/spongebob-tired.jpg',
+    },
+    choiceRight: {
+      title: 'Be happy',
+      img_path: '/assets/img/spongebob-rainbow.jpg',
+    },
+  },
 ]
