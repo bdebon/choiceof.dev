@@ -46,7 +46,7 @@
     "@nrwl/react": "14.5.10",
     "@nrwl/storybook": "14.5.10",
     "@nrwl/web": "14.5.10",
-    "@nrwl/workspace": "14.5.10",
+    "@nrwl/workspace": "15.2.1",
     "@semantic-release/github": "^8.0.6",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/builder-webpack5": "^6.5.10",
