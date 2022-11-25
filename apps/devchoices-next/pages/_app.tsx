@@ -13,6 +13,7 @@ import init from '@socialgouv/matomo-next'
 const MATOMO_URL = process.env.NEXT_PUBLIC_MATOMO_URL
 const MATOMO_SITE_ID = process.env.NEXT_PUBLIC_MATOMO_SITE_ID
 const WEBSITE_URL = process.env.NEXT_PUBLIC_WEBSITE_URL
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY
 
 export const QuestionContext = createContext<{
   questions: QuestionInterface[]
@@ -98,6 +99,18 @@ function CustomApp({ Component, pageProps, router }: AppProps) {
         <Component {...pageProps} key={url} />
       </AnimatePresence>
 
+      <div id="turnstile-widget"></div>
+      <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" onLoad={() => {
+        window.turnstileWidgetId = turnstile.render('#turnstile-widget', {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: function (token) {
+            window.turnstileToken = token
+          },
+        });
+        window.refreshTurnstileToken = function () {
+          turnstile.reset(window.turnstileWidgetId)
+        }
+      }}></Script>
       <Script id="matomo" strategy="lazyOnload">
         {`
           var _paq = window._paq = window._paq || [];
