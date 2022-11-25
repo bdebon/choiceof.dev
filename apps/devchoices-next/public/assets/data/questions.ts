@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'snake-or-camel',
+    choiceLeft: {
+      title: 'snake_case',
+      img_path: '/assets/img/snake.jpg',
+    },
+    choiceRight: {
+      title: 'CamelCase',
+      img_path: '/assets/img/camel.jpg',
+    },
+  },
 ]
