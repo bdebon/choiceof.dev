@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'yaml-or-json',
+    choiceLeft: {
+      title: 'YAML',
+      img_path: '/assets/img/code_2.jpg',
+    },
+    choiceRight: {
+      title: 'JSON',
+      img_path: '/assets/img/code_1.jpg',
+    },
+  },
 ]
