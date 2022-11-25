@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'git-or-folders',
+    choiceLeft: {
+      title: 'Git',
+      img_path: '/assets/img/git-tree.jpg',
+    },
+    choiceRight: {
+      title: 'Folders',
+      img_path: '/assets/img/commit-folders.jpg',
+    },
+  },
 ]
