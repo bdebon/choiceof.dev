@@ -74,7 +74,7 @@ And going on `localhost:4200` you should see the project running.
 If you want to work on components, on design system, or on a dedicated environment without bore effects of the app, you can run the storybook:
 
 ```bash
- nx run shared-ui:storybook
+  npx nx run shared-ui:storybook
 ```
 
 You should see this in your terminal
