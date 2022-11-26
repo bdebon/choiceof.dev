@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'wireful-or-wireless',
+    choiceLeft: {
+      title: 'Wired',
+      img_path: '/assets/img/earphones_wired.jpeg',
+    },
+    choiceRight: {
+      title: 'Wireless',
+      img_path: '/assets/img/earphones_wireless.jpeg',
+    },
+  },
 ]
