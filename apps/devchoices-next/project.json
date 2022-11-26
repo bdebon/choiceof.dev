@@ -24,7 +24,9 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "devchoices-next:build",
-        "dev": true
+        "dev": true,
+        "port": 4200,
+        "hostname": "localhost"
       },
       "configurations": {
         "development": {
