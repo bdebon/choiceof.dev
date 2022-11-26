@@ -24,7 +24,18 @@ export function Question(props: QuestionProps) {
 
 
   const keyPress = useCallback((e: KeyboardEvent) => {
-    if(e.code === 'KeyL' || e.code === 'KeyT'){
+const keyPress = useCallback(({code}: KeyboardEvent) => {
+    const leftKeys = ['KeyL', 'KeyT']
+    const rightKeys = ['KeyR', 'KeyB']
+
+    if(leftKeys.includes(code)){
+      props.onLeft()
+    }else if(rightKeys.includes(code)){
+      props.onRight()
+    }else if(e.code === 'Space' && props.showResult){
+      props.onNext()
+    }
+  }, [])
       props.onLeft()
     }else if(e.code === 'KeyR' || e.code === 'KeyB'){
       props.onRight()
