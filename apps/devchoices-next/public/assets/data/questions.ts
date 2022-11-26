@@ -287,6 +287,39 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/youtube-premium.jpeg',
     },
   },
+   {
+    slug: 'deploy-friday-or-light-theme',
+    choiceLeft: {
+      title: 'Deploy on a Friday',
+      img_path: '/assets/img/friday.jpg',
+    },
+    choiceRight: {
+      title: 'Code with Light Theme',
+      img_path: '/assets/img/burnt-eyes.jpg',
+    },
+  },
+  {
+    slug: 'shower-or-good-meal',
+    choiceLeft: {
+      title: 'Taking a Shower',
+      img_path: '/assets/img/shower.jpeg',
+    },
+    choiceRight: {
+      title: 'Cooking a balanced meal',
+      img_path: '/assets/img/vegetables-meal.jpeg',
+    },
+  },
+  {
+    slug: 'merge-or-rebase',
+    choiceLeft: {
+      title: 'Merge',
+      img_path: '/assets/img/merge.png',
+    },
+    choiceRight: {
+      title: 'Rebase',
+      img_path: '/assets/img/rebase.jpg',
+    },
+  },
   {
     slug: 'vim-or-vscode',
     choiceLeft: {
@@ -298,15 +331,4 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/vscode.jpeg',
     },
    },
-   {
-    slug: 'shower-or-good-meal',
-    choiceLeft: {
-      title: 'Taking a Shower',
-      img_path: '/assets/img/shower.jpeg',
-    },
-    choiceRight: {
-      title: 'Cooking a balanced meal',
-      img_path: '/assets/img/vegetables-meal.jpeg',
-    },
-  },
 ]
