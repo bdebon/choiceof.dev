@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'bug-or-feature',
+    choiceLeft: {
+      title: 'Bug',
+      img_path: '/assets/img/bug.jpg',
+    },
+    choiceRight: {
+      title: 'Feature',
+      img_path: '/assets/img/feature.jpg',
+    },
+  },
 ]
