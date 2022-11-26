@@ -288,6 +288,17 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
+    slug: 'assembly-forever-or-bash-forever',
+    choiceLeft: {
+      title: 'Stuck to assembly forever',
+      img_path: '/assets/img/x86-assembly.jpeg',
+    },
+    choiceRight: {
+      title: 'Stuck to shell scripting forever',
+      img_path: '/assets/img/bash.jpg',
+    },
+  },
+  {
     slug: 'deploy-friday-or-light-theme',
     choiceLeft: {
       title: 'Deploy on a Friday',
