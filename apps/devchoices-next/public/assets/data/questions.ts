@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'qwerty-or-azerty',
+    choiceLeft: {
+      title: 'Qwerty',
+      img_path: '/assets/img/qwerty.jpeg',
+    },
+    choiceRight: {
+      title: 'Azerty',
+      img_path: '/assets/img/azerty.jpeg',
+    },
+  },
 ]
