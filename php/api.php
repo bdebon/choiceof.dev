@@ -1,13 +1,30 @@
 <?php
+require_once '../../config.php';
+require_once 'turnstile.php';
 
 if (isset($_SERVER['HTTP_ORIGIN']))
   header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
 header('Access-Control-Allow-Methods: GET, POST');
 
-include('../../config.php');
+$method = $_SERVER['REQUEST_METHOD'];
+
+if ($method === 'POST') {
+  $token = $_POST['token'] ?? null;
+  if (is_null($token)) {
+    http_response_code(400);
+    echo 'no-token';
+    return;
+  }
+
+  $validationResult = validateToken($token, $config['CLOUDFLARE_TURNSTILE_SECRET']);
+  if (is_null($validationResult) || $validationResult['success'] !== true) {
+    http_response_code(400);
+    echo 'invalid-token';
+    return;
+  }
+}
 
 $pdo = new PDO("mysql:dbname=" . $config['DB_NAME'] . ";host=" . $config['DB_HOST'], $config['DB_USER'], $config['DB_PASSWORD']);
-$method = $_SERVER['REQUEST_METHOD'];
 $slug = $_GET['slug'] ?? null;
 $dispatchCountOn = 50;
 $ip = $_SERVER["REMOTE_ADDR"];

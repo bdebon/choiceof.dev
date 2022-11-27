@@ -92,30 +92,30 @@ export function QuestionPage(props: QuestionPageProps) {
       await router.push('/question/' + questionContext.questions[questionContext.questions.indexOf(question) + 1].slug)
   }
 
-  const onLeft = () => {
-    // todo store the +1 in the database
+  const postPosition = (p: Number) => {
     const form = new FormData()
-    form.append('position', '0')
+    form.append('position', p.toString())
+    form.append('token', window.turnstileToken)
     fetch(`${process.env.NEXT_PUBLIC_API_URL}?slug=${slug}`, {
       method: 'POST',
       body: form,
     }).catch(() => {
       setVoteValues([voteValues[0], voteValues[1] + 1])
+    }).finally(() => {
+      window.refreshTurnstileToken()
     })
+  }
+
+  const onLeft = () => {
+    // todo store the +1 in the database
+    postPosition(0)
     setVoteValues([voteValues[0] + 1, voteValues[1]])
     setShowResult(true)
   }
 
   const onRight = () => {
     // todo store the +1 in the database
-    const form = new FormData()
-    form.append('position', '1')
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}?slug=${slug}`, {
-      method: 'POST',
-      body: form,
-    }).catch(() => {
-      setVoteValues([voteValues[0], voteValues[1] + 1])
-    })
+    postPosition(1)
     setVoteValues([voteValues[0], voteValues[1] + 1])
     setShowResult(true)
   }
