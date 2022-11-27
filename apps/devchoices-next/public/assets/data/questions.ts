@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+	slug: '42-or-epitech',
+	choiceLeft: {
+		title: '42',
+		img_path: '/assets/img/42.jpg'
+	},
+	choiceRight: {
+		title: 'Epitech',
+		img_path: '/assets/img/epitech.jpg'
+	}
+  },
 ]
