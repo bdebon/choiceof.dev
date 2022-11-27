@@ -14,7 +14,7 @@ if (is_null($token)) {
 }
 
 $validationResult = validateToken($token, $config['CLOUDFLARE_TURNSTILE_SECRET']);
-if (is_null($validationResult)) {
+if (is_null($validationResult) || $validationResult['success'] !== true) {
   http_response_code(400);
   echo 'invalid-token';
   return;
