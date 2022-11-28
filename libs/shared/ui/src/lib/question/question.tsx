@@ -2,7 +2,6 @@ import { CardChoice, CardChoiceProps } from '../card-choice/card-choice'
 import Button from '../button/button'
 import ShareTwitter from '../share-twitter/share-twitter'
 import Info from '../info/info'
-import { useCallback, useEffect } from 'react'
 
 export interface QuestionProps {
   leftChoiceProps: CardChoiceProps
@@ -21,28 +20,6 @@ export function Question(props: QuestionProps) {
   const showResultButton = props.showResult
     ? `transition-opacity duration-300 delay-700 !opacity-100`
     : `opacity-0 pointer-events-none`
-
-
-  const keyPress = useCallback(({code}: KeyboardEvent) => {
-    const leftKeys = ['KeyL', 'KeyT']
-    const rightKeys = ['KeyR', 'KeyB']
-    const nextKeys = ['Space']
-
-    if(leftKeys.includes(code)){
-      props.onLeft()
-    }else if(rightKeys.includes(code)){
-      props.onRight()
-    }else if(nextKeys.includes(code) && props.showResult){
-      props.onNext()
-    }
-  }, [])
-
-  useEffect(() => {
-    document.addEventListener('keypress', keyPress)
-    return () => {
-      document.removeEventListener('keypress', keyPress)
-    }
-  }, [])
 
   return (
     <div className={`relative w-full h-full lg:h-screen ${props.className || ''}`}>
