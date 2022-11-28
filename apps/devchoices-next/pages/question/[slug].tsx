@@ -3,9 +3,11 @@ import { questions } from '../../public/assets/data/questions'
 import { useCallback, useContext, useEffect, useState } from 'react'
 import { QuestionInterface, VoteInterface } from '@benjamincode/shared/interfaces'
 import { PageTransitionWrapper, Question } from '@benjamincode/shared/ui'
+import { KeyboardControl } from '@benjamincode/shared/ui'
 import { QuestionContext } from '../_app'
 import Image from 'next/future/image'
 import { NextSeo } from 'next-seo'
+import { AnimatePresence } from 'framer-motion'
 
 export const getStaticProps = async (context: { params: { slug: string } }): Promise<{ props: QuestionPageProps }> => {
   const slug = context.params.slug
@@ -178,7 +180,7 @@ export function QuestionPage(props: QuestionPageProps) {
         }}
       />
       {nextQuestion && <NextImagesPreloader />}
-      {question && (
+      {question && (<>
         <Question
           leftChoiceProps={{
             showResult: showResult,
@@ -206,7 +208,21 @@ export function QuestionPage(props: QuestionPageProps) {
           onLeft={onLeft}
           onRight={onRight}
         />
-      )}
+        <AnimatePresence>
+          <KeyboardControl
+            time={4}
+            keys={{
+              leftKeys: ['l', 't'],
+              rightKeys: ['r', 'b'],
+              nextKeys: [' ']
+            }}
+            onLeft={onLeft}
+            onRight={onRight}
+            onNext={onNext}
+            showResult={showResult}
+          />
+        </AnimatePresence>
+      </>)}
     </PageTransitionWrapper>
   )
 }
