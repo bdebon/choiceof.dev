@@ -24,6 +24,17 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
+    slug: 'jetbrains-or-vscode',
+    choiceLeft: {
+      title: 'JetBrains',
+      img_path: '/assets/img/jetbrains.png',
+    },
+    choiceRight: {
+      title: 'Visual Studio Code',
+      img_path: '/assets/img/vs.jpg',
+    },
+  },
+  {
     slug: 'single-or-double-quotes',
     choiceLeft: {
       title: 'single quote',
