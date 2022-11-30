@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'dev-ia-or-dev-ia',
+    choiceLeft: {
+      title: 'Develop an AI',
+      img_path: '/assets/img/ia_if.jpg',
+    },
+    choiceRight: {
+      title: 'Develop an AI',
+      img_path: '/assets/img/ia_network.jpg',
+    },
+  },
 ]
