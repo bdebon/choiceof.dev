@@ -2,6 +2,17 @@ import { QuestionInterface } from '@benjamincode/shared/interfaces'
 
 export const questions: QuestionInterface[] = [
   {
+    slug: 'copy-or-rewrite',
+    choiceLeft: {
+      title: 'Copy',
+      img_path: '/assets/img/copy.jpeg',
+    },
+    choiceRight: {
+      title: 'Rewrite',
+      img_path: '/assets/img/rewrite.jpeg',
+    },
+  },
+  {
     slug: 'tab-or-space',
     choiceLeft: {
       title: 'Tabs',
