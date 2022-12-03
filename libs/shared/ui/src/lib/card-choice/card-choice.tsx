@@ -1,4 +1,4 @@
-import { CSSProperties, useCallback, useEffect, useState } from 'react'
+import { CSSProperties, MouseEvent, useCallback, useEffect, useState } from 'react'
 import CountUp from 'react-countup'
 import Or from '../or/or'
 import Image from 'next/future/image'
@@ -8,7 +8,7 @@ export interface CardChoiceProps {
   imgUrl: string
   voteCount: number
   totalCount: number
-  onClick: () => void
+  onClick: (event: MouseEvent<HTMLDivElement>) => void
   showResult: boolean
   position?: 'left' | 'right'
 }
@@ -61,14 +61,14 @@ export function CardChoice(props: CardChoiceProps) {
     setStyle(computeStyle())
   }, [percent, setStyle, showResult, computeStyle])
 
-  const onVote = (): void => {
-    if (!showResult) return onClick()
+  const onVote = (event: MouseEvent<HTMLDivElement>): void => {
+    if (!showResult) return onClick(event)
   }
 
   return (
     <div
-      onClick={() => {
-        onVote()
+      onClick={(event) => {
+        onVote(event)
       }}
       data-testid="card"
       className={`absolute lg-top-0 lg-bottom-0 flex items-center flex-col justify-center transition-size ease duration-1000  ${positionClass} lg:w-1/2 lg:h-full w-full h-1/2`}

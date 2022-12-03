@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { questions } from '../../public/assets/data/questions'
-import { useCallback, useContext, useEffect, useState } from 'react'
+import { MouseEvent, useCallback, useContext, useEffect, useState } from 'react'
 import { QuestionInterface, VoteInterface } from '@benjamincode/shared/interfaces'
 import { PageTransitionWrapper, Question } from '@benjamincode/shared/ui'
 import { QuestionContext } from '../_app'
@@ -92,7 +92,12 @@ export function QuestionPage(props: QuestionPageProps) {
       await router.push('/question/' + questionContext.questions[questionContext.questions.indexOf(question) + 1].slug)
   }
 
-  const onLeft = () => {
+  const onLeft = (event: MouseEvent<HTMLDivElement>) => {
+    // dont trigger vote if click on "or" btn
+    if (event.target instanceof Element && event.target.id == "or") {
+      return;
+    }
+
     // todo store the +1 in the database
     const form = new FormData()
     form.append('position', '0')
