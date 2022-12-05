@@ -321,14 +321,14 @@ export const questions: QuestionInterface[] = [
     },
   },
   {
-    slug: 'react-or-all-others-js-framework',
+    slug: 'recruiter-calls-or-answer-emails',
     choiceLeft: {
-      title: 'React',
-      img_path: '/assets/img/goku.png',
+      title: 'Recruiter Calls',
+      img_path: '/assets/img/mrbean-tel.jpg',
     },
     choiceRight: {
-      title: 'All Others JS Framework',
-      img_path: '/assets/img/dbz.png',
+      title: 'Answer emails',
+      img_path: '/assets/img/mrbean-email.jpg',
     },
   },
 ]
