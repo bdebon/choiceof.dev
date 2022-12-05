@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'react-or-all-others-js-framework',
+    choiceLeft: {
+      title: 'React',
+      img_path: '/assets/img/goku.png',
+    },
+    choiceRight: {
+      title: 'All Others JS Framework',
+      img_path: '/assets/img/dbz.png',
+    },
+  },
 ]
