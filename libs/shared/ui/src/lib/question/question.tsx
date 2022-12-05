@@ -1,3 +1,4 @@
+import { MouseEvent } from 'react'
 import { CardChoice, CardChoiceProps } from '../card-choice/card-choice'
 import Button from '../button/button'
 import ShareTwitter from '../share-twitter/share-twitter'
@@ -10,7 +11,7 @@ export interface QuestionProps {
   showResult: boolean
   onNext: () => void
   onSkip: () => void
-  onLeft: () => void
+  onLeft: (event: MouseEvent<HTMLDivElement>) => void
   onRight: () => void
   className?: string
   websiteUrl?: string
