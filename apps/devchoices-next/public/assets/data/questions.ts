@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'recruiter-calls-or-answer-emails',
+    choiceLeft: {
+      title: 'Recruiter Calls',
+      img_path: '/assets/img/mrbean-tel.jpg',
+    },
+    choiceRight: {
+      title: 'Answer emails',
+      img_path: '/assets/img/mrbean-email.jpg',
+    },
+  },
 ]
