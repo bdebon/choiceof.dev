@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'ecology-or-ecolony',
+    choiceLeft: {
+      title: 'e-cology',
+      img_path: '/assets/img/ecology.jpg',
+    },
+    choiceRight: {
+      title: 'e-colony',
+      img_path: '/assets/img/ecolony.jpg',
+    },
+  },
 ]
