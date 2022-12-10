@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'semicolon-or-nosemicolon',
+    choiceLeft: {
+      title: 'Semicolon',
+      img_path: '/assets/img/semicolon.jpg',
+    },
+    choiceRight: {
+      title: 'No Semicolon',
+      img_path: '/assets/img/no-semicolon.jpg',
+    },
+  }
 ]
