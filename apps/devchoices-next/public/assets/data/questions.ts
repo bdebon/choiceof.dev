@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'macos-or-windows',
+    choiceLeft: {
+      title: 'MacOS',
+      img_path: '/assets/img/macos.jpg',
+    },
+    choiceRight: {
+      title: 'Windows',
+      img_path: '/assets/img/windows.jpg',
+    },
+  },
 ]
