@@ -44,7 +44,7 @@
     "@nrwl/linter": "14.5.10",
     "@nrwl/next": "^14.8.4",
     "@nrwl/react": "14.5.10",
-    "@nrwl/storybook": "14.5.10",
+    "@nrwl/storybook": "15.3.0",
     "@nrwl/web": "14.5.10",
     "@nrwl/workspace": "14.5.10",
     "@semantic-release/github": "^8.0.6",
