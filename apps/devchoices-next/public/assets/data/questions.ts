@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'gui-or-cli',
+    choiceLeft: {
+      title: 'GUI',
+      img_path: '/assets/img/gui.png',
+    },
+    choiceRight: {
+      title: 'CLI',
+      img_path: '/assets/img/cli.jpg',
+    },
+  },
 ]
