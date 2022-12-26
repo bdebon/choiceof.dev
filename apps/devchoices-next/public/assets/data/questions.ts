@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'framework-or-purejs',
+    choiceLeft: {
+      title: 'Change framework every month',
+      img_path: '/assets/img/frameworks.png',
+    },
+    choiceRight: {
+      title: 'Never use a framework',
+      img_path: '/assets/img/purejs.jpg',
+    },
+  },
 ]
