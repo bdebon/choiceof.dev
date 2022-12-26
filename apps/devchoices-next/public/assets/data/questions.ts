@@ -320,4 +320,48 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: '42-or-Epitech',
+    choiceLeft: {
+      title: 'Study at 42',
+      img_path: '/assets/img/42.jpg',
+    },
+    choiceRight: {
+      title: 'Study at Epitech',
+      img_path: '/assets/img/epitech.jpeg',
+    },
+  },
+  {
+    slug: 'c-or-cpp',
+    choiceLeft: {
+      title: 'C++',
+      img_path: '/assets/img/cpp.jpg',
+    },
+    choiceRight: {
+      title: 'C',
+      img_path: '/assets/img/c.png',
+    },
+  },
+  {
+    slug: 'torvalds-or-ritchie',
+    choiceLeft: {
+      title: 'Linus Torvalds',
+      img_path: '/assets/img/linus-torvalds.jpg',
+    },
+    choiceRight: {
+      title: 'Dennis Ritchie',
+      img_path: '/assets/img/dennis-ritchie.jpg',
+    },
+  },
+  {
+    slug: 'macbook-or-thinkpad',
+    choiceLeft: {
+      title: 'MacBook',
+      img_path: '/assets/img/macbook.jpg',
+    },
+    choiceRight: {
+      title: 'Thinkpad',
+      img_path: '/assets/img/thinkpad.jpg',
+    },
+  },
 ]
