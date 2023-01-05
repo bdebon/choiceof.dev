@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'prettier-or-indent-manually',
+    choiceLeft: {
+      title: 'Prettier',
+      img_path: '/assets/img/benjamin_prettier.png',
+    },
+    choiceRight: {
+      title: 'Indent Manually',
+      img_path: '/assets/img/benjamin_scarier.png',
+    },
+  },
 ]
