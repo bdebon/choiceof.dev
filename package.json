@@ -41,7 +41,7 @@
     "@nrwl/cypress": "14.5.10",
     "@nrwl/eslint-plugin-nx": "15.2.1",
     "@nrwl/jest": "14.5.10",
-    "@nrwl/linter": "14.5.10",
+    "@nrwl/linter": "15.6.3",
     "@nrwl/next": "^14.8.4",
     "@nrwl/react": "14.5.10",
     "@nrwl/storybook": "14.5.10",
