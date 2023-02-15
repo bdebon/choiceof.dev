@@ -1,4 +1,0 @@
-# pnpm
-export PNPM_HOME="/home/judemont/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
