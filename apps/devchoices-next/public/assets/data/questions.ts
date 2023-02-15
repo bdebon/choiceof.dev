@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'coding-on-phone-or-coding-in-word',
+    choiceLeft: {
+      title: 'Coding on a phone',
+      img_path: '/assets/img/phone-programming.jpeg',
+    },
+    choiceRight: {
+      title: 'Coding in Word',
+      img_path: '/assets/img/word-programming.jpeg',
+    },
+  },
 ]

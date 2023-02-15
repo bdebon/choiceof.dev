@@ -76,7 +76,7 @@
     "eslint-plugin-react": "7.30.1",
     "eslint-plugin-react-hooks": "4.6.0",
     "jest": "27.5.1",
-    "nx": "14.5.10",
+    "nx": "^14.5.10",
     "postcss": "8.4.16",
     "prettier": "^2.6.2",
     "react-test-renderer": "18.2.0",
@@ -95,11 +95,16 @@
     "url": "https://github.com/bdebon/dev-hard-choices.git"
   },
   "release": {
-    "branches": ["main", "staging"],
+    "branches": [
+      "main",
+      "staging"
+    ],
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
-      ["@semantic-release/github"]
+      [
+        "@semantic-release/github"
+      ]
     ]
   }
 }
