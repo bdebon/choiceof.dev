@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'coding-with-coffee-or-coding-with-redbull',
+    choiceLeft: {
+      title: 'Coding with coffee',
+      img_path: '/assets/img/coding_with_coffee.jpg',
+    },
+    choiceRight: {
+      title: 'Coding with redbull',
+      img_path: '/assets/img/coding_with_redbull.jpg',
+    },
+  },
 ]
