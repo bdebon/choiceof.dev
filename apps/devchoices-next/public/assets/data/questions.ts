@@ -323,11 +323,11 @@ export const questions: QuestionInterface[] = [
   {
     slug: 'two-fingers-or-gloves',
     choiceLeft: {
-      title: 'Typing with two fingers',
+      title: 'typing with two fingers',
       img_path: '/assets/img/typingWith2Fingers.jpg',
     },
     choiceRight: {
-      title: 'Typing with gloves',
+      title: 'typing with gloves',
       img_path: '/assets/img/typingWithGloves.jpg',
     },
   },
