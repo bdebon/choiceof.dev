@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'two-fingers-or-gloves',
+    choiceLeft: {
+      title: 'typing with two fingers',
+      img_path: '/assets/img/typingWith2Fingers.jpg',
+    },
+    choiceRight: {
+      title: 'typing with gloves',
+      img_path: '/assets/img/typingWithGloves.jpg',
+    },
+  },
 ]
