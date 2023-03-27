@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'vim-or-nano',
+    choiceLeft: {
+      title: 'Vim',
+      img_path: '/assets/img/vim.png',
+    },
+    choiceRight: {
+      title: 'Nano',
+      img_path: '/assets/img/nano.png',
+    },
+  },
 ]
