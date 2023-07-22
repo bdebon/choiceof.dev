@@ -320,4 +320,15 @@ export const questions: QuestionInterface[] = [
       img_path: '/assets/img/rebase.jpg',
     },
   },
+  {
+    slug: 'center-or-text-align-center',
+    choiceLeft: {
+      title: '<center>',
+      img_path: '/assets/img/cmm_center.png',
+    },
+    choiceRight: {
+      title: '{text-align: center;}',
+      img_path: '/assets/img/spongebob_center.png',
+    },
+  },
 ]
